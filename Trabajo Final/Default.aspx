@@ -18,12 +18,12 @@
     <div class="row">
         <div class="col-5">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"><span style="font-weight: bold;">DNI</span></label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmail1" class="form-label"><span style="font-weight: bold;">Usuario</span></label>
+                <asp:TextBox ID="TxtNombreUsuario" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label"><span style="font-weight: bold;">Contraseña</span></label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <asp:TextBox ID="TxtContraseña" runat="server" TextMode="Password" ></asp:TextBox>
             </div>
             <asp:Button Text="Ingresar" CssClass="btn btn-primary" ID="btnIngresar" OnClick="btnAceptar_Click" runat="server" />
         </div>
