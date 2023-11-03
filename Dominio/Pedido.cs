@@ -9,7 +9,7 @@ namespace Dominio
     public class Pedido
     {
         public Mesa NumeroMesa { get; set; }
-        public int NumeroServicio { get; set; }
+        public int NumeroPedido { get; set; }
         
         public DateTime HoraPedido {  get; set; }
 
