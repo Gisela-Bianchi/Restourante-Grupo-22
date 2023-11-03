@@ -50,13 +50,13 @@
         <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">
-                    <a class="nav-link" runat="server" href="~/Mesas">Administracion De Mesas</a>
+                    <a class="nav-link" runat="server" href="~/AdmiMesas">Administracion De Mesas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" runat="server" href="~/Pedidos">Pedidos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" runat="server" href="~/Insumos">Stock de insumos</a>
+                    <a class="nav-link" runat="server" href="~/StockDeInsumos">Stock de insumos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" runat="server" href="~/Reportes">Reportes varios</a>

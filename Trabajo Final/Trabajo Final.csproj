@@ -124,8 +124,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Gerente.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Insumos.aspx" />
-    <Content Include="Mesas.aspx" />
+    <Content Include="StockDeInsumos.aspx" />
+    <Content Include="AdmiMesas.aspx" />
     <Content Include="Pedidos.aspx" />
     <Content Include="Reportes.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -209,19 +209,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Insumos.aspx.cs">
-      <DependentUpon>Insumos.aspx</DependentUpon>
+    <Compile Include="StockDeInsumos.aspx.cs">
+      <DependentUpon>StockDeInsumos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Insumos.aspx.designer.cs">
-      <DependentUpon>Insumos.aspx</DependentUpon>
+    <Compile Include="StockDeInsumos.aspx.designer.cs">
+      <DependentUpon>StockDeInsumos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mesas.aspx.cs">
-      <DependentUpon>Mesas.aspx</DependentUpon>
+    <Compile Include="AdmiMesas.aspx.cs">
+      <DependentUpon>AdmiMesas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mesas.aspx.designer.cs">
-      <DependentUpon>Mesas.aspx</DependentUpon>
+    <Compile Include="AdmiMesas.aspx.designer.cs">
+      <DependentUpon>AdmiMesas.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiMaster.Master.cs">
       <DependentUpon>MiMaster.Master</DependentUpon>

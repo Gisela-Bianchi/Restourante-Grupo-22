@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Mesas.aspx.cs" Inherits="Trabajo_Final.Mesas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdmiMesas.aspx.cs" Inherits="Trabajo_Final.Mesas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -41,7 +41,7 @@
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Mesa 4</h5>
-                       <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt "Imagen de fondo" style="width: 300px; height: auto;" />
+                       <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt= "Imagen de fondo" style="width: 300px; height: auto;" />
                      <button class="btn btn-primary">Ingresar</button>
                 </div>
             </div>
