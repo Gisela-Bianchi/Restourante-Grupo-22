@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Pedidos.aspx.cs" Inherits="Trabajo_Final.Contact" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Pedidos.aspx.cs" Inherits="Trabajo_Final.Pedidos" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-      <h2><%: Title %>.</h2>
-  <h3>PEDIDOS</h3>
+<h1>LISTA DE PEDIDOS</h1>
+              
+
 </asp:Content>

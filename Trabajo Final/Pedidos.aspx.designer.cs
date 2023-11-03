@@ -11,7 +11,7 @@ namespace Trabajo_Final
 {
 
 
-    public partial class Contact
+    public partial class Pedidos
     {
     }
 }

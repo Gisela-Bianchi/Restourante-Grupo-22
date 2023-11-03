@@ -12,7 +12,7 @@
         }
 
     </style>
-    <h1>Bienvenidos</h1>
+   
    
 <div class="container">
     <div class="row">

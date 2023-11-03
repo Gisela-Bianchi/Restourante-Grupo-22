@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Trabajo_Final
 {
-    public partial class ReportesVarios : System.Web.UI.Page
+    public partial class Insumos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
