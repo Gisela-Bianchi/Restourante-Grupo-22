@@ -14,7 +14,7 @@ namespace Dominio
         public DateTime HoraPedido {  get; set; }
 
         public List<Insumo> Insumos;
-        public Bool EstadoDelPedido { get; set; }
+        public bool EstadoDelPedido { get; set; }
         public string Comentarios { get; set; }
 
         public DateTime HoraCierre { get; set; }

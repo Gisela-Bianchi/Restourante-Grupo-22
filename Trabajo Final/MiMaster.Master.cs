@@ -7,15 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Trabajo_Final
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class MiMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-        protected void btnAceptar_Click(object sender, EventArgs e)
-        {
-            // Tu código para el evento de clic del botón
         }
     }
 }
