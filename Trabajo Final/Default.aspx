@@ -7,7 +7,7 @@
         body{
 
             background-color:forestgreen;  
-            padding:200px;
+            padding:50px;
            
         }
 
