@@ -122,6 +122,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Estilos.css" />
     <Content Include="favicon.ico" />
+    <Content Include="FormularioStock.aspx" />
     <Content Include="Gerente.aspx" />
     <Content Include="Global.asax" />
     <Content Include="StockDeInsumos.aspx" />
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioStock.aspx.cs">
+      <DependentUpon>FormularioStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioStock.aspx.designer.cs">
+      <DependentUpon>FormularioStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gerente.aspx.cs">
       <DependentUpon>Gerente.aspx</DependentUpon>

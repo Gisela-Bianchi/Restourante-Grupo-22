@@ -7,16 +7,31 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class AccesoDatos
-    {   private const string rutaDB= "Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante-Grupo22; Integrated Security = True";
+    public class AccesoDatos { 
+
+    //  private const string rutaDB= "Data Source=Arii; Initial Catalog = Restaurante-Grupo22; Integrated Security = True"
+
+        private SqlConnection conexion;
+        private SqlCommand comando;
+        private SqlDataReader lector;
+
+        public SqlDataReader Lector
+        {
+            get { return lector; }
+        }
+        public AccesoDatos()
+        {
+            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
+            comando = new SqlCommand();
+        }
         public SqlConnection ObtenerConnection()
         {
-            SqlConnection cn = new SqlConnection(rutaDB);
+            comando.Connection = conexion;
 
             try
             {
-                cn.Open();
-                return cn;
+                conexion.Open();
+                return conexion;
             }
             catch { 
             
@@ -24,17 +39,39 @@ namespace Dominio
             }
 
         }
-        
+        public void SetearConsulta(string consulta)
+        {
 
-        
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = consulta;
+
+        }
+
+        public void EjecutarLectura()
+        {
+
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                lector = comando.ExecuteReader();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public bool Loguear(Usuario usuario)
         {
             string Consulta = $"select Usuario from Usuarios where Usuario = '{usuario.NombreUsuario }' and Contraseña = '{usuario.Contraseña}'";
             
             try
-            {bool Agrego=false;
-                SqlConnection Cn = ObtenerConnection();
-                SqlCommand sqlCommand= new SqlCommand(Consulta,Cn);
+            {
+                bool Agrego=false;
+                SqlConnection conexion = ObtenerConnection();
+                SqlCommand sqlCommand= new SqlCommand(Consulta, conexion);
                 SqlDataReader rd = sqlCommand.ExecuteReader();//nos devuelve filas
                 if(rd.HasRows) {
                     Agrego= true;
@@ -43,7 +80,7 @@ namespace Dominio
                 {
                     Agrego= false;
                 }
-                Cn.Close();
+                conexion.Close();
                 return Agrego;  
                
                
@@ -55,8 +92,15 @@ namespace Dominio
             }
            
         }
+        public void CerrarConexion()
+        {
+            if (lector != null)
+            {
+                lector.Close();
+                conexion.Close();
+            }
 
-
+        }
 
     }
 }
