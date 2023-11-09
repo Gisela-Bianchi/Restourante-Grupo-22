@@ -12,5 +12,7 @@ namespace Dominio
         public string NombreUsuario { get; set;}
         public string Contraseña { get; set;}
 
+        public int TipoUsuario { get; set; }
+        public bool ingreso { get; set; }
     }
 }

@@ -16,14 +16,16 @@ namespace Trabajo_Final
 
         }
         protected void btnAceptar_Click(object sender, EventArgs e)
-        {
+        {   //modificado
             Usuario usuario = new Usuario();
             usuario.NombreUsuario=TxtNombreUsuario.Text;
             usuario.Contraseña=TxtContraseña.Text;
             UsuarioNegocio us=new UsuarioNegocio();
-            if (us.Loguear(usuario)==true)
+            Usuario regUsuario = us.Loguear(usuario);
+            if (regUsuario.ingreso==true)
             {
-                Response.Redirect("Gerente.aspx");
+                Session.Add("Usuario", regUsuario);
+                Response.Redirect("Ingreso.aspx");
             }
             else
             {

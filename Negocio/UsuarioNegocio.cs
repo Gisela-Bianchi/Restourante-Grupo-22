@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class UsuarioNegocio
     {
-        public bool Loguear(Usuario usuario)
+        public Usuario Loguear(Usuario usuario)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
             return accesoDatos.Loguear(usuario);//lo q nos devuelva la funcion lo retornamos 
