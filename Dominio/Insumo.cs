@@ -13,9 +13,9 @@ namespace Dominio
         public decimal PrecioUnitario { get; set; }
 
         public int CantidadStock { get; set; }
-        public TipoInsumo Categoria { get; set; }
+        public TipoInsumo Tipo { get; set; }
 
-        public int  IdCategoria_Insumo { get; set; } //Verificar con la base de datos porque tengo duda //ARII
+        public Categoria  Descripcion { get; set; } 
        
         
 

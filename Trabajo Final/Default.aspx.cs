@@ -18,7 +18,7 @@ namespace Trabajo_Final
         protected void btnAceptar_Click(object sender, EventArgs e)
         {   //modificado
             Usuario usuario = new Usuario();
-            usuario.NombreUsuario=TxtNombreUsuario.Text;
+            usuario.Usuarios=TxtNombreUsuario.Text;
             usuario.Contraseña=TxtContraseña.Text;
             UsuarioNegocio us=new UsuarioNegocio();
             Usuario regUsuario = us.Loguear(usuario);

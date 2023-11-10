@@ -69,7 +69,7 @@ namespace Dominio
         }
         public Usuario Loguear(Usuario usuario)
         {
-            string Consulta = $"select Usuario from Usuario where Usuario = '{usuario.NombreUsuario }' and Contraseña = '{usuario.Contraseña}'";
+            string Consulta = $"select Usuario from Usuario where Usuario = '{usuario.Usuarios }' and Contraseña = '{usuario.Contraseña}'";
             
             try
             {
@@ -84,7 +84,7 @@ namespace Dominio
                     while (rd.Read()) {
                         
                         regUsuario.Id = Int32.Parse(rd["Id"].ToString());
-                        regUsuario.NombreUsuario = rd["Usuario"].ToString();
+                        regUsuario.Usuarios = rd["Usuario"].ToString();
                         regUsuario.Contraseña = rd["Contraseña"].ToString() ;
                         regUsuario.TipoUsuario = Int32.Parse(rd["TipoUsuario"].ToString());
                         regUsuario.Activo = true;
@@ -104,6 +104,27 @@ namespace Dominio
                 throw ex;
             }
            
+        }
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
+        public void EjecutarAccion()
+        {
+            comando.Connection = conexion;
+
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         public void CerrarConexion()
         {

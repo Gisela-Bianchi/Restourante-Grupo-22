@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
+using Negocio;
 
 namespace Trabajo_Final
 {
@@ -12,17 +13,30 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (!IsPostBack)
+            //{
+            //    ddlTipoInsumo.Items.Add("Bebida");
+            //    ddlTipoInsumo.Items.Add("Plato");
+            //}
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+
+            Insumo  nuevoInsumo = new Insumo();
+
             Insumo insumo = new Insumo();
+            //insumo.Tipo.Nombre = ddlTipoInsumo.SelectedValue;
+            insumo.Idinsumo = int.Parse(txtId.Text);
             insumo.NombreInsumo = txtNombreInsumo.Text;
             insumo.CantidadStock= int.Parse(textCantidadStock.Text);
             insumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
+            insumo.Descripcion.Descripcion = txtdescripcion.Text;
 
-            //Lo mando a la base de datos con algun metodo
+            InsumoNegocio negocioInsumo = new InsumoNegocio();
+
+      
+            negocioInsumo.AgregarInsumo(nuevoInsumo);
 
         }
     }
