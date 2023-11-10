@@ -13,11 +13,16 @@ namespace Dominio
         
         public DateTime HoraPedido {  get; set; }
 
-        public List<Insumo> Insumos;
         public bool EstadoDelPedido { get; set; }
         public string Comentarios { get; set; }
 
         public DateTime HoraCierre { get; set; }
+
+        public bool Facturado { get; set; }
+
+
+
+        public List<Insumo> Insumos;
 
     }
 }

@@ -22,7 +22,7 @@ namespace Trabajo_Final
             usuario.Contraseña=TxtContraseña.Text;
             UsuarioNegocio us=new UsuarioNegocio();
             Usuario regUsuario = us.Loguear(usuario);
-            if (regUsuario.ingreso==true)
+            if (regUsuario.Activo==true)
             {
                 Session.Add("Usuario", regUsuario);
                 Response.Redirect("Ingreso.aspx");

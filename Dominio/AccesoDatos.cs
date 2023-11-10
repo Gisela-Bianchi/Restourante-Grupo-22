@@ -18,16 +18,16 @@ namespace Dominio
         {
             get { return lector; }
         }
+        //public AccesoDatos()
+        //{
+        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
+        //    comando = new SqlCommand();
+        //}
         public AccesoDatos()
-        {
-            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
-            comando = new SqlCommand();
+       {
+           conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
+           comando = new SqlCommand();
         }
-       /* public AccesoDatos()
-        {
-            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
-            comando = new SqlCommand();
-        }*/
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -69,15 +69,16 @@ namespace Dominio
         }
         public Usuario Loguear(Usuario usuario)
         {
-            string Consulta = $"select Usuario from Usuarios where Usuario = '{usuario.NombreUsuario }' and Contraseña = '{usuario.Contraseña}'";
+            string Consulta = $"select Usuario from Usuario where Usuario = '{usuario.NombreUsuario }' and Contraseña = '{usuario.Contraseña}'";
             
             try
             {
-                bool Agrego=false;
+           
                 SqlConnection conexion = ObtenerConnection();
                 SqlCommand sqlCommand= new SqlCommand(Consulta, conexion);
                 SqlDataReader rd = sqlCommand.ExecuteReader();//nos devuelve filas
                 Usuario regUsuario= new Usuario();
+
                 if(rd.HasRows) {
                     //nuevo
                     while (rd.Read()) {
@@ -86,11 +87,11 @@ namespace Dominio
                         regUsuario.NombreUsuario = rd["Usuario"].ToString();
                         regUsuario.Contraseña = rd["Contraseña"].ToString() ;
                         regUsuario.TipoUsuario = Int32.Parse(rd["TipoUsuario"].ToString());
-                        regUsuario.ingreso = true;
+                        regUsuario.Activo = true;
                     }
                 }
                 else
-                {   regUsuario.ingreso=false;
+                {   regUsuario.Activo=false;
                 }
                 conexion.Close();
                 return regUsuario;  

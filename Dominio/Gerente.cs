@@ -11,10 +11,10 @@ namespace Dominio
         
         public int Id { get; set; }
 
-        public int Mesa { get; set; }
-        public string NombreMesero { get; set; }
-        public int IdMesero { get; set; }
-        public DateTime Fecha { get; set; }
+        public int DNI { get; set; }
+        public string NombreGerente { get; set; }
+        public string ApellidoGerente { get; set; }
+
 
         public List<Reportes> Informes {  get; set; }
 

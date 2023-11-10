@@ -12,6 +12,7 @@ namespace Dominio
         public Mesa NumeroMesa { get; set; }
         public int? NombreMesero { get; set; }
         public DateTime FechaAsignacion {  get; set; }
+        public int  Idgerente { get; set; }
 
     }
 }
