@@ -27,11 +27,15 @@ namespace Trabajo_Final
 
             Insumo insumo = new Insumo();
             //insumo.Tipo.Nombre = ddlTipoInsumo.SelectedValue;
-            insumo.Idinsumo = int.Parse(txtId.Text);
+            insumo.Idinsumo = int.Parse(txtIdInsumo.Text);
             insumo.NombreInsumo = txtNombreInsumo.Text;
             insumo.CantidadStock= int.Parse(textCantidadStock.Text);
             insumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
-            insumo.Descripcion.Descripcion = txtdescripcion.Text;
+            insumo.Tipo.Id= int.Parse(txtIdTipo.Text);
+            insumo.Tipo.Nombre=(string)txtNombreTipo.Text;
+            insumo.Tipo.Descripcion= txtDescripcion.Text;
+            insumo.Descripcion.IdCategoria=int.Parse(txtIdCategoria.Text);
+           
 
             InsumoNegocio negocioInsumo = new InsumoNegocio();
 

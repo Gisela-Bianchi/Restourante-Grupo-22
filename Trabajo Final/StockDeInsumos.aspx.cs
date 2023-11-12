@@ -12,9 +12,9 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //InsumoNegocio negocio = new InsumoNegocio();
-            //dgvInsumos.DataSource = negocio.listar;
-            //dgvInsumos.DataBind();
+            InsumoNegocio negocio = new InsumoNegocio();
+            dgvInsumos.DataSource = negocio.Listar();
+            dgvInsumos.DataBind();
         }
     }
 }

@@ -8,12 +8,17 @@
 
             <asp:GridView runat="server" ID="dgvInsumos" CssClass="table table-dark table-bordered" AutoGenerateColumns="false">
                 <Columns>
-                    <asp:BoundField HeaderText="TipoDeInsumo" DataField="TipoDeInsumo" />
-                    <asp:BoundField HeaderText="Id" DataField="Id" />
-                    <asp:BoundField HeaderText="NombreInsumo" DataField="NombreInsumo" />
-                    <asp:BoundField HeaderText="CantidadStock" DataField="CantidadStock" />
-                    <asp:BoundField HeaderText="PrecioUnitario" DataField="PrecioUnitario" />
-                    <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
+                    <asp:BoundField HeaderText="Id De Insumo" DataField="Idinsumo" />
+                    <asp:BoundField HeaderText="Nombre" DataField="NombreInsumo" />
+                    <asp:BoundField HeaderText="Precio Unitario" DataField="PrecioUnitario" />
+                    <asp:BoundField HeaderText="Cantidad Stock" DataField="CantidadStock" />
+
+                    <asp:BoundField HeaderText="Id (Tipo)" DataField="Tipo" />
+                    <asp:BoundField HeaderText="Nombre (Tipo)" DataField="Tipo" />
+                    <asp:BoundField HeaderText="Descripcion (Tipo)" DataField="Tipo" />
+
+                    <asp:BoundField HeaderText="Estado" DataField="Tipo" />
+                    <asp:BoundField HeaderText="Id (Categoria)" DataField="Descripcion" />
 
                 </Columns>
             </asp:GridView>

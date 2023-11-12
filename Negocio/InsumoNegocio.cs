@@ -14,7 +14,7 @@ namespace Dominio
     {
        
 
-        public List<Insumo> listar()
+        public List<Insumo> Listar()
         {
             List<Insumo> lista = new List<Insumo>();
             AccesoDatos datos = new AccesoDatos();
@@ -23,8 +23,7 @@ namespace Dominio
             try
             {
 
-                datos.SetearConsulta(@"SELECT Id_Insumo,Nombre_Insumo,PrecioUnitario_Insumo,Id_TI,Nombre_TI AS NombreTipo,Descripcion_TI AS DescripcionTipo,Estado_TI AS EstadoTipo,\r\nId_Categoria, Descripcion_Categoria AS DescripcionCategoria FROM Insumo INNER JOIN TipoInsumo ON Insumo.Id_Insumo = TipoInsumo.Id_TI INNER JOIN Categoria ON Insumo.Id_Categoria_Insumo = Categoria.Id_Categoria");
-          
+                datos.SetearConsulta(@"SELECT Id_Insumo, Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Id_TI AS Id_TipoInsumo, Nombre_TI AS NombreTipo, Descripcion_TI AS DescripcionTipo, Estado_TI AS EstadoTipo, Id_Categoria FROM Insumo INNER JOIN TipoInsumo ON Insumo.Id_Insumo = TipoInsumo.Id_TI INNER JOIN  Categoria ON Insumo.Id_Categoria_Insumo = Categoria.Id_Categoria");
 
                 datos.EjecutarLectura();
 
@@ -32,24 +31,24 @@ namespace Dominio
                 while (datos.Lector.Read())
                 {
                     Insumo aux = new Insumo();
-                    if (!(datos.Lector["Id"] is DBNull))
-                        aux.Idinsumo = (int)datos.Lector["Id"];
-                    aux.NombreInsumo = (string)datos.Lector["NombreInsumo"];
-                    aux.PrecioUnitario = (decimal)datos.Lector["PrecioUnitario"];
+                    if (!(datos.Lector["Id_Insumo"] is DBNull))
+                        aux.Idinsumo = (int)datos.Lector["Id_Insumo"];
+                    aux.NombreInsumo = (string)datos.Lector["Nombre_Insumo"];
+                    aux.PrecioUnitario = (decimal)datos.Lector["PrecioUnitario_insumo"];
+                    aux.CantidadStock = (int)datos.Lector["CantidadEnStock_Insumo"];
 
                     aux.Tipo = new TipoInsumo();
-                    if (!(datos.Lector["Id"] is DBNull))
-                        aux.Tipo.Id = (int)datos.Lector["Id"];
-                    aux.Tipo.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
-                    aux.Tipo.Estado = (bool)datos.Lector["Estado"];
+                    if (!(datos.Lector["Id_TipoInsumo"] is DBNull))
+                        aux.Tipo.Id = (int)datos.Lector["Id_TipoInsumo"];
+                    aux.Tipo.Nombre = (string)datos.Lector["NombreTipo"];
+                    aux.Tipo.Descripcion = (string)datos.Lector["DescripcionTipo"];
+                    aux.Tipo.Estado = (bool)datos.Lector["EstadoTipo"];
 
                     aux.Descripcion = new Categoria();
-                    if (!(datos.Lector["Id"] is DBNull))
-                        aux.Descripcion.IdCategoria = (int)datos.Lector["IdCategoria"];
-                    aux.Descripcion.Descripcion = (string)datos.Lector["Descripcion"];
+                    if (!(datos.Lector["Id_Categoria"] is DBNull))
+                        aux.Descripcion.IdCategoria = (int)datos.Lector["Id_Categoria"];
 
-                 
+
                     lista.Add(aux);
 
                 }
