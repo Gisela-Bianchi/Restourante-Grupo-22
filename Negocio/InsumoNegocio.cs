@@ -77,18 +77,16 @@ namespace Dominio
 
             try
             {
-                datos.SetearConsulta("INSERT INTO Insumo (Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Tipo_Insumo, Id_Categoria_Insumo) " +
-                 "VALUES (@Nombre_Insumo, @PrecioUnitario, @CantidadEnStock, @TipoInsumo, @IdCategoria)");
-                datos.setearParametro("@IdInsumo", insumo.Idinsumo);
+                datos.SetearConsulta(@"INSERT INTO Insumo (Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Tipo_Insumo, Id_Categoria_Insumo) 
+                       VALUES (@Nombre_Insumo, @PrecioUnitario, @CantidadEnStock, @Tipo_Insumo, @IdCategoria)");
+
                 datos.setearParametro("@Nombre_Insumo", insumo.NombreInsumo);
                 datos.setearParametro("@PrecioUnitario", insumo.PrecioUnitario);
                 datos.setearParametro("@CantidadEnStock", insumo.CantidadStock);
-                datos.setearParametro("@Id", insumo.Tipo.Id);
-                datos.setearParametro("@Nombre", insumo.Tipo.Nombre);
-                datos.setearParametro("@Descripcion", insumo.Tipo.Descripcion);
-                datos.setearParametro("@Estado", insumo.Tipo.Estado);
+                datos.setearParametro("@Tipo_Insumo", insumo.Tipo.Nombre);
                 datos.setearParametro("@IdCategoria", insumo.Descripcion.IdCategoria);
-                datos.setearParametro("@Descripcion", insumo.Descripcion.Descripcion);
+
+
                 datos.EjecutarAccion();
             }
             catch (Exception)

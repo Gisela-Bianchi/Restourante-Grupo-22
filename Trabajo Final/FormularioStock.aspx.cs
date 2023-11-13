@@ -13,34 +13,34 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    ddlTipoInsumo.Items.Add("Bebida");
-            //    ddlTipoInsumo.Items.Add("Plato");
-            //}
+           txtIdInsumo.Enabled = false;
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            
+                   
+                    Insumo nuevoInsumo = new Insumo();
+                  
+                    nuevoInsumo.NombreInsumo = txtNombreInsumo.Text;
+                    nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
+                    nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
 
-            Insumo  nuevoInsumo = new Insumo();
+                    nuevoInsumo.Tipo = new TipoInsumo();
+                    nuevoInsumo.Tipo.Id = int.Parse(txtIdTipo.Text);
+                    nuevoInsumo.Tipo.Nombre = txtNombreTipo.Text;
+                    nuevoInsumo.Tipo.Descripcion = txtDescripcion.Text;
 
-            Insumo insumo = new Insumo();
-            //insumo.Tipo.Nombre = ddlTipoInsumo.SelectedValue;
-            insumo.Idinsumo = int.Parse(txtIdInsumo.Text);
-            insumo.NombreInsumo = txtNombreInsumo.Text;
-            insumo.CantidadStock= int.Parse(textCantidadStock.Text);
-            insumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
-            insumo.Tipo.Id= int.Parse(txtIdTipo.Text);
-            insumo.Tipo.Nombre=(string)txtNombreTipo.Text;
-            insumo.Tipo.Descripcion= txtDescripcion.Text;
-            insumo.Descripcion.IdCategoria=int.Parse(txtIdCategoria.Text);
-           
+                    nuevoInsumo.Descripcion = new Categoria();
+                    nuevoInsumo.Descripcion.IdCategoria = int.Parse(txtIdCategoria.Text);
 
-            InsumoNegocio negocioInsumo = new InsumoNegocio();
+                    
+                    InsumoNegocio negocioInsumo = new InsumoNegocio();
+                    negocioInsumo.AgregarInsumo(nuevoInsumo);
 
-      
-            negocioInsumo.AgregarInsumo(nuevoInsumo);
+
+            Response.Redirect("StockDeInsumos.aspx", false);
+
 
         }
     }

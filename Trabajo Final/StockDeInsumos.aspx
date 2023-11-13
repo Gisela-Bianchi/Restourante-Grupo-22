@@ -8,7 +8,7 @@
 
             <asp:GridView runat="server" ID="dgvInsumos" CssClass="table table-dark table-bordered" AutoGenerateColumns="false">
                 <Columns>
-                    <asp:BoundField HeaderText="Id De Insumo" DataField="Idinsumo" />
+              
                     <asp:BoundField HeaderText="Nombre" DataField="NombreInsumo" />
                     <asp:BoundField HeaderText="Precio Unitario" DataField="PrecioUnitario" />
                     <asp:BoundField HeaderText="Cantidad Stock" DataField="CantidadStock" />
