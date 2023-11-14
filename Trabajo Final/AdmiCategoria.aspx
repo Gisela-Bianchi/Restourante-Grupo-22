@@ -16,7 +16,7 @@
              </Columns>
          </asp:GridView>
 
-         <a href="AdmiCategoria.aspx" style="margin-bottom: 10px; display: block;">Agregar Categoria</a>
+         <a href="FormularioCategoria.aspx" style="margin-bottom: 10px; display: block;">Agregar Categoria</a>
 
          <a href="AdmiCategoria.aspx" style="margin-bottom: 10px; display: block;">Modificar Categoria</a>
 

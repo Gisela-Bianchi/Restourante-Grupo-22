@@ -96,6 +96,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.TextBox txtIdCategoria;
 
         /// <summary>
+        /// Control txtDescripcionCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcionCategoria;
+
+        /// <summary>
         /// Control btnAceptar.
         /// </summary>
         /// <remarks>

@@ -13,7 +13,7 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           txtIdInsumo.Enabled = false;
+          
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -33,6 +33,7 @@ namespace Trabajo_Final
 
                     nuevoInsumo.Descripcion = new Categoria();
                     nuevoInsumo.Descripcion.Id_Categoria = int.Parse(txtIdCategoria.Text);
+                    nuevoInsumo.Descripcion.Descripcion_Categoria=txtDescripcionCategoria.Text;
 
                     
                     InsumoNegocio negocioInsumo = new InsumoNegocio();

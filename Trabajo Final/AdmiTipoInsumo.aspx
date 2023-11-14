@@ -20,7 +20,7 @@
                 </Columns>
             </asp:GridView>
 
-            <a href="AdmiTipoInsumo.aspx" style="margin-bottom: 10px; display: block;">Agregar Tipo de insumo</a>
+            <a href="FormularioTipoInsumo.aspx" style="margin-bottom: 10px; display: block;">Agregar Tipo de insumo</a>
 
             <a href="AdmiTipoInsumo.aspx" style="margin-bottom: 10px; display: block;">Modificar Tipo de insumo</a>
 

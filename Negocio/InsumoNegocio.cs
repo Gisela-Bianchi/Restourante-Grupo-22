@@ -77,14 +77,17 @@ namespace Dominio
 
             try
             {
-                datos.SetearConsulta(@"INSERT INTO Insumo (Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Tipo_Insumo, Id_Categoria_Insumo) 
-                       VALUES (@Nombre_Insumo, @PrecioUnitario, @CantidadEnStock, @Tipo_Insumo, @IdCategoria)");
-                datos.setearParametro("@IdInsumo", insumo.Idinsumo);
+                datos.SetearConsulta(@"INSERT INTO Insumo (Id_Insumo, Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Tipo_Insumo, Id_Categoria_Insumo) 
+             VALUES (@Id_Insumo,@Nombre_Insumo, @PrecioUnitario_Insumo, @CantidadEnStock_Insumo, @Tipo_Insumo, @Id_Categoria_Insumo)");
+                datos.setearParametro(@"Id_Insumo", insumo.Idinsumo);
                 datos.setearParametro("@Nombre_Insumo", insumo.NombreInsumo);
-                datos.setearParametro("@PrecioUnitario", insumo.PrecioUnitario);
-                datos.setearParametro("@CantidadEnStock", insumo.CantidadStock);
-                datos.setearParametro("@TipoInsumo", insumo.Tipo.NombreTipoInsumo);
-                datos.setearParametro("@IdCategoria", insumo.Descripcion.Id_Categoria);//arreglar
+                datos.setearParametro("@PrecioUnitario_Insumo", insumo.PrecioUnitario);
+                datos.setearParametro("@CantidadEnStock_Insumo", insumo.CantidadStock);
+                datos.setearParametro("@Tipo_Insumo", insumo.Tipo.Id_TI); // Assuming TipoInsumo is a property of TipoInsumo class
+                datos.setearParametro("@Id_Categoria_Insumo", insumo.Descripcion.Id_Categoria); // Assuming Categoria is a property of Categoria class
+
+
+
 
 
                 datos.EjecutarAccion();

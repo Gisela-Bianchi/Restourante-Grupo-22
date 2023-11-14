@@ -124,7 +124,9 @@
     <Content Include="Default.aspx" />
     <Content Include="Estilos.css" />
     <Content Include="favicon.ico" />
+    <Content Include="FormularioCategoria.aspx" />
     <Content Include="FormularioStock.aspx" />
+    <Content Include="FormularioTipoInsumo.aspx" />
     <Content Include="Gerente.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Ingreso.aspx" />
@@ -218,12 +220,26 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormularioCategoria.aspx.cs">
+      <DependentUpon>FormularioCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioCategoria.aspx.designer.cs">
+      <DependentUpon>FormularioCategoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormularioStock.aspx.cs">
       <DependentUpon>FormularioStock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FormularioStock.aspx.designer.cs">
       <DependentUpon>FormularioStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioTipoInsumo.aspx.cs">
+      <DependentUpon>FormularioTipoInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioTipoInsumo.aspx.designer.cs">
+      <DependentUpon>FormularioTipoInsumo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gerente.aspx.cs">
       <DependentUpon>Gerente.aspx</DependentUpon>

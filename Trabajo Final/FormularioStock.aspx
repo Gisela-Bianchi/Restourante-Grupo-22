@@ -4,7 +4,7 @@
 
 
     <div class="row">
-        <div class="class-6">
+        <div class="col-6">
 
             <%--  <div class="mb-3">
                 <label for="txtTipoInsumo" class="form-label">Tipo de Insumo</label>
@@ -53,6 +53,10 @@
             <div class="mb-3">
                 <label for="txtIdCategoria" class="form-label">Id categoria </label>
                 <asp:TextBox runat="server" ID="txtIdCategoria" CssClass="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="txtDescripcionCategoria" class="form-label">Descripcion (categoria) </label>
+                <asp:TextBox runat="server" ID="txtDescripcionCategoria" CssClass="form-control" />
             </div>
 
             <div class="mb-3">
