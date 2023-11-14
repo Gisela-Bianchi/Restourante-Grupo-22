@@ -18,16 +18,16 @@ namespace Dominio
         {
             get { return lector; }
         }
-        //public AccesoDatos()
-        //{
-        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
-        //    comando = new SqlCommand();
-        //}
         public AccesoDatos()
+        {
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
+           comando = new SqlCommand();
+        }
+        /*public AccesoDatos()
        {
            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
            comando = new SqlCommand();
-        }
+        }*/
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -69,7 +69,7 @@ namespace Dominio
         }
         public Usuario Loguear(Usuario usuario)
         {
-            string Consulta = $"select Usuario from Usuario where Usuario = '{usuario.Usuarios }' and Contraseña = '{usuario.Contraseña}'";
+            string Consulta = $"select Id,Usuario,Contraseña,TipoUsuario from Usuario where Usuario = '{usuario.Usuarios }' and Contraseña = '{usuario.Contraseña}'";
             
             try
             {

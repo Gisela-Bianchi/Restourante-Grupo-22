@@ -37,16 +37,16 @@ namespace Dominio
                     aux.PrecioUnitario = (decimal)datos.Lector["PrecioUnitario_insumo"];
                     aux.CantidadStock = (int)datos.Lector["CantidadEnStock_Insumo"];
 
-                    aux.Tipo = new TipoInsumo();
+                    /*aux.Tipo = new TipoInsumo();
                     if (!(datos.Lector["Id_TipoInsumo"] is DBNull))
                         aux.Tipo.Id = (int)datos.Lector["Id_TipoInsumo"];
                     aux.Tipo.Nombre = (string)datos.Lector["NombreTipo"];
                     aux.Tipo.Descripcion = (string)datos.Lector["DescripcionTipo"];
-                    aux.Tipo.Estado = (bool)datos.Lector["EstadoTipo"];
+                    aux.Tipo.Estado = (bool)datos.Lector["EstadoTipo"];*/
 
-                    aux.Descripcion = new Categoria();
+                    /*aux.Descripcion = new Categoria();
                     if (!(datos.Lector["Id_Categoria"] is DBNull))
-                        aux.Descripcion.IdCategoria = (int)datos.Lector["Id_Categoria"];
+                        aux.Descripcion.IdCategoria = (int)datos.Lector["Id_Categoria"];*/
 
 
                     lista.Add(aux);
@@ -79,12 +79,12 @@ namespace Dominio
             {
                 datos.SetearConsulta(@"INSERT INTO Insumo (Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Tipo_Insumo, Id_Categoria_Insumo) 
                        VALUES (@Nombre_Insumo, @PrecioUnitario, @CantidadEnStock, @Tipo_Insumo, @IdCategoria)");
-
+                datos.setearParametro("@IdInsumo", insumo.Idinsumo);
                 datos.setearParametro("@Nombre_Insumo", insumo.NombreInsumo);
                 datos.setearParametro("@PrecioUnitario", insumo.PrecioUnitario);
                 datos.setearParametro("@CantidadEnStock", insumo.CantidadStock);
-                datos.setearParametro("@Tipo_Insumo", insumo.Tipo.Nombre);
-                datos.setearParametro("@IdCategoria", insumo.Descripcion.IdCategoria);
+                datos.setearParametro("@TipoInsumo", insumo.Tipo.NombreTipoInsumo);
+                datos.setearParametro("@IdCategoria", insumo.Descripcion.Id_Categoria);//arreglar
 
 
                 datos.EjecutarAccion();

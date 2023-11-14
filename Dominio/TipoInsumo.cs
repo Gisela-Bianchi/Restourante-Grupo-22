@@ -8,10 +8,10 @@ namespace Dominio
 {
     public class TipoInsumo
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-        public bool Estado { get; set; }
+        public int Id_TI { get; set; }
+        public string NombreTipoInsumo { get; set; }
+        public string DescripcionTipoInsumo { get; set; }
+        public bool EstadoTipoInsumo { get; set; }
        
 
     }

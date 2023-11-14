@@ -27,12 +27,12 @@ namespace Trabajo_Final
                     nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
 
                     nuevoInsumo.Tipo = new TipoInsumo();
-                    nuevoInsumo.Tipo.Id = int.Parse(txtIdTipo.Text);
-                    nuevoInsumo.Tipo.Nombre = txtNombreTipo.Text;
-                    nuevoInsumo.Tipo.Descripcion = txtDescripcion.Text;
+                    nuevoInsumo.Tipo.Id_TI = int.Parse(txtIdTipo.Text);
+                    nuevoInsumo.Tipo.NombreTipoInsumo = txtNombreTipo.Text;
+                    nuevoInsumo.Tipo.DescripcionTipoInsumo = txtDescripcion.Text;
 
                     nuevoInsumo.Descripcion = new Categoria();
-                    nuevoInsumo.Descripcion.IdCategoria = int.Parse(txtIdCategoria.Text);
+                    nuevoInsumo.Descripcion.Id_Categoria = int.Parse(txtIdCategoria.Text);
 
                     
                     InsumoNegocio negocioInsumo = new InsumoNegocio();
