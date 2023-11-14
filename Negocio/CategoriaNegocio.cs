@@ -30,7 +30,7 @@ namespace Dominio
                     if (!(datos.Lector["Id_Categoria"] is DBNull))
                         aux.Id_Categoria = (int)datos.Lector["Id_Categoria"];
 
-                    aux.Descripcion_Categoria = (string)datos.Lector["Descripcion_TI"];
+                    aux.Descripcion_Categoria = (string)datos.Lector["Descripcion_Categoria"];
 
 
 
@@ -65,6 +65,7 @@ namespace Dominio
             {
                 datos.SetearConsulta("insert into Categoria(Id_Categoria,Descripcion_Categoria)" +
                  "VALUES (@Id_Categoria,@Descripcion_Categoria)");
+
                 datos.setearParametro("@Id_Categoria", categoria.Id_Categoria);
                 datos.setearParametro("@Descripcion_Categoria", categoria.Descripcion_Categoria);
              

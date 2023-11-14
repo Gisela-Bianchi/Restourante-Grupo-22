@@ -19,7 +19,7 @@ namespace Dominio
             try
             {
 
-                datos.SetearConsulta(@"select Id_TI as Id_TI,Nombre_TI as Nombre_Tipo_Insumo,Descripcion_TI as Descripcion_Tipo_Insumo,Estado_TI as Estado_Tipo_Insumo from TipoInsumo ");
+                datos.SetearConsulta(@"select Id_TI as Id_TI, Nombre_TI as Nombre_Tipo_Insumo,Descripcion_TI as Descripcion_Tipo_Insumo,Estado_TI as Estado_Tipo_Insumo from TipoInsumo ");
 
                 datos.EjecutarLectura();
 
@@ -27,11 +27,11 @@ namespace Dominio
                 while (datos.Lector.Read())
                 {
                     TipoInsumo aux = new TipoInsumo();
-                    if (!(datos.Lector["Id_TipoInsumo"] is DBNull))
+                    if (!(datos.Lector["Id_TI"] is DBNull))
                         aux.Id_TI = (int)datos.Lector["Id_TI"];
-                    aux.NombreTipoInsumo = (string)datos.Lector["Nombre_TI"];
-                    aux.DescripcionTipoInsumo = (string)datos.Lector["Descripcion_TI"];
-                    aux.EstadoTipoInsumo = (bool)datos.Lector["Estado_TI"];
+                    aux.NombreTipoInsumo = (string)datos.Lector["Nombre_Tipo_Insumo"];
+                    aux.DescripcionTipoInsumo = (string)datos.Lector["Descripcion_Tipo_Insumo"];
+                    aux.EstadoTipoInsumo = (bool)datos.Lector["Estado_Tipo_Insumo"];
 
 
 
