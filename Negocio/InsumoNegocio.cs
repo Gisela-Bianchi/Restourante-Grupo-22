@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Data;
 using Negocio;
 using Dominio;
 
@@ -104,5 +105,18 @@ namespace Dominio
                 datos.CerrarConexion();
             }
         }
+        public DataTable ObtenerNombreInsumo()
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            return accesoDatos.ObtenerNombreInsumos();
+        }
+
+        public DataTable DevolverGrillaInsumo(string Id)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.TraerInfoInsumos(Id);
+        }
+
     }
+
 }
