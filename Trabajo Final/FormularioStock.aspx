@@ -32,37 +32,24 @@
                 <asp:TextBox runat="server" ID="textPrecioUnitario" CssClass="form-control" />
             </div>
 
-            <div class="mb-3">
-                <label for="txtIdTipo" class="form-label">Id tipo </label>
-                <asp:TextBox runat="server" ID="txtIdTipo" CssClass="form-control" />
+            <div class="col-md-6 mb-3">
+                <label for="ddlTipo" class="form-label">Tipo:</label>
+                <asp:DropDownList runat="server" ID="ddlTipo" CssClass="btn btn-outline-dark dropdown-toggle">
+                </asp:DropDownList>
             </div>
 
-            <div class="mb-3">
-                <label for="txtNombreTipo" class="form-label">Nombre tipo </label>
-                <asp:TextBox runat="server" ID="txtNombreTipo" CssClass="form-control" />
+            <div class="col-md-6 mb-3">
+                <label for="ddlCategoria" class="form-label">Categoria:</label>
+                <asp:DropDownList runat="server" ID="ddlCategoria" CssClass="btn btn-outline-dark dropdown-toggle">
+                </asp:DropDownList>
             </div>
 
-            <div class="mb-3">
-                <label for="txtDescripcion" class="form-label">Descripcion tipo </label>
-                <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" />
-            </div>
-            <div class="mb-3">
-                <label for="txtEstado" class="form-label">Estado </label>
-                <asp:TextBox runat="server" ID="txtEstado" CssClass="form-control" />
-            </div>
-            <div class="mb-3">
-                <label for="txtIdCategoria" class="form-label">Id categoria </label>
-                <asp:TextBox runat="server" ID="txtIdCategoria" CssClass="form-control" />
-            </div>
-            <div class="mb-3">
-                <label for="txtDescripcionCategoria" class="form-label">Descripcion (categoria) </label>
-                <asp:TextBox runat="server" ID="txtDescripcionCategoria" CssClass="form-control" />
-            </div>
 
             <div class="mb-3">
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
                 <a href="Default.aspx">Cancelar</a>
             </div>
+
 
         </div>
     </div>

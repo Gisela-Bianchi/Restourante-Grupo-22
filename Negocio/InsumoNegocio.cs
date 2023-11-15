@@ -23,7 +23,7 @@ namespace Dominio
             try
             {
 
-                datos.SetearConsulta(@"SELECT Id_Insumo, Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Id_TI AS Id_TipoInsumo, Nombre_TI AS NombreTipo, Descripcion_TI AS DescripcionTipo, Estado_TI AS EstadoTipo, Id_Categoria FROM Insumo INNER JOIN TipoInsumo ON Insumo.Id_Insumo = TipoInsumo.Id_TI INNER JOIN  Categoria ON Insumo.Id_Categoria_Insumo = Categoria.Id_Categoria");
+                datos.SetearConsulta(@"SELECT Id_Insumo, Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Id_TI AS Id_TipoInsumo, Nombre_TI AS NombreTipo, Descripcion_TI AS DescripcionTipo, Estado_TI AS EstadoTipo, Id_Categoria , Descripcion_Categoria AS Descripcion_Categoria FROM Insumo INNER JOIN TipoInsumo ON Insumo.Id_Insumo = TipoInsumo.Id_TI INNER JOIN  Categoria ON Insumo.Id_Categoria_Insumo = Categoria.Id_Categoria");
 
                 datos.EjecutarLectura();
 
@@ -37,16 +37,17 @@ namespace Dominio
                     aux.PrecioUnitario = (decimal)datos.Lector["PrecioUnitario_insumo"];
                     aux.CantidadStock = (int)datos.Lector["CantidadEnStock_Insumo"];
 
-                    /*aux.Tipo = new TipoInsumo();
+                    aux.Tipo = new TipoInsumo();
                     if (!(datos.Lector["Id_TipoInsumo"] is DBNull))
-                        aux.Tipo.Id = (int)datos.Lector["Id_TipoInsumo"];
-                    aux.Tipo.Nombre = (string)datos.Lector["NombreTipo"];
-                    aux.Tipo.Descripcion = (string)datos.Lector["DescripcionTipo"];
-                    aux.Tipo.Estado = (bool)datos.Lector["EstadoTipo"];*/
+                        aux.Tipo.Id_TI = (int)datos.Lector["Id_TipoInsumo"];
+                    aux.Tipo.NombreTipoInsumo = (string)datos.Lector["NombreTipo"];
+                    aux.Tipo.DescripcionTipoInsumo = (string)datos.Lector["DescripcionTipo"];
+                    aux.Tipo.EstadoTipoInsumo = (bool)datos.Lector["EstadoTipo"];
 
-                    /*aux.Descripcion = new Categoria();
+                    aux.Descripcion = new Categoria();
                     if (!(datos.Lector["Id_Categoria"] is DBNull))
-                        aux.Descripcion.IdCategoria = (int)datos.Lector["Id_Categoria"];*/
+                        aux.Descripcion.Id_Categoria = (int)datos.Lector["Id_Categoria"];
+                    aux.Descripcion.Descripcion_Categoria = (string)datos.Lector["Descripcion_Categoria"];
 
 
                     lista.Add(aux);
@@ -77,14 +78,14 @@ namespace Dominio
 
             try
             {
-                datos.SetearConsulta(@"INSERT INTO Insumo (Id_Insumo, Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Tipo_Insumo, Id_Categoria_Insumo) 
+                datos.SetearConsulta(@"INSERT INTO Insumo (Id_Insumo, Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Id_TI, Id_Categoria_Insumo) 
              VALUES (@Id_Insumo,@Nombre_Insumo, @PrecioUnitario_Insumo, @CantidadEnStock_Insumo, @Tipo_Insumo, @Id_Categoria_Insumo)");
                 datos.setearParametro(@"Id_Insumo", insumo.Idinsumo);
                 datos.setearParametro("@Nombre_Insumo", insumo.NombreInsumo);
                 datos.setearParametro("@PrecioUnitario_Insumo", insumo.PrecioUnitario);
                 datos.setearParametro("@CantidadEnStock_Insumo", insumo.CantidadStock);
-                datos.setearParametro("@Tipo_Insumo", insumo.Tipo.Id_TI); // Assuming TipoInsumo is a property of TipoInsumo class
-                datos.setearParametro("@Id_Categoria_Insumo", insumo.Descripcion.Id_Categoria); // Assuming Categoria is a property of Categoria class
+                datos.setearParametro("@Id_TI", insumo.Tipo.Id_TI);
+                datos.setearParametro("@Id_Categoria_Insumo", insumo.Descripcion.Id_Categoria); 
 
 
 

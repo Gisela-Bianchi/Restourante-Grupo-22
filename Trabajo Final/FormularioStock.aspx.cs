@@ -13,31 +13,45 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            if (!IsPostBack)
+            {
+                TipoInsumoNegocio tipo = new TipoInsumoNegocio();
+                List<TipoInsumo> lista = tipo.Listar();
+
+                ddlTipo.DataSource = lista;
+                ddlTipo.DataValueField = "Id_TI";
+                ddlTipo.DataTextField = "DescripcionTipoInsumo";
+
+                ddlTipo.DataBind();
+
+                CategoriaNegocio categoria = new CategoriaNegocio();
+                List<Categoria> list = categoria.Listar();
+
+
+                ddlCategoria.DataSource = list;
+                ddlCategoria.DataValueField = "Id_Categoria";
+                ddlCategoria.DataTextField = "Descripcion_Categoria";
+
+                ddlCategoria.DataBind();
+            }
         }
-
         protected void btnAceptar_Click(object sender, EventArgs e)
+
         {
-            
-                   
-                    Insumo nuevoInsumo = new Insumo();
-                  
-                    nuevoInsumo.NombreInsumo = txtNombreInsumo.Text;
-                    nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
-                    nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
 
-                    nuevoInsumo.Tipo = new TipoInsumo();
-                    nuevoInsumo.Tipo.Id_TI = int.Parse(txtIdTipo.Text);
-                    nuevoInsumo.Tipo.NombreTipoInsumo = txtNombreTipo.Text;
-                    nuevoInsumo.Tipo.DescripcionTipoInsumo = txtDescripcion.Text;
 
-                    nuevoInsumo.Descripcion = new Categoria();
-                    nuevoInsumo.Descripcion.Id_Categoria = int.Parse(txtIdCategoria.Text);
-                    nuevoInsumo.Descripcion.Descripcion_Categoria=txtDescripcionCategoria.Text;
+            Insumo nuevoInsumo = new Insumo();
 
-                    
-                    InsumoNegocio negocioInsumo = new InsumoNegocio();
-                    negocioInsumo.AgregarInsumo(nuevoInsumo);
+
+            nuevoInsumo.NombreInsumo = txtNombreInsumo.Text;
+            nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
+            nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
+
+
+
+
+            InsumoNegocio negocioInsumo = new InsumoNegocio();
+            negocioInsumo.AgregarInsumo(nuevoInsumo);
 
 
             Response.Redirect("StockDeInsumos.aspx", false);
