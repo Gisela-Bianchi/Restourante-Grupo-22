@@ -10,6 +10,15 @@
             padding:50px;
            
         }
+                .container {
+            max-width: 150%; /* Ajusta el ancho máximo del contenedor a la ventana */
+        }
+
+        .col-6 img {
+            max-width: 150%; /* Hace que la imagen sea responsiva y ocupe el 100% del ancho de su contenedor */
+             height: auto;
+            border: 2px solid black; /* Añade un borde negro de 2 píxeles */
+        }
 
     </style>
    

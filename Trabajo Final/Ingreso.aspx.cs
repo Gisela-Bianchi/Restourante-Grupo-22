@@ -20,7 +20,12 @@ namespace Trabajo_Final
             if (Session["Usuario" ]!= null)
             {
                 Session.Add("TipoUsuario", "Mozo");
+                Response.Write("Botón Mozo clickeado. Redireccionando...");
                 Response.Redirect("Gerente.aspx");
+            }
+            else
+            {
+                Response.Write("La sesión de usuario no está configurada correctamente.");
             }
         }
            //nuevo boton gerente
@@ -32,8 +37,17 @@ namespace Trabajo_Final
                 if (regUsuario.TipoUsuario == 2)
                 {
                     Session.Add("TipoUsuario", "Gerente");
+                    Response.Write("Botón Gerente clickeado. Redireccionando...");
                     Response.Redirect("Gerente.aspx");
                 }
+               /* else
+                {
+                    Response.Write("El usuario no es de tipo Gerente.");
+                }*/
+            }
+            else
+            {
+                Response.Write("La sesión de usuario no está configurada correctamente.");
             }
         }
     }
