@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,20 @@ namespace Dominio
     {
 
 
-        public List<Categoria> Listar()
+        public List<Categoria> Listar( string id = "")
         {
             List<Categoria> lista = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
-
+            SqlCommand comando= new SqlCommand();
 
             try
             {
 
-                datos.SetearConsulta(@"select Id_Categoria as Id_Categoria , Descripcion_Categoria as Descripcion_Categoria from Categoria;");
+                datos.SetearConsulta(@"select Id_Categoria as Id_Categoria , Descripcion_Categoria as Descripcion_Categoria from Categoria;  ");
+
+                if (id != "")
+                    comando.CommandText += " and Id_Categoria = " + id;
+
 
                 datos.EjecutarLectura();
 
@@ -54,6 +59,33 @@ namespace Dominio
             }
         }
 
+        public void ModificarCategoria(Categoria categoria)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.SetearConsulta("update Categoria set Descripcion_Categoria=@Descripcion_Categoria where Id_Categoria=@Id_Categoria");
+
+                datos.setearParametro("@Id_Categoria", categoria.Id_Categoria);
+                datos.setearParametro("@Descripcion_Categoria", categoria.Descripcion_Categoria);
+               
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
 
 
         public void AgregarCategoria(Categoria categoria)

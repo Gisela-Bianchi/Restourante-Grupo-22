@@ -6,13 +6,16 @@
     <div class="row">
         <div class="col">
 
-            <asp:GridView runat="server" ID="dgvTipoInsumo" CssClass="table table-dark table-bordered" AutoGenerateColumns="false">
+            <asp:GridView runat="server" ID="dgvTipoInsumo" CssClass="table table-dark table-bordered" 
+                AutoGenerateColumns="false" DataKeyNames="Id_TI"  onSelectedIndexChanged="dgvTipoInsumo_SelectedIndexChanged" 
+                OnPageIndexChanging="dgvTipoInsumo_PageIndexChanging" AllowPaging="true" PageSize="5">
                 <Columns>
 
                     <asp:BoundField HeaderText="Id" DataField="Id_TI" />
                     <asp:BoundField HeaderText="Nombre" DataField="NombreTipoInsumo" />
                     <asp:BoundField HeaderText="Descripcion" DataField="DescripcionTipoInsumo" />
                     <asp:BoundField HeaderText="Estado" DataField="EstadoTipoInsumo" />
+                    <asp:CommandField HeaderText="Accion" ShowSelectButton="true" SelectText="Modificar"/>
 
 
 
@@ -21,8 +24,6 @@
             </asp:GridView>
 
             <a href="FormularioTipoInsumo.aspx" style="margin-bottom: 10px; display: block;">Agregar Tipo de insumo</a>
-
-            <a href="AdmiTipoInsumo.aspx" style="margin-bottom: 10px; display: block;">Modificar Tipo de insumo</a>
 
             <a href="AdmiTipoInsumo.aspx" style="margin-bottom: 10px; display: block;">Eliminar Tipo de insumo</a>
 

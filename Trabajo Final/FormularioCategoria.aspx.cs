@@ -12,7 +12,18 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+            if (id != "" && ! IsPostBack)
+            {
+                CategoriaNegocio categoria= new CategoriaNegocio();
+                List<Categoria> lista= categoria.Listar(id);
+                Categoria seleccionada = lista[0];
 
+
+                //Cargamos los campos nuevamene modificados
+                txtIdCategoria.Text = id;
+                txtDescripcion.Text = seleccionada.Descripcion_Categoria;
+            }
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -26,9 +37,19 @@ namespace Trabajo_Final
 
 
             CategoriaNegocio negocioCategoria = new CategoriaNegocio();
-            negocioCategoria.AgregarCategoria(categoria);
+
+            if (Request.QueryString["id"] != null)
+            {
+                categoria.Id_Categoria = int.Parse(txtIdCategoria.Text);
+                negocioCategoria.ModificarCategoria(categoria);
+
+            }
+            else
+            {
+                negocioCategoria.AgregarCategoria(categoria);
 
 
+            }
             Response.Redirect("AdmiCategoria.aspx", false);
 
         }

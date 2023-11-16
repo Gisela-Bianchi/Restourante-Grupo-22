@@ -16,5 +16,18 @@ namespace Trabajo_Final
             dgvCategoria.DataSource = categoria.Listar();
             dgvCategoria.DataBind();
         }
+
+        protected void dgvCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+            string id=dgvCategoria.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioCategoria.aspx?id="+ id);
+        }
+
+        protected void dgvCategoria_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvCategoria.PageIndex = e.NewPageIndex;
+            dgvCategoria.DataBind();
+        }
     }
 }

@@ -16,5 +16,18 @@ namespace Trabajo_Final
             dgvTipoInsumo.DataSource = Tipo.Listar();
             dgvTipoInsumo.DataBind();
         }
+
+        protected void dgvTipoInsumo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string id = dgvTipoInsumo.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioTipoInsumo.aspx?id=" + id);
+        }
+
+        protected void dgvTipoInsumo_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvTipoInsumo.PageIndex = e.NewPageIndex;
+            dgvTipoInsumo.DataBind();
+        }
     }
 }
