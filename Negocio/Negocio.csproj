@@ -45,6 +45,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="InsumoNegocio.cs" />
     <Compile Include="MesaNegocio.cs" />
+    <Compile Include="MeseroNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoInsumoNegocio.cs" />
     <Compile Include="UsuarioNegocio.cs" />

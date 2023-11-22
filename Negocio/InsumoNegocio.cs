@@ -24,7 +24,7 @@ namespace Dominio
             try
             {
 
-                datos.SetearConsulta(@"SELECT Id_Insumo, Nombre_Insumo, PrecioUnitario_Insumo, CantidadEnStock_Insumo, Id_TI AS Id_TipoInsumo, Nombre_TI AS NombreTipo, Descripcion_TI AS DescripcionTipo, Estado_TI AS EstadoTipo, Id_Categoria , Descripcion_Categoria AS Descripcion_Categoria FROM Insumo INNER JOIN TipoInsumo ON Insumo.Id_Insumo = TipoInsumo.Id_TI INNER JOIN  Categoria ON Insumo.Id_Categoria_Insumo = Categoria.Id_Categoria");
+                datos.SetearConsulta(@"SELECT Id_Insumo as Id_Insumo, Nombre_Insumo as Nombre_Insumo, PrecioUnitario_Insumo as Precio_Unitario_Insumo, CantidadEnStock_Insumo as Cantidad_Stock_Insumo, Id_TI AS Id_TipoInsumo, Nombre_TI AS NombreTipo, Descripcion_TI AS DescripcionTipo, Estado_TI AS EstadoTipo, Id_Categoria , Descripcion_Categoria AS Descripcion_Categoria FROM Insumo INNER JOIN TipoInsumo ON Insumo.Id_Insumo = TipoInsumo.Id_TI INNER JOIN  Categoria ON Insumo.Id_Categoria_Insumo = Categoria.Id_Categoria");
 
                 datos.EjecutarLectura();
 
@@ -35,8 +35,8 @@ namespace Dominio
                     if (!(datos.Lector["Id_Insumo"] is DBNull))
                         aux.Idinsumo = (int)datos.Lector["Id_Insumo"];
                     aux.NombreInsumo = (string)datos.Lector["Nombre_Insumo"];
-                    aux.PrecioUnitario = (decimal)datos.Lector["PrecioUnitario_insumo"];
-                    aux.CantidadStock = (int)datos.Lector["CantidadEnStock_Insumo"];
+                    aux.PrecioUnitario = (decimal)datos.Lector["Precio_Unitario_Insumo"];
+                    aux.CantidadStock = (int)datos.Lector["Cantidad_Stock_Insumo"];
 
                     aux.Tipo = new TipoInsumo();
                     if (!(datos.Lector["Id_TipoInsumo"] is DBNull))
