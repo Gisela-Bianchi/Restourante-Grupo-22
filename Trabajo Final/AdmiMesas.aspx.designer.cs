@@ -60,6 +60,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.GridView gdvMesa1;
 
         /// <summary>
+        /// Control totalmesa1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalmesa1;
+
+        /// <summary>
         /// Control btnIngresar2.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvMesa2;
+
+        /// <summary>
+        /// Control totalmesa2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalmesa2;
 
         /// <summary>
         /// Control btnIngresar3.
@@ -150,6 +168,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.GridView gdvMesa3;
 
         /// <summary>
+        /// Control totalmesa3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalmesa3;
+
+        /// <summary>
         /// Control btnIngresar4.
         /// </summary>
         /// <remarks>
@@ -193,5 +220,14 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvMesa4;
+
+        /// <summary>
+        /// Control totalmesa4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalmesa4;
     }
 }

@@ -79,7 +79,21 @@ namespace Trabajo_Final
             Session["Datos"] = Datos;
             gdvMesa1.DataSource = Datos;
             gdvMesa1.DataBind();
+            txtMesa1.Text = "";
+            int cant1;
+            decimal prec1;
+            decimal totRecaudado1 = 0;
+            //problema
+            for (int i = 0; i < gdvMesa1.Rows.Count; i++)
 
+            {
+
+                cant1 = Convert.ToInt32(gdvMesa1.Rows[i].Cells[1].Text);
+                prec1 = Convert.ToDecimal(gdvMesa1.Rows[i].Cells[2].Text);
+                totRecaudado1 += prec1 * cant1;
+
+            }
+            totalmesa1.Text = $"El total recaudado por la mesa 1 es: {totRecaudado1}";
 
         }
 
@@ -111,6 +125,18 @@ namespace Trabajo_Final
             Session["Datos2"] = Datos;
             gdvMesa2.DataSource = Datos;
             gdvMesa2.DataBind();
+            txtMesa2.Text = "";
+            int cant2;
+            decimal prec2;
+            decimal totRecaudado2 = 0;
+            for (int i = 0; i < gdvMesa2.Rows.Count; i++)
+            {
+                cant2 = Convert.ToInt32(gdvMesa2.Rows[i].Cells[1].Text);
+                prec2 = Convert.ToDecimal(gdvMesa2.Rows[i].Cells[2].Text);
+                totRecaudado2 += prec2 * cant2;
+
+            }
+            totalmesa2.Text = $"El total recaudado por la mesa 2 es: {totRecaudado2}";
         }
 
         protected void btnAgregarMesa3_Click(object sender, EventArgs e)
@@ -141,6 +167,18 @@ namespace Trabajo_Final
             Session["Datos3"] = Datos;
             gdvMesa3.DataSource = Datos;
             gdvMesa3.DataBind();
+            txtMesa3.Text = "";
+            int cant3;
+            decimal prec3;
+            decimal totRecaudado3 = 0;
+            for (int i = 0; i < gdvMesa3.Rows.Count; i++)
+            {
+                cant3 = Convert.ToInt32(gdvMesa3.Rows[i].Cells[1].Text);
+                prec3 = Convert.ToDecimal(gdvMesa3.Rows[i].Cells[2].Text);
+                totRecaudado3 += prec3 * cant3;
+
+            }
+            totalmesa3.Text = $"El total recaudado por la mesa 3 es: {totRecaudado3}";
         }
 
         protected void btnAgregarMesa4_Click(object sender, EventArgs e)
@@ -171,6 +209,18 @@ namespace Trabajo_Final
             Session["Datos4"] = Datos;
             gdvMesa4.DataSource = Datos;
             gdvMesa4.DataBind();
+            txtMesa4.Text = "";
+            int cant4;
+            decimal prec4;
+            decimal totRecaudado4 = 0;
+            for (int i = 0; i < gdvMesa4.Rows.Count; i++)
+            {
+                cant4 = Convert.ToInt32(gdvMesa4.Rows[i].Cells[1].Text);
+                prec4 = Convert.ToDecimal(gdvMesa4.Rows[i].Cells[2].Text);
+                totRecaudado4 += prec4 * cant4;
+
+            }
+            totalmesa4.Text = $"El total recaudado por la mesa 4 es: {totRecaudado4}";
         }
     }
 }

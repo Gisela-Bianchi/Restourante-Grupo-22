@@ -30,6 +30,8 @@
                      <br />
                     <asp:GridView ID="gdvMesa1" runat="server">
                     </asp:GridView>
+                    <br />
+                    <asp:Label ID="totalmesa1" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>
@@ -61,6 +63,8 @@
                     <asp:Button ID="btnAgregarMesa2" runat="server" Text="BAgregar Cantidad" OnClick="btnAgregarMesa2_Click" />
                      <br />
                     <asp:GridView ID="gdvMesa2" runat="server"></asp:GridView>
+                     <br />
+                    <asp:Label ID="totalmesa2" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>
@@ -92,6 +96,8 @@
                     <asp:Button ID="btnAgregarMesa3" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa3_Click" />
                      <br />
                     <asp:GridView ID="gdvMesa3" runat="server"></asp:GridView>
+                    <br />
+                    <asp:Label ID="totalmesa3" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>
@@ -123,7 +129,8 @@
                     <asp:Button ID="btnAgregarMesa4" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa4_Click" />
                     <br />
                     <asp:GridView ID="gdvMesa4" runat="server"></asp:GridView>
-
+                    <br />
+                    <asp:Label ID="totalmesa4" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </div>
