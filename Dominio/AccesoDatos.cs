@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -23,7 +24,7 @@ namespace Dominio
         }
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante-Grupo22; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
             comando = new SqlCommand();
         }
         //public AccesoDatos()
@@ -169,6 +170,49 @@ namespace Dominio
             rd.Fill(dt);
             conexion.Close();
             return dt;
+        }
+
+        public bool CrearPedido(int NumMesa)
+        {
+            bool creo;
+            SqlConnection conexion = ObtenerConnection();
+            string consulta = $"insert into Pedido(NumeroMesa_Pe) value('{NumMesa}')";
+            SqlCommand comand = new SqlCommand( consulta, conexion);
+            int filasAfectadas=comand.ExecuteNonQuery();
+            if (filasAfectadas == 0) { creo= false; } 
+            else { creo= true; }
+            conexion.Close ();
+            return creo;
+        }
+
+        public int ultimoNumPedido()
+        {
+            SqlConnection conexion = ObtenerConnection();
+            string consulta = "select top 1 NumeroPedido_Pe from Pedido order by NumeroPedido_Pe desc";
+            SqlCommand comand = new SqlCommand(consulta , conexion);
+            SqlDataReader rd = comand.ExecuteReader();
+            int ultimoid = -1;
+            while (rd.Read())
+            {
+                ultimoid=Convert.ToInt32(rd.GetValue(0).ToString());
+            }
+            conexion.Close();
+            return ultimoid;
+        }
+
+        public int BuscarIdInsumo(string NombreInsumo)
+        {
+            SqlConnection conexion = ObtenerConnection();
+            string consulta = $"select top 1 Id_Insumo from Insumo where Nombre_Insumo='{NombreInsumo}'";
+            SqlCommand comand = new SqlCommand(consulta, conexion);
+            SqlDataReader rd = comand.ExecuteReader();
+            int id = -1;
+            while (rd.Read())
+            {
+                id = Convert.ToInt32(rd.GetValue(0).ToString());
+            }
+            conexion.Close();
+            return id;
         }
 
     }

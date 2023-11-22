@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 namespace Trabajo_Final
 {
@@ -53,6 +55,7 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa1_Click(object sender, EventArgs e)
         {
+            if (txtMesa1.Text == "") { return; }
             string PrecioUnitario = ddlMesa1.SelectedValue;
             string Insumo = ddlMesa1.SelectedItem.Text;
             string Cantidad = txtMesa1.Text;
@@ -99,6 +102,7 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa2_Click(object sender, EventArgs e)
         {
+            if (txtMesa2.Text == "") { return; }
             string PrecioUnitario = ddlMesa2.SelectedValue;
             string Insumo = ddlMesa2.SelectedItem.Text;
             string Cantidad = txtMesa2.Text;
@@ -141,6 +145,7 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa3_Click(object sender, EventArgs e)
         {
+            if (txtMesa3.Text == "") { return; }
             string PrecioUnitario = ddlMesa3.SelectedValue;
             string Insumo = ddlMesa3.SelectedItem.Text;
             string Cantidad = txtMesa3.Text;
@@ -183,6 +188,7 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa4_Click(object sender, EventArgs e)
         {
+            if (txtMesa4.Text == "") { return; }
             string PrecioUnitario = ddlMesa4.SelectedValue;
             string Insumo = ddlMesa4.SelectedItem.Text;
             string Cantidad = txtMesa4.Text;
@@ -221,6 +227,28 @@ namespace Trabajo_Final
 
             }
             totalmesa4.Text = $"El total recaudado por la mesa 4 es: {totRecaudado4}";
+        }
+
+        protected void btnPagarmesa1_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio crearPedido=new PedidoNegocio();
+            if(crearPedido.CrearPedido(1)==false) 
+            {
+                return;
+            }
+            int numeroPedido = crearPedido.ultimoNumPedido();
+            if(numeroPedido == -1) { return; }
+            int cant1;
+            decimal prec1;
+            string Nombre1;
+            for (int i = 0; i < gdvMesa1.Rows.Count; i++)
+            {
+                cant1 = Convert.ToInt32(gdvMesa1.Rows[i].Cells[1].Text);
+                prec1 = Convert.ToDecimal(gdvMesa1.Rows[i].Cells[2].Text);
+                Nombre1 = gdvMesa1.Rows[i].Cells[0].Text;
+                int idInsumo = crearPedido.BuscarIdInsumo(Nombre1);
+
+            }
         }
     }
 }

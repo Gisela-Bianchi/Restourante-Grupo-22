@@ -49,6 +49,7 @@
     <Compile Include="Mesa.cs" />
     <Compile Include="Mesero.cs" />
     <Compile Include="Pedido.cs" />
+    <Compile Include="PedidosXInsumo.cs" />
     <Compile Include="Reportes.cs" />
     <Compile Include="TipoInsumo.cs" />
     <Compile Include="Usuario.cs" />

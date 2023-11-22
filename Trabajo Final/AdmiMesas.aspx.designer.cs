@@ -69,6 +69,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Label totalmesa1;
 
         /// <summary>
+        /// Control btnPagarmesa1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPagarmesa1;
+
+        /// <summary>
         /// Control btnIngresar2.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label totalmesa2;
+
+        /// <summary>
+        /// Control btnPagarmesa2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPagarmesa2;
 
         /// <summary>
         /// Control btnIngresar3.
@@ -177,6 +195,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Label totalmesa3;
 
         /// <summary>
+        /// Control btnPagarmesa3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPagarmesa3;
+
+        /// <summary>
         /// Control btnIngresar4.
         /// </summary>
         /// <remarks>
@@ -229,5 +256,14 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label totalmesa4;
+
+        /// <summary>
+        /// Control btnPagarmesa4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPagarmesa4;
     }
 }
