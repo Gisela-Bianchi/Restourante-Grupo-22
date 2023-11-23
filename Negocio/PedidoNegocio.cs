@@ -8,7 +8,10 @@ using Dominio;
 namespace Negocio
 {
     public class PedidoNegocio
+
     {
+        public PedidoNegocio() { }
+
         public bool CrearPedido(int NumMesa)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -26,6 +29,13 @@ namespace Negocio
 
             AccesoDatos acc = new AccesoDatos();
             return acc.BuscarIdInsumo(NombreInsumo);
+
+        }
+
+        public bool ingresarInsumoXPedido(PedidosXInsumo reg)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.ingresarInsumoXPedido(reg);
         }
     }
 }

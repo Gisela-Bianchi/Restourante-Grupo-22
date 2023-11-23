@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    internal class PedidosXInsumo
+    public class PedidosXInsumo
     {
+
        public Pedido NumeroPedido { get; set; }
         public Insumo IdInsumo { get; set; }
         public int CantVendida { get; set; }    
-        public decimal PrecioUnitario { get; set; }
+        public double PrecioUnitario { get; set; }
+
+        public PedidosXInsumo() 
+        {
+            //NumeroPedido.NumeroPedido = 0;
+        //     IdInsumo.Idinsumo = 0;
+            CantVendida = 0;
+            PrecioUnitario = 0;
+        } 
     }
 }

@@ -20,7 +20,10 @@ namespace Dominio
 
         public decimal TotalRecaudado { get; set; }
 
-
+        public Pedido() 
+        {
+            NumeroPedido = 0;
+        }
 
       //  public List<Insumo> Insumos;
 

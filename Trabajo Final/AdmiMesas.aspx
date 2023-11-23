@@ -66,7 +66,7 @@
                     <asp:GridView ID="gdvMesa2" runat="server"></asp:GridView>
                      <br />
                     <asp:Label ID="totalmesa2" runat="server" Text=""></asp:Label>
-                    <asp:Button ID="btnPagarmesa2" runat="server" Text="Pagar" />
+                    <asp:Button ID="btnPagarmesa2" runat="server" Text="Pagar" OnClick="btnPagarmesa2_Click" />
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
                     <asp:GridView ID="gdvMesa3" runat="server"></asp:GridView>
                     <br />
                     <asp:Label ID="totalmesa3" runat="server" Text=""></asp:Label>
-                     <asp:Button ID="btnPagarmesa3" runat="server" Text="Pagar" />
+                     <asp:Button ID="btnPagarmesa3" runat="server" Text="Pagar" OnClick="btnPagarmesa3_Click"/>
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@
                     <asp:GridView ID="gdvMesa4" runat="server"></asp:GridView>
                     <br />
                     <asp:Label ID="totalmesa4" runat="server" Text=""></asp:Label>
-                     <asp:Button ID="btnPagarmesa4" runat="server" Text="Pagar" />
+                     <asp:Button ID="btnPagarmesa4" runat="server" Text="Pagar" OnClick="btnPagarmesa4_Click" />
                 </div>
             </div>
         </div>

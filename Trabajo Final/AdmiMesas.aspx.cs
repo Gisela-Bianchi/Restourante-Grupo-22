@@ -236,19 +236,110 @@ namespace Trabajo_Final
             {
                 return;
             }
-            int numeroPedido = crearPedido.ultimoNumPedido();
-            if(numeroPedido == -1) { return; }
-            int cant1;
-            decimal prec1;
+            PedidosXInsumo regPXI = new PedidosXInsumo();
+            regPXI.NumeroPedido = new Pedido();
+            regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
+            if(regPXI.NumeroPedido.NumeroPedido == -1) { return; }
+            
             string Nombre1;
+            double precio;
             for (int i = 0; i < gdvMesa1.Rows.Count; i++)
             {
-                cant1 = Convert.ToInt32(gdvMesa1.Rows[i].Cells[1].Text);
-                prec1 = Convert.ToDecimal(gdvMesa1.Rows[i].Cells[2].Text);
+                regPXI.CantVendida = Convert.ToInt32(gdvMesa1.Rows[i].Cells[1].Text);
+               precio = Convert.ToDouble(gdvMesa1.Rows[i].Cells[2].Text);
+                regPXI.PrecioUnitario=Math.Round(precio,2);
                 Nombre1 = gdvMesa1.Rows[i].Cells[0].Text;
-                int idInsumo = crearPedido.BuscarIdInsumo(Nombre1);
 
+                regPXI.IdInsumo = new Insumo();
+                regPXI.IdInsumo.Idinsumo = crearPedido.BuscarIdInsumo(Nombre1);
+                
+                crearPedido.ingresarInsumoXPedido(regPXI);
             }
+            Session["Mesa 1"] = null;
+        }
+        protected void btnPagarmesa2_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio crearPedido = new PedidoNegocio();
+            if (crearPedido.CrearPedido(2) == false)
+            {
+                return;
+            }
+            PedidosXInsumo regPXI = new PedidosXInsumo();
+            regPXI.NumeroPedido = new Pedido();
+            regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
+            if (regPXI.NumeroPedido.NumeroPedido == -1) { return; }
+
+            string Nombre1;
+            double precio;
+            for (int i = 0; i < gdvMesa2.Rows.Count; i++)
+            {
+                regPXI.CantVendida = Convert.ToInt32(gdvMesa2.Rows[i].Cells[1].Text);
+                precio = Convert.ToDouble(gdvMesa2.Rows[i].Cells[2].Text);
+                regPXI.PrecioUnitario = Math.Round(precio, 2);
+                Nombre1 = gdvMesa2.Rows[i].Cells[0].Text;
+
+                regPXI.IdInsumo = new Insumo();
+                regPXI.IdInsumo.Idinsumo = crearPedido.BuscarIdInsumo(Nombre1);
+
+                crearPedido.ingresarInsumoXPedido(regPXI);
+            }
+            Session["Mesa 2"] = null;
+        }
+        protected void btnPagarmesa3_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio crearPedido = new PedidoNegocio();
+            if (crearPedido.CrearPedido(3) == false)
+            {
+                return;
+            }
+            PedidosXInsumo regPXI = new PedidosXInsumo();
+            regPXI.NumeroPedido = new Pedido();
+            regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
+            if (regPXI.NumeroPedido.NumeroPedido == -1) { return; }
+
+            string Nombre1;
+            double precio;
+            for (int i = 0; i < gdvMesa3.Rows.Count; i++)
+            {
+                regPXI.CantVendida = Convert.ToInt32(gdvMesa3.Rows[i].Cells[1].Text);
+                precio = Convert.ToDouble(gdvMesa3.Rows[i].Cells[2].Text);
+                regPXI.PrecioUnitario = Math.Round(precio, 2);
+                Nombre1 = gdvMesa3.Rows[i].Cells[0].Text;
+
+                regPXI.IdInsumo = new Insumo();
+                regPXI.IdInsumo.Idinsumo = crearPedido.BuscarIdInsumo(Nombre1);
+
+                crearPedido.ingresarInsumoXPedido(regPXI);
+            }
+            Session["Mesa 3"] = null;
+        }
+        protected void btnPagarmesa4_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio crearPedido = new PedidoNegocio();
+            if (crearPedido.CrearPedido(4) == false)
+            {
+                return;
+            }
+            PedidosXInsumo regPXI = new PedidosXInsumo();
+            regPXI.NumeroPedido = new Pedido();
+            regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
+            if (regPXI.NumeroPedido.NumeroPedido == -1) { return; }
+
+            string Nombre1;
+            double precio;
+            for (int i = 0; i < gdvMesa4.Rows.Count; i++)
+            {
+                regPXI.CantVendida = Convert.ToInt32(gdvMesa4.Rows[i].Cells[1].Text);
+                precio = Convert.ToDouble(gdvMesa4.Rows[i].Cells[2].Text);
+                regPXI.PrecioUnitario = Math.Round(precio, 2);
+                Nombre1 = gdvMesa4.Rows[i].Cells[0].Text;
+
+                regPXI.IdInsumo = new Insumo();
+                regPXI.IdInsumo.Idinsumo = crearPedido.BuscarIdInsumo(Nombre1);
+
+                crearPedido.ingresarInsumoXPedido(regPXI);
+            }
+            Session["Mesa 4"] = null;
         }
     }
 }

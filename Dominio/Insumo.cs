@@ -17,7 +17,10 @@ namespace Dominio
 
         public Categoria  Descripcion { get; set; } 
        
-        
+        public Insumo() 
+        { 
+            Idinsumo = 0;
+        }
 
     }
 }

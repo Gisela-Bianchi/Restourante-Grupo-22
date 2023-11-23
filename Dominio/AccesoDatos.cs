@@ -176,7 +176,7 @@ namespace Dominio
         {
             bool creo;
             SqlConnection conexion = ObtenerConnection();
-            string consulta = $"insert into Pedido(NumeroMesa_Pe) value('{NumMesa}')";
+            string consulta = $"insert into Pedido(NumeroMesa_Pe) select ' {NumMesa} '";
             SqlCommand comand = new SqlCommand( consulta, conexion);
             int filasAfectadas=comand.ExecuteNonQuery();
             if (filasAfectadas == 0) { creo= false; } 
@@ -213,6 +213,20 @@ namespace Dominio
             }
             conexion.Close();
             return id;
+        }
+
+        public bool ingresarInsumoXPedido(PedidosXInsumo reg)
+        {
+            bool creo;
+            SqlConnection conexion = ObtenerConnection();
+            string consulta = $"INSERT INTO PedidoXInsumo (NumeroPedido_PXI, IdInsumo_PXI, CantVendida_PXI, PrecioUnitario_PXI) VALUES ({reg.NumeroPedido.NumeroPedido}, {reg.IdInsumo.Idinsumo}, {reg.CantVendida}, {reg.PrecioUnitario})";
+
+            SqlCommand comand = new SqlCommand(consulta, conexion);
+            int filasAfectadas = comand.ExecuteNonQuery();
+            if (filasAfectadas == 0) { creo = false; }
+            else { creo = true; }
+            conexion.Close();
+            return creo;
         }
 
     }
