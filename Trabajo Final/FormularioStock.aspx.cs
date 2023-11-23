@@ -11,8 +11,11 @@ namespace Trabajo_Final
 {
     public partial class FormularioStock : System.Web.UI.Page
     {
+        public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            ConfirmarEliminacion = false;
+
             if (!IsPostBack)
             {
                 TipoInsumoNegocio tipo = new TipoInsumoNegocio();
@@ -34,29 +37,93 @@ namespace Trabajo_Final
 
                 ddlCategoria.DataBind();
             }
+            //ModificacionInsumo
+
+            string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+            if (id != "" && !IsPostBack)
+            {
+                InsumoNegocio negocio = new InsumoNegocio();
+                List<Insumo> lista = negocio.Listar(id);
+                Insumo seleccionado = lista[0];
+
+
+                //Cargamos los campos nuevos
+
+
+                txtIdInsumo.Text = id;
+                txtNombreInsumo.Text = seleccionado.NombreInsumo;
+                textPrecioUnitario.Text = seleccionado.PrecioUnitario.ToString();
+                textCantidadStock.Text = seleccionado.CantidadStock.ToString();
+
+                ddlTipo.SelectedValue = seleccionado.Tipo.Id_TI.ToString();
+                ddlCategoria.SelectedValue = seleccionado.Descripcion.Id_Categoria.ToString();
+
+            }
         }
         protected void btnAceptar_Click(object sender, EventArgs e)
 
         {
-
-
             Insumo nuevoInsumo = new Insumo();
 
-
-            nuevoInsumo.NombreInsumo = txtNombreInsumo.Text;
+            nuevoInsumo.Idinsumo = int.Parse(txtIdInsumo.Text);
+            nuevoInsumo.NombreInsumo = (string)txtNombreInsumo.Text;
             nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
             nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
 
-
-
+            nuevoInsumo.Tipo = new TipoInsumo();
+            nuevoInsumo.Tipo.Id_TI = int.Parse(ddlTipo.SelectedValue);
+            nuevoInsumo.Descripcion = new Categoria();
+            nuevoInsumo.Descripcion.Id_Categoria = int.Parse(ddlTipo.SelectedValue);
 
             InsumoNegocio negocioInsumo = new InsumoNegocio();
+
+            if (Request.QueryString["id"] != null)
+            {
+                nuevoInsumo.Idinsumo = int.Parse(Request.QueryString["id"].ToString());
+                negocioInsumo.MofidicarInsumo(nuevoInsumo);
+
+            }
+
+            else
+            {
+                negocioInsumo.MofidicarInsumo(nuevoInsumo);
+            }
+
+
+
             negocioInsumo.AgregarInsumo(nuevoInsumo);
 
 
             Response.Redirect("StockDeInsumos.aspx", false);
 
 
+
+        }
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ChkConfirmarEliminar.Checked)
+                {
+                    InsumoNegocio insumo = new InsumoNegocio();
+                    insumo.EliminarInsumo(int.Parse(txtIdInsumo.Text));
+                    Response.Redirect("StockDeInsumos.aspx", false);
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex);
+            }
+
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmarEliminacion = true;
         }
     }
 }

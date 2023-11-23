@@ -16,5 +16,17 @@ namespace Trabajo_Final
             dgvInsumos.DataSource = negocio.Listar();
             dgvInsumos.DataBind();
         }
+
+        protected void dgvInsumos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = dgvInsumos.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioStock.aspx?id=" + id);
+        }
+
+        protected void dgvInsumos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvInsumos.PageIndex = e.NewPageIndex;
+            dgvInsumos.DataBind();
+        }
     }
 }

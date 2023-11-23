@@ -1,7 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormularioStock.aspx.cs" Inherits="Trabajo_Final.FormularioStock" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" 
+    CodeBehind="FormularioStock.aspx.cs" Inherits="Trabajo_Final.FormularioStock" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+           <style>
+            body {
+                background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
+                color: whitesmoke;
+            }
+        </style>
 
     <div class="row">
         <div class="col-6">
@@ -52,5 +58,32 @@
 
 
         </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6">
+
+            <asp:UpdatePanel ID="UpDatePanel1" runat="server">
+                <ContentTemplate>
+
+                    <div class="mb-3">
+                        <asp:Button Text="Eliminar" ID="btnEliminar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" runat="server" />
+                    </div>
+                    <% if (ConfirmarEliminacion)
+                        { %>
+                    <div class="mb-3">
+                        <asp:CheckBox Text="Confirmar eliminacion" ID="ChkConfirmarEliminar" runat="server" />
+                        <asp:Button Text="Eliminar" ID="btnConfirmarEliminar" OnClick="btnConfirmarEliminar_Click" CssClass="btn btn-outline-danger" runat="server" />
+
+                    </div>
+                    <% } %>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+        </div>
+
+
+
     </div>
 </asp:Content>
