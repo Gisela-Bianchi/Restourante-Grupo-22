@@ -22,16 +22,16 @@ namespace Dominio
         {
             get { return lector; }
         }
-        //public AccesoDatos()
-        //{
-        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
-        //    comando = new SqlCommand();
-        //}
         public AccesoDatos()
+        {
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
+            comando = new SqlCommand();
+        }
+       /* public AccesoDatos()
         {
             conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
             comando = new SqlCommand();
-        }
+        }*/
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
