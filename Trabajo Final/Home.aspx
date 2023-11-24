@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Trabajo_Final.Home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+       <style>
+        
+        h1 {
+            font-family: 'TuFuentePersonalizada', sans-serif;
+        }
+    </style>
     <div>
         <h1>BIENVENIDO</h1>
 

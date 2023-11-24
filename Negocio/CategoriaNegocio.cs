@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,19 +12,18 @@ namespace Dominio
     {
 
 
-        public List<Categoria> Listar( string id = "")
+        public List<Categoria> Listar()
         {
             List<Categoria> lista = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
-            SqlCommand comando= new SqlCommand();
+            SqlCommand comando = new SqlCommand();
 
             try
             {
 
                 datos.SetearConsulta(@"select Id_Categoria as Id_Categoria , Descripcion_Categoria as Descripcion_Categoria from Categoria;  ");
 
-                if (id != "")
-                    comando.CommandText += " and Id_Categoria = " + id;
+
 
 
                 datos.EjecutarLectura();
@@ -71,7 +71,7 @@ namespace Dominio
 
                 datos.setearParametro("@Id_Categoria", categoria.Id_Categoria);
                 datos.setearParametro("@Descripcion_Categoria", categoria.Descripcion_Categoria);
-               
+
 
                 datos.EjecutarAccion();
             }
@@ -100,7 +100,7 @@ namespace Dominio
 
                 datos.setearParametro("@Id_Categoria", categoria.Id_Categoria);
                 datos.setearParametro("@Descripcion_Categoria", categoria.Descripcion_Categoria);
-             
+
 
                 datos.EjecutarAccion();
             }
@@ -115,7 +115,54 @@ namespace Dominio
                 datos.CerrarConexion();
             }
         }
+        public List<Categoria> ListaXid(string id = "")
+        {
+            List<Categoria> seleccionado = new List<Categoria>();
+            AccesoDatos datos = new AccesoDatos();
+            SqlCommand comando = new SqlCommand();
 
+            try
+            {
+
+                datos.SetearConsulta(@"select Id_Categoria as Id_Categoria, Descripcion_Categoria as Descripcion_Categoria from Categoria where Id_Categoria = " + id);
+
+
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Categoria aux = new Categoria();
+                    if (!(datos.Lector["Id_Categoria"] is DBNull))
+                        aux.Id_Categoria = (int)datos.Lector["Id_Categoria"];
+
+                    aux.Descripcion_Categoria = (string)datos.Lector["Descripcion_Categoria"];
+
+
+
+
+                    seleccionado.Add(aux);
+
+                }
+                return seleccionado;
+
+            }
+
+            
+            catch (Exception ex)
+
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+
+            }
+
+
+
+        }
         public void EliminarCategoria(int id)
         {
 

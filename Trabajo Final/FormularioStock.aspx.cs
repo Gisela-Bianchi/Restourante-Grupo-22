@@ -43,7 +43,7 @@ namespace Trabajo_Final
             if (id != "" && !IsPostBack)
             {
                 InsumoNegocio negocio = new InsumoNegocio();
-                List<Insumo> lista = negocio.Listar(id);
+                List<Insumo> lista = negocio.ListaXid(id);
                 Insumo seleccionado = lista[0];
 
 

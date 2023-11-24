@@ -20,7 +20,7 @@ namespace Trabajo_Final
             if (id != "" && ! IsPostBack)
             {
                 CategoriaNegocio categoria= new CategoriaNegocio();
-                List<Categoria> lista= categoria.Listar(id);
+                List<Categoria> lista= categoria.ListaXid(id);
                 Categoria seleccionada = lista[0];
 
 

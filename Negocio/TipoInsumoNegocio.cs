@@ -11,7 +11,7 @@ namespace Dominio
     {
 
 
-        public List<TipoInsumo> Listar( string id="")
+        public List<TipoInsumo> Listar()
         {
             List<TipoInsumo> lista = new List<TipoInsumo>();
             AccesoDatos datos = new AccesoDatos();
@@ -23,8 +23,6 @@ namespace Dominio
 
                 datos.SetearConsulta(@"select Id_TI as Id_TI, Nombre_TI as Nombre_Tipo_Insumo,Descripcion_TI as Descripcion_Tipo_Insumo,Estado_TI as Estado_Tipo_Insumo from TipoInsumo  ");
 
-                if (id != "")
-                    comando.CommandText += " and Id_TI = " + id;
 
                 datos.EjecutarLectura();
 
@@ -92,7 +90,55 @@ namespace Dominio
             }
         }
 
+        public List<TipoInsumo> ListaXid(string id = "")
+        {
 
+            List<TipoInsumo> seleccionado = new List<TipoInsumo>();
+            AccesoDatos datos = new AccesoDatos();
+            SqlCommand comando = new SqlCommand();
+
+
+            try
+            {
+
+                datos.SetearConsulta(@"select Id_TI as Id_TI, Nombre_TI as Nombre_Tipo_Insumo,Descripcion_TI as Descripcion_Tipo_Insumo,Estado_TI as Estado_Tipo_Insumo from TipoInsumo where Id_TI =" +id);
+
+
+                datos.EjecutarLectura();
+
+
+                while (datos.Lector.Read())
+                {
+                    TipoInsumo aux = new TipoInsumo();
+                    if (!(datos.Lector["Id_TI"] is DBNull))
+                        aux.Id_TI = (int)datos.Lector["Id_TI"];
+                    aux.NombreTipoInsumo = (string)datos.Lector["Nombre_Tipo_Insumo"];
+                    aux.DescripcionTipoInsumo = (string)datos.Lector["Descripcion_Tipo_Insumo"];
+                    aux.EstadoTipoInsumo = (bool)datos.Lector["Estado_Tipo_Insumo"];
+
+
+
+                    seleccionado.Add(aux);
+
+                }
+
+                return seleccionado;
+            }
+            catch (Exception ex)
+
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+
+            }
+
+
+
+        }
         public void MofidicarTipoInsumo(TipoInsumo tipo)
         {
 

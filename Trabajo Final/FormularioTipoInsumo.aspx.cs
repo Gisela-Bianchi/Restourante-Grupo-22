@@ -21,7 +21,7 @@ namespace Trabajo_Final
             if (id != "" && !IsPostBack)
             {
                 TipoInsumoNegocio tipo = new TipoInsumoNegocio();
-                List<TipoInsumo> lista = tipo.Listar(id);
+                List<TipoInsumo> lista = tipo.ListaXid(id);
                 TipoInsumo seleccionada = lista[0];
 
 
