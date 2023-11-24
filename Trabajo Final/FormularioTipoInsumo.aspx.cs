@@ -10,8 +10,13 @@ namespace Trabajo_Final
 {
     public partial class FormularioTipoDeInsumo : System.Web.UI.Page
     {
+
+        public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            ConfirmarEliminacion = false;
+
             string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
             if (id != "" && !IsPostBack)
             {
@@ -54,6 +59,30 @@ namespace Trabajo_Final
 
             }
             Response.Redirect("AdmiCategoria.aspx", false);
+        }
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmarEliminacion = true;
+        }
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ChkConfirmarEliminar.Checked)
+                {
+                    TipoInsumoNegocio tipo = new TipoInsumoNegocio();
+                    tipo.EliminarTipoInsumo(int.Parse(txtIdTipoInsumo.Text));
+                    Response.Redirect("AdmiTipoInsumo.aspx", false);
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex);
+            }
         }
     }
 }

@@ -122,6 +122,23 @@ namespace Dominio
                 datos.CerrarConexion();
             }
         }
+        public void EliminarTipoInsumo(int id)
+        {
+
+
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.SetearConsulta("delete TipoInsumo  where Id_TI = @Id_TI");
+                datos.setearParametro("@Id_TI", id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
 

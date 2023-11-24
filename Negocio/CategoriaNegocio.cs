@@ -115,6 +115,24 @@ namespace Dominio
                 datos.CerrarConexion();
             }
         }
+
+        public void EliminarCategoria(int id)
+        {
+
+
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.SetearConsulta("delete from Categoria where Id_Categoria = @Id_Categoria");
+                datos.setearParametro("@Id_Categoria", id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
 
