@@ -37,5 +37,24 @@ namespace Negocio
             AccesoDatos acc = new AccesoDatos();
             return acc.ingresarInsumoXPedido(reg);
         }
+
+       /* public int PedidosDelDia()
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.PedidosDelDia();
+        }*/
+
+        public List<int> NumerosPedidosDia()
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.NumerosPedidosDia();
+        }
+
+        public List<Insumo> traerNombreInsumo(int numPedido)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.traerNombreInsumo(numPedido);
+        }
+
     }
 }

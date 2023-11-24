@@ -22,16 +22,16 @@ namespace Dominio
         {
             get { return lector; }
         }
-        //public AccesoDatos()
-        //{
-        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
-        //    comando = new SqlCommand();
-        //}
         public AccesoDatos()
+        {
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
+            comando = new SqlCommand();
+        }
+        /*public AccesoDatos()
         {
             conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
             comando = new SqlCommand();
-        }
+        }*/
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -227,6 +227,52 @@ namespace Dominio
             else { creo = true; }
             conexion.Close();
             return creo;
+        }
+
+       /* public int PedidosDelDia()
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = "select * from Pedido where CAST(Fechapedido_Pe as date) = CAST(GETDATE() as date)";
+            SqlCommand comand = new SqlCommand( consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            int contReg = 0;
+            while (sqlDataReader.Read())
+            {
+                contReg++;
+            }
+            return contReg;
+        }*/
+        public List<int> NumerosPedidosDia()
+        { 
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = "select NumeroPedido_Pe from Pedido where CAST(Fechapedido_Pe as date)=CAST(GETDATE() as date)";
+;
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            List<int> numerosPed=new List<int>();
+            while (sqlDataReader.Read())
+            {
+                int NP=sqlDataReader.GetInt32(0);
+                numerosPed.Add(NP);
+            }
+            return numerosPed;
+        }
+
+        public List<Insumo> traerNombreInsumo(int numPedido)
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select Nombre_Insumo from (PedidoXInsumo inner join Insumo on IdInsumo_PXI=Id_Insumo) where NumeroPedido_PXI={numPedido}";
+            ;
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            List<Insumo> nombresInsumos = new List<Insumo>();
+            while (sqlDataReader.Read())
+            {
+                Insumo nombreI = new Insumo();
+                nombreI.NombreInsumo = sqlDataReader.GetString(0);
+                nombresInsumos.Add(nombreI);
+            }
+            return nombresInsumos;
         }
 
     }

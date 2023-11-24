@@ -6,7 +6,38 @@
           background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
           color: whitesmoke;
       }
+    
   </style>
-              
+    
+        
+      <%
+          List<int> numPedidos = (List<int>)Session["Cantidad de Pedidos"];
+          Negocio.PedidoNegocio PedN = new Negocio.PedidoNegocio();
+          List<Dominio.Insumo> NombresInsumo = new List<Dominio.Insumo>();
+          foreach(int NP in numPedidos)
+          {
+              NombresInsumo = PedN.traerNombreInsumo(NP);
+
+              %>
+    <div class="card" style="width: 18rem;margin-bottom:1rem;">
+  <div class="card-header">
+    Featured
+  </div>
+  <ol class="list-group list-group-flush" style="list-style-type:none;">
+      <%
+
+          foreach (Dominio.Insumo reg in NombresInsumo)
+          { %>
+
+
+    <li class="list-group-item"><%= reg.NombreInsumo %></li>
+    
+
+      <%} %>
+  </ol>
+</div>
+
+
+    <%}%>
 
 </asp:Content>

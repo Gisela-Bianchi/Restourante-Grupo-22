@@ -134,6 +134,39 @@ select '1','PAPAS FRITAS c/cheddar',4500,20,'3','1' union
 select '2','2 TORTILLAS DE TRIGO RELLENA.',800,200,'3','1'
 go
 
+insert into Mesero (Id_M,Dni_M,Nombre_M,Apellido_M,IdUsuario_M)
+select 1,'36855856','Rover','Perez',1
+go
+
+insert into Mesas (NumeroMesa_Mesa,Id_MeseroMesa,Capacidad_Mesa,Estado_Mesa)
+select 1,1,4,1 union
+select 2,1,4,1 union
+select 3,1,4,1 union
+select 4,1,4,1 
+go
+
 alter table Pedido add RecaudacionTotal_Pe decimal(8,2) not null default 0
 go
 
+create trigger actualizarRecTotal 
+on PedidoXInsumo
+after insert as 
+begin
+set nocount on;
+
+update Pedido set RecaudacionTotal_Pe=RecaudacionTotal_Pe+((select CantVendida_PXI from inserted )*(select PrecioUnitario_PXI from inserted))
+where NumeroPedido_Pe=(select NumeroPedido_PXI from inserted)
+end
+go
+
+select * from PedidoXInsumo
+go
+
+select * from Pedido
+go
+
+delete from PedidoXInsumo
+go
+
+delete from Pedido
+go
