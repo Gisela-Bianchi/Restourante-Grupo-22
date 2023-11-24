@@ -21,7 +21,7 @@ namespace Trabajo_Final
             {
                 Session.Add("TipoUsuario", "Mozo");
                 Response.Write("Botón Mozo clickeado. Redireccionando...");
-                Response.Redirect("Gerente.aspx");
+                Response.Redirect("Home.aspx");
             }
             else
             {
@@ -38,7 +38,7 @@ namespace Trabajo_Final
                 {
                     Session.Add("TipoUsuario", "Gerente");
                     Response.Write("Botón Gerente clickeado. Redireccionando...");
-                    Response.Redirect("Gerente.aspx");
+                    Response.Redirect("Home.aspx");
                 }
                /* else
                 {

@@ -11,7 +11,7 @@ namespace Trabajo_Final
 {
 
 
-    public partial class Gerente
+    public partial class Home
     {
     }
 }
