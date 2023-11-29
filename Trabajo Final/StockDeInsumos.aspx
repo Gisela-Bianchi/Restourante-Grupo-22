@@ -1,20 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StockDeInsumos.aspx.cs" Inherits="Trabajo_Final.Insumos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-       <style>
-    body {
-        background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
-        color: whitesmoke;
-    }
-</style>
+    <style>
+        body {
+            background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
+            color: whitesmoke;
+        }
+    </style>
+
+    <h1>Lista de insumos</h1>
+
+    <div class="row">
+        <div class="col-6">
+
+            <div class="mb-3">
+                <asp:Label Text="Filtrar" runat="server" />
+                <asp:TextBox runat="server" ID="txtFiltro" CssClass="form-control" AutoPostBack="true" OnTextChanged="Filtro_TextChanged" />
+            </div>
+        </div>
+    </div>
+
 
     <div class="row">
         <div class="col">
 
-            <asp:GridView runat="server" ID="dgvInsumos" CssClass="table table-dark table-bordered" DataKeyNames="IdInsumo" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvInsumos_SelectedIndexChanged" OnPageIndexChanging="dgvInsumos_PageIndexChanging"  PageSize="5">
-     <Columns>
-              
-             
+            <asp:GridView runat="server" ID="dgvInsumos" CssClass="table table-dark table-bordered" DataKeyNames="IdInsumo" AutoGenerateColumns="false" OnSelectedIndexChanged="dgvInsumos_SelectedIndexChanged" OnPageIndexChanging="dgvInsumos_PageIndexChanging" PageSize="5">
+                <Columns>
+
+
                     <asp:BoundField HeaderText="Id" DataField="IdInsumo" />
                     <asp:BoundField HeaderText="Nombre" DataField="NombreInsumo" />
                     <asp:BoundField HeaderText="Precio Unitario" DataField="PrecioUnitario" />
@@ -32,9 +45,9 @@
                 </Columns>
             </asp:GridView>
 
-            <a href="FormularioStock.aspx" style="margin-bottom: 10px; display: block; color : greenyellow; ">Agregar Producto</a>
+            <a href="FormularioStock.aspx" style="margin-bottom: 10px; display: block; color: greenyellow;">Agregar Producto</a>
 
-            
+
 
 
 

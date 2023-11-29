@@ -21,7 +21,7 @@ namespace Dominio
             try
             {
 
-                datos.SetearConsulta(@"select Id_TI as Id_TI, Nombre_TI as Nombre_Tipo_Insumo,Descripcion_TI as Descripcion_Tipo_Insumo,Estado_TI as Estado_Tipo_Insumo from TipoInsumo  ");
+                datos.SetearConsulta(@"select Id_TI as Id_TI, Nombre_TI as Nombre_Tipo_Insumo,Descripcion_TI as Descripcion_Tipo_Insumo,Estado_TI as Estado_Tipo_Insumo from TipoInsumo");
 
 
                 datos.EjecutarLectura();

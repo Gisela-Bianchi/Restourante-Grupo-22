@@ -16,7 +16,7 @@ namespace Dominio
     {
 
 
-        public List<Insumo> Listar(string id = "")
+        public List<Insumo> Listar()
         {
             List<Insumo> lista = new List<Insumo>();
             AccesoDatos datos = new AccesoDatos();
@@ -26,9 +26,9 @@ namespace Dominio
             {
 
                 datos.SetearConsulta(@"SELECT Id_Insumo as Id_Insumo, Nombre_Insumo as Nombre_Insumo, PrecioUnitario_Insumo as Precio_Unitario_Insumo, CantidadEnStock_Insumo as Cantidad_Stock_Insumo, Id_TI AS Id_TipoInsumo, Nombre_TI AS NombreTipo, Descripcion_TI AS DescripcionTipo, Estado_TI AS EstadoTipo, Id_Categoria , Descripcion_Categoria AS Descripcion_Categoria FROM Insumo INNER JOIN TipoInsumo ON Insumo.Id_Insumo = TipoInsumo.Id_TI INNER JOIN  Categoria ON Insumo.Id_Categoria_Insumo = Categoria.Id_Categoria");
-                if (id != "")
+            
 
-                    comando.CommandText += " and Id_Insumo = " + id;
+                    
 
                 datos.EjecutarLectura();
 
@@ -183,8 +183,8 @@ namespace Dominio
                 datos.setearParametro("@PrecioUnitario", insumo.PrecioUnitario);
 
                 datos.setearParametro("@CantidadStock", insumo.CantidadStock);
-                datos.setearParametro("TipoInsumo", insumo.Tipo.Id_TI);
-                datos.setearParametro("Id_Categoria", insumo.Descripcion.Id_Categoria);
+                datos.setearParametro("@TipoInsumo", insumo.Tipo.Id_TI);
+                datos.setearParametro("@Id_Categoria", insumo.Descripcion.Id_Categoria);
 
                 datos.EjecutarAccion();
             }
