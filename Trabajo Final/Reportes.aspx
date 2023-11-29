@@ -7,4 +7,11 @@
       }
   </style>
     <h1>REPORTES VARIOS</h1>
+    <div>
+        <h2>Total Recaudado Por Mesa</h2>
+        <p>Elija el mes: </p>
+        <asp:DropDownList ID="ddlMesas" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlMesas_SelectedIndexChanged"></asp:DropDownList>
+        <asp:Label ID="lblrecaudacionTotal" runat="server" Text=""></asp:Label>
+
+    </div>
 </asp:Content>

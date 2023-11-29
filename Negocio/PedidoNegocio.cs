@@ -55,6 +55,10 @@ namespace Negocio
             AccesoDatos acc = new AccesoDatos();
             return acc.traerNombreInsumo(numPedido);
         }
-
+        public int traeNumeroMesa(int numPedido)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.traeNumeroMesa(numPedido);
+        }
     }
 }

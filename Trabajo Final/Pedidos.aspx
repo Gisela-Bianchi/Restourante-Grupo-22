@@ -14,14 +14,16 @@
           List<int> numPedidos = (List<int>)Session["Cantidad de Pedidos"];
           Negocio.PedidoNegocio PedN = new Negocio.PedidoNegocio();
           List<Dominio.Insumo> NombresInsumo = new List<Dominio.Insumo>();
+          int numMesa=0;
           foreach(int NP in numPedidos)
           {
+              numMesa = PedN.traeNumeroMesa(NP);
               NombresInsumo = PedN.traerNombreInsumo(NP);
 
               %>
     <div class="card" style="width: 18rem;margin-bottom:1rem;">
   <div class="card-header">
-    Featured
+    Mesa <%=numMesa %>
   </div>
   <ol class="list-group list-group-flush" style="list-style-type:none;">
       <%

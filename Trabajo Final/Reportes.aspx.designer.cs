@@ -13,5 +13,23 @@ namespace Trabajo_Final
 
     public partial class Reportes
     {
+
+        /// <summary>
+        /// Control ddlMesas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMesas;
+
+        /// <summary>
+        /// Control lblrecaudacionTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblrecaudacionTotal;
     }
 }

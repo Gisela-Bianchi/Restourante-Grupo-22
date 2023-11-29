@@ -262,7 +262,7 @@ namespace Dominio
         {
             SqlConnection sqlConnection = ObtenerConnection();
             string consulta = $"select Nombre_Insumo from (PedidoXInsumo inner join Insumo on IdInsumo_PXI=Id_Insumo) where NumeroPedido_PXI={numPedido}";
-            ;
+            
             SqlCommand comand = new SqlCommand(consulta, sqlConnection);
             SqlDataReader sqlDataReader = comand.ExecuteReader();
             List<Insumo> nombresInsumos = new List<Insumo>();
@@ -272,8 +272,61 @@ namespace Dominio
                 nombreI.NombreInsumo = sqlDataReader.GetString(0);
                 nombresInsumos.Add(nombreI);
             }
+            sqlConnection.Close();
             return nombresInsumos;
+        } 
+
+        public int traeNumeroMesa(int numPedido)
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select NumeroMesa_Pe from Pedido where NumeroPedido_Pe='{numPedido}'";
+            
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            int numMesa = -1;
+            while (sqlDataReader.Read())
+            {
+                numMesa = sqlDataReader.GetInt32(0);
+            }
+            sqlConnection.Close();
+                return numMesa;
         }
 
+        public List<string> todosNumMesa()
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = "select NumeroMesa_Mesa from Mesas";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            List<string> list = new List<string>();
+            string agregar;
+            while (sqlDataReader.Read())
+            {
+                agregar = $"Mesa {sqlDataReader.GetInt32(0)}";
+                list.Add(agregar);
+            }
+            sqlConnection.Close();
+            return list;
+        }
+        public decimal recTotXMesa(int NumMesa)
+
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"  select sum(RecaudacionTotal_Pe) from Pedido where NumeroMesa_Pe = '{NumMesa}'";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            decimal recTotXMesa = 0;
+            while (sqlDataReader.Read())
+            {
+                if (sqlDataReader != null)
+                {
+                    recTotXMesa = sqlDataReader.GetDecimal(0);
+                }
+            }
+            sqlConnection.Close();
+            return recTotXMesa;
+        }
     }
 }
