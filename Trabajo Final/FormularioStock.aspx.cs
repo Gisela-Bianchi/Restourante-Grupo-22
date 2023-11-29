@@ -43,7 +43,7 @@ namespace Trabajo_Final
             if (id != "" && !IsPostBack)
             {
                 InsumoNegocio negocio = new InsumoNegocio();
-                List<Insumo> lista = negocio.ListaXid(id);
+                List<Insumo> lista = negocio.Listar(id);
                 Insumo seleccionado = lista[0];
 
 
@@ -67,11 +67,33 @@ namespace Trabajo_Final
 
             nuevoInsumo.Idinsumo = int.Parse(txtIdInsumo.Text);
             nuevoInsumo.NombreInsumo = (string)txtNombreInsumo.Text;
-            nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
-            nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);
+            /* nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
+             if (nuevoInsumo.CantidadStock < 0)
+             {
+
+                 lblError.Text = "La cantidad no puede ser menor a cero.";
+                 return;
+             }
+             nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);*/
+            if (!int.TryParse(textCantidadStock.Text, out int cantidadStock) || cantidadStock < 0)
+            {
+                lblError.Text = "La cantidad no puede ser menor a cero y debe ser un valor numérico.";
+                return;
+            }
+
+            nuevoInsumo.CantidadStock = cantidadStock;
+
+            if (!decimal.TryParse(textPrecioUnitario.Text, out decimal precioUnitario) || precioUnitario < 0)
+            {
+                lblError.Text = "El precio unitario no puede ser menor a cero y debe ser un valor numérico.";//ult
+                return;
+            }
+
+            nuevoInsumo.PrecioUnitario = precioUnitario;
 
             nuevoInsumo.Tipo = new TipoInsumo();
             nuevoInsumo.Tipo.Id_TI = int.Parse(ddlTipo.SelectedValue);
+
             nuevoInsumo.Descripcion = new Categoria();
             nuevoInsumo.Descripcion.Id_Categoria = int.Parse(ddlTipo.SelectedValue);
 
@@ -86,12 +108,12 @@ namespace Trabajo_Final
 
             else
             {
-                negocioInsumo.MofidicarInsumo(nuevoInsumo);
+                negocioInsumo.AgregarInsumo(nuevoInsumo);
             }
 
 
 
-            negocioInsumo.AgregarInsumo(nuevoInsumo);
+
 
 
             Response.Redirect("StockDeInsumos.aspx", false);

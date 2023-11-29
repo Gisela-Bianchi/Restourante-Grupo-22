@@ -1,13 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" 
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="FormularioStock.aspx.cs" Inherits="Trabajo_Final.FormularioStock" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-           <style>
-            body {
-                background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
-                color: whitesmoke;
-            }
-        </style>
+    <style>
+        body {
+            background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
+            color: whitesmoke;
+        }
+    </style>
 
     <div class="row">
         <div class="col-6">
@@ -78,6 +78,9 @@
 
                     </div>
                     <% } %>
+                    <div class="mb-3">
+                        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
 
