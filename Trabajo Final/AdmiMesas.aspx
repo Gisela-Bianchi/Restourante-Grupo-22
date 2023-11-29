@@ -33,6 +33,8 @@
                     <asp:TextBox ID="txtMesa1" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa1" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa1_Click" />
                     <br />
+                    <asp:Label ID="lblErrorMesa1" runat="server" Text="" ForeColor="Red"></asp:Label>
+                    <br />
                     <asp:GridView ID="gdvMesa1" runat="server">
                     </asp:GridView>
                     <br />
@@ -68,6 +70,8 @@
                     <asp:TextBox ID="txtMesa2" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa2" runat="server" Text="BAgregar Cantidad" OnClick="btnAgregarMesa2_Click" />
                     <br />
+                    <asp:Label ID="lblErrorMesa2" runat="server" Text="" ForeColor="Red"></asp:Label>
+                    <br />
                     <asp:GridView ID="gdvMesa2" runat="server"></asp:GridView>
                     <br />
                     <asp:Label ID="totalmesa2" runat="server" Text=""></asp:Label>
@@ -102,6 +106,8 @@
                     <asp:TextBox ID="txtMesa3" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa3" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa3_Click" />
                     <br />
+                    <asp:Label ID="lblErrorMesa3" runat="server" Text="" ForeColor="Red"></asp:Label>
+                    <br />
                     <asp:GridView ID="gdvMesa3" runat="server"></asp:GridView>
                     <br />
                     <asp:Label ID="totalmesa3" runat="server" Text=""></asp:Label>
@@ -135,6 +141,8 @@
                     <asp:DropDownList ID="ddlMesa4" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa4" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa4" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa4_Click" />
+                    <br />
+                    <asp:Label ID="lblErrorMesa4" runat="server" Text="" ForeColor="Red"></asp:Label>
                     <br />
                     <asp:GridView ID="gdvMesa4" runat="server"></asp:GridView>
                     <br />

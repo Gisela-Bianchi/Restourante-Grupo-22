@@ -59,6 +59,12 @@ namespace Trabajo_Final
             string PrecioUnitario = ddlMesa1.SelectedValue;
             string Insumo = ddlMesa1.SelectedItem.Text;
             string Cantidad = txtMesa1.Text;
+            if (!int.TryParse(Cantidad, out int cantidadInt) || cantidadInt <= 0)
+            {
+
+                lblErrorMesa1.Text = "La cantidad ingresada no es válida.";
+                return;
+            }
 
             DataTable Datos;
             if (Session["Datos"] != null)
@@ -106,6 +112,12 @@ namespace Trabajo_Final
             string PrecioUnitario = ddlMesa2.SelectedValue;
             string Insumo = ddlMesa2.SelectedItem.Text;
             string Cantidad = txtMesa2.Text;
+            if (!int.TryParse(Cantidad, out int cantidadInt) || cantidadInt <= 0)
+            {
+
+                lblErrorMesa2.Text = "La cantidad ingresada no es válida.";
+                return;
+            }
 
             DataTable Datos;
             if (Session["Datos2"] != null)
@@ -149,6 +161,12 @@ namespace Trabajo_Final
             string PrecioUnitario = ddlMesa3.SelectedValue;
             string Insumo = ddlMesa3.SelectedItem.Text;
             string Cantidad = txtMesa3.Text;
+            if (!int.TryParse(Cantidad, out int cantidadInt) || cantidadInt <= 0)
+            {
+
+                lblErrorMesa3.Text = "La cantidad ingresada no es válida.";
+                return;
+            }
 
             DataTable Datos;
             if (Session["Datos3"] != null)
@@ -192,6 +210,12 @@ namespace Trabajo_Final
             string PrecioUnitario = ddlMesa4.SelectedValue;
             string Insumo = ddlMesa4.SelectedItem.Text;
             string Cantidad = txtMesa4.Text;
+            if (!int.TryParse(Cantidad, out int cantidadInt) || cantidadInt <= 0)
+            {
+
+                lblErrorMesa4.Text = "La cantidad ingresada no es válida.";
+                return;
+            }
 
             DataTable Datos;
             if (Session["Datos4"] != null)

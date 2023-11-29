@@ -51,6 +51,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnAgregarMesa1;
 
         /// <summary>
+        /// Control lblErrorMesa1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMesa1;
+
+        /// <summary>
         /// Control gdvMesa1.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarMesa2;
+
+        /// <summary>
+        /// Control lblErrorMesa2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMesa2;
 
         /// <summary>
         /// Control gdvMesa2.
@@ -177,6 +195,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnAgregarMesa3;
 
         /// <summary>
+        /// Control lblErrorMesa3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMesa3;
+
+        /// <summary>
         /// Control gdvMesa3.
         /// </summary>
         /// <remarks>
@@ -238,6 +265,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarMesa4;
+
+        /// <summary>
+        /// Control lblErrorMesa4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMesa4;
 
         /// <summary>
         /// Control gdvMesa4.
