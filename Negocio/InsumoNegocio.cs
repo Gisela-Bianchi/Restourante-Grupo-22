@@ -218,10 +218,10 @@ namespace Dominio
             }
         }
 
-        public DataTable ObtenerNombreInsumo()
+        public DataTable ObtenerNombreInsumo(string nomCat)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
-            return accesoDatos.ObtenerNombreInsumos();
+            return accesoDatos.ObtenerNombreInsumos(nomCat);
         }
 
         public DataTable DevolverGrillaInsumo(string Id)

@@ -22,16 +22,16 @@ namespace Dominio
         {
             get { return lector; }
         }
-        //public AccesoDatos()
-        //{
-        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
-        //    comando = new SqlCommand();
-        //}
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
             comando = new SqlCommand();
         }
+       // public AccesoDatos()
+        //{
+         //   conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
+         //   comando = new SqlCommand();
+       // }
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -145,9 +145,9 @@ namespace Dominio
         }
 
 
-        public DataTable ObtenerNombreInsumos()
+        public DataTable ObtenerNombreInsumos(string nomCat)
         {
-            const string consulta = "select Nombre_Insumo,PrecioUnitario_Insumo from Insumo";
+            string consulta = $"select Nombre_Insumo,PrecioUnitario_Insumo from Insumo inner join Categoria on Id_Categoria=Id_Categoria_Insumo where Descripcion_Categoria='{nomCat}'";
             SqlConnection conexion = ObtenerConnection();
 
             SqlCommand comand = new SqlCommand(consulta, conexion);
@@ -327,6 +327,26 @@ namespace Dominio
             }
             sqlConnection.Close();
             return recTotXMesa;
+        }
+
+        public List<string> traerNombreCategoria()
+        {
+            
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select Descripcion_Categoria from Categoria";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            List<string> list = new List<string>();
+            string regCat;
+
+            while (sqlDataReader.Read())
+            {
+                regCat = sqlDataReader["Descripcion_Categoria"].ToString();
+                list.Add(regCat);
+            }
+            sqlConnection.Close();
+            return list;
         }
     }
 }

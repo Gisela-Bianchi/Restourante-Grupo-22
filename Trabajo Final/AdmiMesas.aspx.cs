@@ -22,31 +22,35 @@ namespace Trabajo_Final
         protected void btnIngresar4_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 4", 4);
-            LlenarLista(ddlMesa4);
+            //LlenarLista(ddlMesa4);
+            cargarNombreCategoria(ddlCategoria4);
         }
 
         protected void btnIngresar3_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 3", 3);
-            LlenarLista(ddlMesa3);
+           // LlenarLista(ddlMesa3);
+            cargarNombreCategoria(ddlCategoria3);
         }
 
         protected void btnIngresar2_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 2", 2);
-            LlenarLista(ddlMesa2);
+           // LlenarLista(ddlMesa2);
+            cargarNombreCategoria(ddlCategoria2);
 
         }
 
         protected void btnIngresar1_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 1", 1);
-            LlenarLista(ddlMesa1);
+           // LlenarLista(ddlMesa1);
+            cargarNombreCategoria(ddlCategoria1);
         }
-        public void LlenarLista(DropDownList Lista)
+        public void LlenarLista(DropDownList Lista,string nomCat)
         {
             InsumoNegocio insumoNegocio = new InsumoNegocio();
-            DataTable dataTable = insumoNegocio.ObtenerNombreInsumo();
+            DataTable dataTable = insumoNegocio.ObtenerNombreInsumo(nomCat);
             Lista.DataSource = dataTable;
             Lista.DataTextField = "Nombre_Insumo";
             Lista.DataValueField = "PrecioUnitario_Insumo";
@@ -366,6 +370,55 @@ namespace Trabajo_Final
             Session["Mesa 4"] = null;
         }
 
-      
+        public void cargarNombreCategoria(DropDownList lista)
+        {
+            CategoriaNegocio NC=new CategoriaNegocio();
+            lista.DataSource = NC.traerNombreCategoria();
+            
+            lista.DataBind();
+        }
+
+        protected void ddlCategoria1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Session["MostrarPlatos1"] == null)
+            {
+                Session.Add("MostrarPlatos1", true);
+
+            }
+            string nomCat=ddlCategoria1.SelectedValue;
+            LlenarLista(ddlMesa1, nomCat);
+        }
+
+        protected void ddlCategoria2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Session["MostrarPlatos2"] == null)
+            {
+                Session.Add("MostrarPlatos2", true);
+
+            }
+            string nomCat = ddlCategoria2.SelectedValue;
+            LlenarLista(ddlMesa2, nomCat);
+        }
+
+        protected void ddlCategoria3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Session["MostrarPlatos3"] == null)
+            {
+                Session.Add("MostrarPlatos3", true);
+
+            }
+            string nomCat = ddlCategoria3.SelectedValue;
+            LlenarLista(ddlMesa3, nomCat);
+        }
+        protected void ddlCategoria4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Session["MostrarPlatos4"] == null)
+            {
+                Session.Add("MostrarPlatos4", true);
+
+            }
+            string nomCat = ddlCategoria4.SelectedValue;
+            LlenarLista(ddlMesa4, nomCat);
+        }
     }
 }

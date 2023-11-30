@@ -24,6 +24,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar1;
 
         /// <summary>
+        /// Control ddlCategoria1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria1;
+
+        /// <summary>
         /// Control ddlMesa1.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIngresar2;
+
+        /// <summary>
+        /// Control ddlCategoria2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria2;
 
         /// <summary>
         /// Control ddlMesa2.
@@ -168,6 +186,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar3;
 
         /// <summary>
+        /// Control ddlCategoria3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria3;
+
+        /// <summary>
         /// Control ddlMesa3.
         /// </summary>
         /// <remarks>
@@ -238,6 +265,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIngresar4;
+
+        /// <summary>
+        /// Control ddlCategoria4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria4;
 
         /// <summary>
         /// Control ddlMesa4.

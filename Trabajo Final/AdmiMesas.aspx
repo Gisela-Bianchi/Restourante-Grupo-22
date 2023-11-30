@@ -24,11 +24,15 @@
         </div>
         <%}
             else
-            {  %>
+            {
+%>
         <div class="col">
             <div class="card">
 
                 <div class="card-body">
+                    <asp:DropDownList ID="ddlCategoria1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria1_SelectedIndexChanged"></asp:DropDownList>
+                    <%if (Session["MostrarPlatos1"] != null)
+                        {  %>
                     <asp:DropDownList ID="ddlMesa1" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa1" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa1" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa1_Click" />
@@ -40,6 +44,7 @@
                     <br />
                     <asp:Label ID="totalmesa1" runat="server" Text=""></asp:Label>
                     <asp:Button ID="btnPagarmesa1" runat="server" Text="Pagar" OnClick="btnPagarmesa1_Click" />
+                    <%} %>
                 </div>
             </div>
         </div>
@@ -66,9 +71,12 @@
             <div class="card">
 
                 <div class="card-body">
+                    <asp:DropDownList ID="ddlCategoria2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria2_SelectedIndexChanged"></asp:DropDownList>
+                     <%if (Session["MostrarPlatos2"] != null)
+                         {  %>
                     <asp:DropDownList ID="ddlMesa2" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa2" runat="server" TextMode="Number"></asp:TextBox>
-                    <asp:Button ID="btnAgregarMesa2" runat="server" Text="BAgregar Cantidad" OnClick="btnAgregarMesa2_Click" />
+                    <asp:Button ID="btnAgregarMesa2" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa2_Click" />
                     <br />
                     <asp:Label ID="lblErrorMesa2" runat="server" Text="" ForeColor="Red"></asp:Label>
                     <br />
@@ -76,6 +84,7 @@
                     <br />
                     <asp:Label ID="totalmesa2" runat="server" Text=""></asp:Label>
                     <asp:Button ID="btnPagarmesa2" runat="server" Text="Pagar" OnClick="btnPagarmesa2_Click" />
+                    <%} %>
                 </div>
             </div>
         </div>
@@ -102,6 +111,9 @@
             <div class="card">
 
                 <div class="card-body">
+                    <asp:DropDownList ID="ddlCategoria3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria3_SelectedIndexChanged"></asp:DropDownList>
+                     <%if (Session["MostrarPlatos3"] != null)
+                         {  %>
                     <asp:DropDownList ID="ddlMesa3" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa3" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa3" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa3_Click" />
@@ -112,6 +124,7 @@
                     <br />
                     <asp:Label ID="totalmesa3" runat="server" Text=""></asp:Label>
                     <asp:Button ID="btnPagarmesa3" runat="server" Text="Pagar" OnClick="btnPagarmesa3_Click" />
+                    <%} %>
                 </div>
             </div>
         </div>
@@ -138,6 +151,9 @@
             <div class="card">
 
                 <div class="card-body">
+                    <asp:DropDownList ID="ddlCategoria4" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria4_SelectedIndexChanged"></asp:DropDownList>
+                     <%if (Session["MostrarPlatos4"] != null)
+                         {  %>
                     <asp:DropDownList ID="ddlMesa4" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa4" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa4" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa4_Click" />
@@ -148,6 +164,7 @@
                     <br />
                     <asp:Label ID="totalmesa4" runat="server" Text=""></asp:Label>
                     <asp:Button ID="btnPagarmesa4" runat="server" Text="Pagar" OnClick="btnPagarmesa4_Click" />
+                    <%} %>
                 </div>
             </div>
         </div>

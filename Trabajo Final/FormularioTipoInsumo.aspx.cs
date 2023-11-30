@@ -27,7 +27,7 @@ namespace Trabajo_Final
 
                 //Cargamos los campos nuevamene modificados
                 txtIdTipoInsumo.Text = id;
-                //txtNombreTipo.Text = seleccionada.NombreTipoInsumo;
+                txtNombreTipo.Text = seleccionada.NombreTipoInsumo;
                 txtDescripcionTipo.Text = seleccionada.DescripcionTipoInsumo;
                //txtEstado.Text = seleccionada.EstadoTipoInsumo.ToString();
 
@@ -39,7 +39,7 @@ namespace Trabajo_Final
 
 
             Tipo.Id_TI = int.Parse(txtIdTipoInsumo.Text);
-            //Tipo.NombreTipoInsumo = txtNombreTipo.Text;
+            Tipo.NombreTipoInsumo = txtNombreTipo.Text;
             Tipo.DescripcionTipoInsumo= txtDescripcionTipo.Text;
             Tipo.EstadoTipoInsumo = true;
 
@@ -58,7 +58,7 @@ namespace Trabajo_Final
                 TipoNegocio.AgregarTipoInsumo(Tipo);
 
             }
-            Response.Redirect("AdmiCategoria.aspx", false);
+            Response.Redirect("AdmiTipoInsumo.aspx", false);
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {

@@ -23,11 +23,7 @@ namespace Dominio
 
                 datos.SetearConsulta(@"select Id_Categoria as Id_Categoria , Descripcion_Categoria as Descripcion_Categoria from Categoria;  ");
 
-
-
-
                 datos.EjecutarLectura();
-
 
                 while (datos.Lector.Read())
                 {
@@ -36,8 +32,6 @@ namespace Dominio
                         aux.Id_Categoria = (int)datos.Lector["Id_Categoria"];
 
                     aux.Descripcion_Categoria = (string)datos.Lector["Descripcion_Categoria"];
-
-
 
 
                     lista.Add(aux);
@@ -179,6 +173,12 @@ namespace Dominio
 
                 throw ex;
             }
+        }
+
+        public List<string> traerNombreCategoria()
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.traerNombreCategoria();
         }
     }
 }
