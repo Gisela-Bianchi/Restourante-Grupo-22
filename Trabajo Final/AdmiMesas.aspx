@@ -13,7 +13,7 @@
             {  %>
         <div class="col">
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+               
                 <div class="card-body">
                     <h5 class="card-title">Mesa 1</h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
@@ -55,7 +55,7 @@
             {  %>
         <div class="col">
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                
                 <div class="card-body">
                     <h5 class="card-title">Mesa 2</h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
@@ -95,7 +95,7 @@
             {  %>
         <div class="col">
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                
                 <div class="card-body">
                     <h5 class="card-title">Mesa 3</h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
@@ -135,7 +135,7 @@
             {  %>
         <div class="col">
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+               
                 <div class="card-body">
                     <h5 class="card-title">Mesa 4</h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />

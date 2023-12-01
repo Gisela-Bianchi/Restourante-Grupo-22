@@ -14,97 +14,80 @@ namespace Trabajo_Final
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            ConfirmarEliminacion = false;
+
+            if (!IsPostBack)
             {
-                txtIdInsumo.Enabled = false;
+                TipoInsumoNegocio tipo = new TipoInsumoNegocio();
+                List<TipoInsumo> lista = tipo.Listar();
 
-                ConfirmarEliminacion = false;
+                ddlTipo.DataSource = lista;
+                ddlTipo.DataValueField = "Id_TI";
+                ddlTipo.DataTextField = "DescripcionTipoInsumo";
 
-                if (!IsPostBack)
-                {
-                    TipoInsumoNegocio tipo = new TipoInsumoNegocio();
+                ddlTipo.DataBind();
 
-                    List<TipoInsumo> listaTipo = tipo.Listar();
+                CategoriaNegocio categoria = new CategoriaNegocio();
+                List<Categoria> list = categoria.Listar();
 
-                    ddlTipo.DataSource = listaTipo;
-                    ddlTipo.DataValueField = "Id_TI";
-                    ddlTipo.DataTextField = "NombreTipoInsumo";
-                    ddlTipo.DataBind();
 
-                    CategoriaNegocio categoria = new CategoriaNegocio();
+                ddlCategoria.DataSource = list;
+                ddlCategoria.DataValueField = "Id_Categoria";
+                ddlCategoria.DataTextField = "Descripcion_Categoria";
 
-                    List<Categoria> listaCategoria = categoria.Listar();
+                ddlCategoria.DataBind();
+            }
+            //ModificacionInsumo
 
-                    ddlCategoria.DataSource = listaCategoria;
-                    ddlCategoria.DataValueField = "Id_Categoria";
-                    ddlCategoria.DataTextField = "Descripcion_Categoria";
-                    ddlCategoria.DataBind();
+            string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+            if (id != "" && !IsPostBack)
+            {
+                InsumoNegocio negocio = new InsumoNegocio();
+                List<Insumo> listanegocio = negocio.ListaXid(id);
+                Insumo seleccionado = listanegocio[0];
 
-                    // ModificacionInsumo
-                    string id = Request.QueryString["id"];
-                    if (!string.IsNullOrEmpty(id))
-                    {
-                        InsumoNegocio negocio = new InsumoNegocio();
-                        List<Insumo> listaInsumos = negocio.ListaXid(id);
 
-                        if (listaInsumos.Count > 0)
-                        {
-                            Insumo seleccionado = listaInsumos[0];
+                //Cargamos los campos nuevos
 
-                            // Cargamos los campos nuevos
-                            txtIdInsumo.Text = id;
-                            txtNombreInsumo.Text = seleccionado.NombreInsumo;
-                            textPrecioUnitario.Text = seleccionado.PrecioUnitario.ToString();
-                            textCantidadStock.Text = seleccionado.CantidadStock.ToString();
 
-                            // Seleccionamos los valores en los desplegables
-                            ddlTipo.SelectedValue = seleccionado.Tipo.Id_TI.ToString();
-                            ddlCategoria.SelectedValue = seleccionado.Descripcion.Id_Categoria.ToString();
-                        }
-                    }
-                }
+                txtIdInsumo.Text = id;
+                txtNombreInsumo.Text = seleccionado.NombreInsumo;
+                textPrecioUnitario.Text = seleccionado.PrecioUnitario.ToString();
+                textCantidadStock.Text = seleccionado.CantidadStock.ToString();
 
+                ddlTipo.SelectedValue = seleccionado.Tipo.Id_TI.ToString();
+                ddlCategoria.SelectedValue = seleccionado.Descripcion.Id_Categoria.ToString();
 
             }
-            catch (Exception ex)
-            {
-                Session.Add("error ", ex);
-                throw;
-            }
-
-
-
-
         }
-
         protected void btnAceptar_Click(object sender, EventArgs e)
 
         {
             Insumo nuevoInsumo = new Insumo();
 
             nuevoInsumo.Idinsumo = int.Parse(txtIdInsumo.Text);
-            nuevoInsumo.NombreInsumo = txtNombreInsumo.Text;
-                    /* nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
-                     if (nuevoInsumo.CantidadStock < 0)
-                     {
+            nuevoInsumo.NombreInsumo = (string)txtNombreInsumo.Text;
+            /* nuevoInsumo.CantidadStock = int.Parse(textCantidadStock.Text);
+             if (nuevoInsumo.CantidadStock < 0)
+             {
 
-                         lblError.Text = "La cantidad no puede ser menor a cero.";
-                         return;
-                     }
-                     nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);*/
-                    if (!int.TryParse(textCantidadStock.Text, out int cantidadStock) || cantidadStock < 0)
-                    {
-                        lblError.Text = "La cantidad no puede ser menor a cero y debe ser un valor numérico.";
-                        return;
-                    }
+                 lblError.Text = "La cantidad no puede ser menor a cero.";
+                 return;
+             }
+             nuevoInsumo.PrecioUnitario = decimal.Parse(textPrecioUnitario.Text);*/
+            if (!int.TryParse(textCantidadStock.Text, out int cantidadStock) || cantidadStock < 0)
+            {
+                lblError.Text = "La cantidad no puede ser menor a cero y debe ser un valor numérico.";
+                return;
+            }
 
-                    nuevoInsumo.CantidadStock = cantidadStock;
+            nuevoInsumo.CantidadStock = cantidadStock;
 
-                    if (!decimal.TryParse(textPrecioUnitario.Text, out decimal precioUnitario) || precioUnitario < 0)
-                    {
-                        lblError.Text = "El precio unitario no puede ser menor a cero y debe ser un valor numérico.";//ult
-                        return;
-                    }
+            if (!decimal.TryParse(textPrecioUnitario.Text, out decimal precioUnitario) || precioUnitario < 0)
+            {
+                lblError.Text = "El precio unitario no puede ser menor a cero y debe ser un valor numérico.";//ult
+                return;
+            }
 
             nuevoInsumo.PrecioUnitario = precioUnitario;
 
@@ -112,7 +95,7 @@ namespace Trabajo_Final
             nuevoInsumo.Tipo.Id_TI = int.Parse(ddlTipo.SelectedValue);
 
             nuevoInsumo.Descripcion = new Categoria();
-            nuevoInsumo.Descripcion.Id_Categoria = int.Parse(ddlCategoria.SelectedValue);
+            nuevoInsumo.Descripcion.Id_Categoria = int.Parse(ddlTipo.SelectedValue);
 
             InsumoNegocio negocioInsumo = new InsumoNegocio();
 

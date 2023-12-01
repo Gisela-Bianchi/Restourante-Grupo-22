@@ -16,7 +16,26 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                rellenarListaSessionCategorias(ddlCategoria1);
+                rellenarListaSessionCategorias(ddlCategoria2);
+                rellenarListaSessionCategorias(ddlCategoria3);
+                rellenarListaSessionCategorias(ddlCategoria4);
+                rellenarListaSessionInsumos(ddlMesa1, "ListaInsumos1");
+                rellenarListaSessionInsumos(ddlMesa2, "ListaInsumos2");
+                rellenarListaSessionInsumos(ddlMesa3, "ListaInsumos3");
+                rellenarListaSessionInsumos(ddlMesa4, "ListaInsumos4");
+                rellenarGrillaSession(gdvMesa1, "Datos");
+                rellenarGrillaSession(gdvMesa2, "Datos2");
+                rellenarGrillaSession(gdvMesa3, "Datos3");
+                rellenarGrillaSession(gdvMesa4, "Datos4");
+                rellenarTotRecaudadoSession(totalmesa1, "totRecaudado1", 1);
+                rellenarTotRecaudadoSession(totalmesa2, "totRecaudado2", 2);
+                rellenarTotRecaudadoSession(totalmesa3, "totRecaudado3", 3);
+                rellenarTotRecaudadoSession(totalmesa4, "totRecaudado4", 4);
+            }
+                
         }
 
         protected void btnIngresar4_Click(object sender, EventArgs e)
@@ -47,10 +66,11 @@ namespace Trabajo_Final
            // LlenarLista(ddlMesa1);
             cargarNombreCategoria(ddlCategoria1);
         }
-        public void LlenarLista(DropDownList Lista,string nomCat)
+        public void LlenarLista(DropDownList Lista,string nomCat,string NombreSession)
         {
             InsumoNegocio insumoNegocio = new InsumoNegocio();
             DataTable dataTable = insumoNegocio.ObtenerNombreInsumo(nomCat);
+            Session.Add(NombreSession, dataTable);
             Lista.DataSource = dataTable;
             Lista.DataTextField = "Nombre_Insumo";
             Lista.DataValueField = "PrecioUnitario_Insumo";
@@ -106,6 +126,7 @@ namespace Trabajo_Final
                 totRecaudado1 += prec1 * cant1;
 
             }
+            Session.Add("totRecaudado1", totRecaudado1);
             totalmesa1.Text = $"El total recaudado por la mesa 1 es: {totRecaudado1}";
 
         }
@@ -156,6 +177,7 @@ namespace Trabajo_Final
                 totRecaudado2 += prec2 * cant2;
 
             }
+            Session.Add("totRecaudado2", totRecaudado2);
             totalmesa2.Text = $"El total recaudado por la mesa 2 es: {totRecaudado2}";
         }
 
@@ -205,6 +227,7 @@ namespace Trabajo_Final
                 totRecaudado3 += prec3 * cant3;
 
             }
+            Session.Add("totRecaudado3", totRecaudado3);
             totalmesa3.Text = $"El total recaudado por la mesa 3 es: {totRecaudado3}";
         }
 
@@ -254,6 +277,7 @@ namespace Trabajo_Final
                 totRecaudado4 += prec4 * cant4;
 
             }
+            Session.Add("totRecaudado4", totRecaudado4);
             totalmesa4.Text = $"El total recaudado por la mesa 4 es: {totRecaudado4}";
         }
 
@@ -284,6 +308,11 @@ namespace Trabajo_Final
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
             Session["Mesa 1"] = null;
+            Session["ListaInsumos1"] = null;
+            Session["Datos"] = null;
+            Session["totRecaudado1"] = null;
+            Session["MostrarPlatos1"] = null;
+
         }
         protected void btnPagarmesa2_Click(object sender, EventArgs e)
         {
@@ -312,6 +341,11 @@ namespace Trabajo_Final
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
             Session["Mesa 2"] = null;
+            Session["ListaInsumos2"] = null;
+            Session["Datos2"] = null;
+            Session["totRecaudado2"] = null;
+            Session["MostrarPlatos2"] = null;
+
         }
         protected void btnPagarmesa3_Click(object sender, EventArgs e)
         {
@@ -340,6 +374,11 @@ namespace Trabajo_Final
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
             Session["Mesa 3"] = null;
+            Session["ListaInsumos3"] = null;
+            Session["Datos3"] = null;
+            Session["totRecaudado3"] = null;
+            Session["MostrarPlatos3"] = null;
+
         }
         protected void btnPagarmesa4_Click(object sender, EventArgs e)
         {
@@ -368,12 +407,18 @@ namespace Trabajo_Final
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
             Session["Mesa 4"] = null;
+            Session["ListaInsumos4"] = null;
+            Session["Datos4"] = null;
+            Session["totRecaudado4"] = null;
+            Session["MostrarPlatos4"]=null;
         }
 
         public void cargarNombreCategoria(DropDownList lista)
         {
             CategoriaNegocio NC=new CategoriaNegocio();
-            lista.DataSource = NC.traerNombreCategoria();
+            
+            Session.Add("NombreCategoria", NC.traerNombreCategoria());
+            lista.DataSource = Session["NombreCategoria"];
             
             lista.DataBind();
         }
@@ -386,7 +431,7 @@ namespace Trabajo_Final
 
             }
             string nomCat=ddlCategoria1.SelectedValue;
-            LlenarLista(ddlMesa1, nomCat);
+            LlenarLista(ddlMesa1, nomCat,"ListaInsumos1");
         }
 
         protected void ddlCategoria2_SelectedIndexChanged(object sender, EventArgs e)
@@ -397,7 +442,7 @@ namespace Trabajo_Final
 
             }
             string nomCat = ddlCategoria2.SelectedValue;
-            LlenarLista(ddlMesa2, nomCat);
+            LlenarLista(ddlMesa2, nomCat, "ListaInsumos2");
         }
 
         protected void ddlCategoria3_SelectedIndexChanged(object sender, EventArgs e)
@@ -408,7 +453,7 @@ namespace Trabajo_Final
 
             }
             string nomCat = ddlCategoria3.SelectedValue;
-            LlenarLista(ddlMesa3, nomCat);
+            LlenarLista(ddlMesa3, nomCat, "ListaInsumos3");
         }
         protected void ddlCategoria4_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -418,7 +463,44 @@ namespace Trabajo_Final
 
             }
             string nomCat = ddlCategoria4.SelectedValue;
-            LlenarLista(ddlMesa4, nomCat);
+            LlenarLista(ddlMesa4, nomCat, "ListaInsumos4");
         }
+
+        public void rellenarListaSessionCategorias(DropDownList listaCategoria)
+        {
+            if (Session["NombreCategoria"] != null)
+            {
+                listaCategoria.DataSource = Session["NombreCategoria"];
+                listaCategoria.DataBind();
+            }
+        }
+
+        public void rellenarListaSessionInsumos(DropDownList listaInsumos,string NombreSession)
+        {
+            if (Session[NombreSession] != null)
+            {
+                listaInsumos.DataSource = Session[NombreSession];
+                listaInsumos.DataTextField = "Nombre_Insumo";
+                listaInsumos.DataValueField = "PrecioUnitario_Insumo";
+                listaInsumos.DataBind();
+            }
+        }
+        public void rellenarGrillaSession(GridView grilla,string NombreSessionGrilla)
+        {
+            if (Session[NombreSessionGrilla] != null)
+            {
+                grilla.DataSource = Session[NombreSessionGrilla];
+                grilla.DataBind();
+            }
+        }
+
+        public void rellenarTotRecaudadoSession(Label lbl,string NombreSessionRecaudacion, int NumMesa)
+        {
+            if (Session[NombreSessionRecaudacion] != null)
+            {
+                lbl.Text= $"El total recaudado por la mesa {NumMesa} es: {Session[NombreSessionRecaudacion]}";
+            }
+        }
+
     }
 }

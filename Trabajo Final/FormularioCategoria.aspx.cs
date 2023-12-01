@@ -13,7 +13,6 @@ namespace Trabajo_Final
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtIdCategoria.Enabled = false;
 
             ConfirmarEliminacion = false;
 

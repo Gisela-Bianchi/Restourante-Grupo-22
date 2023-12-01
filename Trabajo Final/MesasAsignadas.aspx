@@ -4,6 +4,4 @@
 
  <%--   //ESTA PAGINA ESTA DISEÑADA PARA LAS MESAS QUE TIENE ASIGNADA SOLO EL MOZO--%>
 
-
-
 </asp:Content>

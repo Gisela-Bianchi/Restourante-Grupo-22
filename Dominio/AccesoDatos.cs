@@ -22,16 +22,16 @@ namespace Dominio
         {
             get { return lector; }
         }
-        //public AccesoDatos()
-        //{
-        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
-        //    comando = new SqlCommand();
-        //}
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
             comando = new SqlCommand();
         }
+       // public AccesoDatos()
+        //{
+         //   conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
+         //   comando = new SqlCommand();
+       // }
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -219,7 +219,7 @@ namespace Dominio
         {
             bool creo;
             SqlConnection conexion = ObtenerConnection();
-            string consulta = $"INSERT INTO PedidoXInsumo ( IdInsumo_PXI, CantVendida_PXI, PrecioUnitario_PXI) VALUES ( {reg.IdInsumo.Idinsumo}, {reg.CantVendida}, {reg.PrecioUnitario})";
+            string consulta = $"INSERT INTO PedidoXInsumo (NumeroPedido_PXI, IdInsumo_PXI, CantVendida_PXI, PrecioUnitario_PXI) VALUES ({reg.NumeroPedido.NumeroPedido}, {reg.IdInsumo.Idinsumo}, {reg.CantVendida}, {reg.PrecioUnitario})";
 
             SqlCommand comand = new SqlCommand(consulta, conexion);
             int filasAfectadas = comand.ExecuteNonQuery();
