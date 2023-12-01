@@ -34,10 +34,13 @@
                     <asp:BoundField HeaderText="Cantidad Stock" DataField="CantidadStock" />
 
                     <asp:BoundField HeaderText="Id " DataField="Tipo.Id_TI" />
+
                     <asp:BoundField HeaderText="Nombre (Tipo)" DataField="Tipo.NombreTipoInsumo" />
+
                     <asp:BoundField HeaderText="Descripcion (Tipo)" DataField="Tipo.DescripcionTipoInsumo" />
 
                     <asp:BoundField HeaderText="Estado" DataField="Tipo.EstadoTipoInsumo" />
+
                     <asp:BoundField HeaderText="Id categoria" DataField="Descripcion.Id_Categoria" />
                     <asp:BoundField HeaderText="Descripcion" DataField="Descripcion.Descripcion_Categoria" />
                     <asp:CommandField HeaderText="Accion" ShowSelectButton="true" SelectText="Modificar" />

@@ -38,5 +38,12 @@ namespace Trabajo_Final
             dgvInsumos.DataSource = listaFiltrada;
             dgvInsumos.DataBind();
         }
+
+
+
     }
+
+
+
+
 }

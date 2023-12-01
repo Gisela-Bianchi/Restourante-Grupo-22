@@ -14,6 +14,7 @@ namespace Trabajo_Final
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtIdTipoInsumo.Enabled = false;
 
             ConfirmarEliminacion = false;
 
