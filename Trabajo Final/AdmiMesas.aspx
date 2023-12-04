@@ -6,6 +6,9 @@
             background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
             color: whitesmoke;
         }
+        .Libre{
+            color:green;
+        }
     </style>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -15,7 +18,7 @@
             <div class="card">
                
                 <div class="card-body">
-                    <h5 class="card-title">Mesa 1</h5>
+                    <h5 class="card-title">Mesa 1 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar1" runat="server" Text="Ingresar" OnClick="btnIngresar1_Click" />
 
@@ -30,6 +33,7 @@
             <div class="card">
 
                 <div class="card-body">
+                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria1_SelectedIndexChanged"></asp:DropDownList>
                     <%if (Session["MostrarPlatos1"] != null)
                         {  %>
@@ -57,7 +61,7 @@
             <div class="card">
                 
                 <div class="card-body">
-                    <h5 class="card-title">Mesa 2</h5>
+                    <h5 class="card-title">Mesa 2 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar2" runat="server" Text="Ingresar" OnClick="btnIngresar2_Click" />
 
@@ -71,6 +75,7 @@
             <div class="card">
 
                 <div class="card-body">
+                    <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria2_SelectedIndexChanged"></asp:DropDownList>
                      <%if (Session["MostrarPlatos2"] != null)
                          {  %>
@@ -97,7 +102,7 @@
             <div class="card">
                 
                 <div class="card-body">
-                    <h5 class="card-title">Mesa 3</h5>
+                    <h5 class="card-title">Mesa 3 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar3" runat="server" Text="Ingresar" OnClick="btnIngresar3_Click" />
 
@@ -111,6 +116,7 @@
             <div class="card">
 
                 <div class="card-body">
+                    <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria3_SelectedIndexChanged"></asp:DropDownList>
                      <%if (Session["MostrarPlatos3"] != null)
                          {  %>
@@ -137,7 +143,7 @@
             <div class="card">
                
                 <div class="card-body">
-                    <h5 class="card-title">Mesa 4</h5>
+                    <h5 class="card-title">Mesa 4 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar4" runat="server" Text="Ingresar" OnClick="btnIngresar4_Click" />
 
@@ -151,6 +157,7 @@
             <div class="card">
 
                 <div class="card-body">
+                    <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria4" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria4_SelectedIndexChanged"></asp:DropDownList>
                      <%if (Session["MostrarPlatos4"] != null)
                          {  %>

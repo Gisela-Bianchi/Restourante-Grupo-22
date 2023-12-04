@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdmiCategoria.aspx" />
+    <Content Include="AdministradorMesas.aspx" />
     <Content Include="AdmiTipoInsumo.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="AdmiCategoria.aspx.designer.cs">
       <DependentUpon>AdmiCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministradorMesas.aspx.cs">
+      <DependentUpon>AdministradorMesas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministradorMesas.aspx.designer.cs">
+      <DependentUpon>AdministradorMesas.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdmiTipoInsumo.aspx.cs">
       <DependentUpon>AdmiTipoInsumo.aspx</DependentUpon>

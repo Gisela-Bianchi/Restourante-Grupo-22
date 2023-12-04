@@ -22,16 +22,16 @@ namespace Dominio
         {
             get { return lector; }
         }
-        //public AccesoDatos()
-        //{
-        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
-        //    comando = new SqlCommand();
-        //}
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
             comando = new SqlCommand();
         }
+       // public AccesoDatos()
+      //  {
+          //  conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
+          //  comando = new SqlCommand();
+       // }
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -336,5 +336,29 @@ namespace Dominio
             sqlConnection.Close();
             return list;
         }
+
+        //PRUEBA PARA QUE EL GERENTE AGREGUE MESAS
+
+        public List<int> CantMesas()
+        {
+            
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = "select NumeroMesa_Mesa from Mesas";
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            List<int> lista = new List<int>();
+            int NumMesa = -1; 
+            while (sqlDataReader.Read())
+            {
+                if (sqlDataReader != null)
+                {
+                   NumMesa = sqlDataReader.GetInt32(0);
+                    lista.Add(NumMesa);
+                }
+            }
+            sqlConnection.Close();
+            return lista;
+        }
+        
     }
 }

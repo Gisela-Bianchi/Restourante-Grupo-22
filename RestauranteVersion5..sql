@@ -190,3 +190,32 @@ select Nombre_Insumo from (PedidoXInsumo inner join Insumo on IdInsumo_PXI=Id_In
 
 INSERT INTO PedidoXInsumo ( NumeroPedido_PXI,IdInsumo_PXI, CantVendida_PXI, PrecioUnitario_PXI) VALUES (1,1, 20, '200')
 
+-- Agregar una restricción CHECK a la columna "CantidadStock" en la tabla "Insumo"
+ALTER TABLE Insumo
+ADD CONSTRAINT CHK_CantidadStock CHECK (CantidadEnStock_Insumo >= 0);
+
+---Trigger para descontar stock
+CREATE TRIGGER TR_AGREGAR_PEDIDOXINSUMO ON PedidoXInsumo
+After insert 
+as 
+Begin
+
+	Begin try 
+		Begin transaction
+		
+		Declare @IdInsumo int 
+		Declare @CantVendida int
+
+		Select @IdInsumo = IdInsumo_PXI, @CantVendida = CantVendida_PXI from Inserted
+
+		Update Insumo SET CantidadEnStock_Insumo= CantidadEnStock_Insumo - @CantVendida where Id_Insumo =@IdInsumo
+		
+		COMMIT TRANSACTION
+		END TRY 
+		BEGIN CATCH 
+		ROLLBACK TRANSACTION 
+		END CATCH
+
+		END
+
+
