@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
-                <a href="Default.aspx"  style="margin-bottom: 10px; display: block; color : orange";>Cancelar</a>
+                <a href="AdmiCategoria.aspx"  style="margin-bottom: 10px; display: block; color : orange";>Cancelar</a>
             </div>
         </div>
     </div>

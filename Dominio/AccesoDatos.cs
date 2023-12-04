@@ -229,19 +229,7 @@ namespace Dominio
             return creo;
         }
 
-       /* public int PedidosDelDia()
-        {
-            SqlConnection sqlConnection = ObtenerConnection();
-            string consulta = "select * from Pedido where CAST(Fechapedido_Pe as date) = CAST(GETDATE() as date)";
-            SqlCommand comand = new SqlCommand( consulta, sqlConnection);
-            SqlDataReader sqlDataReader = comand.ExecuteReader();
-            int contReg = 0;
-            while (sqlDataReader.Read())
-            {
-                contReg++;
-            }
-            return contReg;
-        }*/
+   
         public List<int> NumerosPedidosDia()
         { 
             SqlConnection sqlConnection = ObtenerConnection();

@@ -13,6 +13,7 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
 
         }
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace Trabajo_Final
             if (regUsuario.Activo==true)
             {
                 Session.Add("Usuario", regUsuario);
-                Response.Redirect("Ingreso.aspx");
+                Response.Redirect("Home.aspx");
             }
             else
             {

@@ -119,6 +119,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Estilos.css" />
     <Content Include="favicon.ico" />
     <Content Include="FormularioCategoria.aspx" />
@@ -126,9 +127,11 @@
     <Content Include="FormularioTipoInsumo.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Ingreso.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="MesasAsignadas.aspx" />
     <Content Include="MeserosActivos.aspx" />
+    <Content Include="Pagina1Login.aspx" />
+    <Content Include="Pagina2LoginAdmin.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -196,6 +199,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormularioCategoria.aspx.cs">
       <DependentUpon>FormularioCategoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,12 +237,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Ingreso.aspx.cs">
-      <DependentUpon>Ingreso.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ingreso.aspx.designer.cs">
-      <DependentUpon>Ingreso.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MesasAsignadas.aspx.cs">
       <DependentUpon>MesasAsignadas.aspx</DependentUpon>
@@ -247,6 +257,20 @@
     </Compile>
     <Compile Include="MeserosActivos.aspx.designer.cs">
       <DependentUpon>MeserosActivos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina1Login.aspx.cs">
+      <DependentUpon>Pagina1Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina1Login.aspx.designer.cs">
+      <DependentUpon>Pagina1Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina2LoginAdmin.aspx.cs">
+      <DependentUpon>Pagina2LoginAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagina2LoginAdmin.aspx.designer.cs">
+      <DependentUpon>Pagina2LoginAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="StockDeInsumos.aspx.cs">
       <DependentUpon>StockDeInsumos.aspx</DependentUpon>
