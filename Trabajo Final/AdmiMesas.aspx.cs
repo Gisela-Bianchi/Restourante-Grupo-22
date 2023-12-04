@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
+
 namespace Trabajo_Final
 {
     public partial class Mesas : System.Web.UI.Page
@@ -35,7 +36,7 @@ namespace Trabajo_Final
                 rellenarTotRecaudadoSession(totalmesa3, "totRecaudado3", 3);
                 rellenarTotRecaudadoSession(totalmesa4, "totRecaudado4", 4);
             }
-                
+
         }
 
         protected void btnIngresar4_Click(object sender, EventArgs e)
@@ -48,14 +49,14 @@ namespace Trabajo_Final
         protected void btnIngresar3_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 3", 3);
-           // LlenarLista(ddlMesa3);
+            // LlenarLista(ddlMesa3);
             cargarNombreCategoria(ddlCategoria3);
         }
 
         protected void btnIngresar2_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 2", 2);
-           // LlenarLista(ddlMesa2);
+            // LlenarLista(ddlMesa2);
             cargarNombreCategoria(ddlCategoria2);
 
         }
@@ -63,10 +64,10 @@ namespace Trabajo_Final
         protected void btnIngresar1_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 1", 1);
-           // LlenarLista(ddlMesa1);
+            // LlenarLista(ddlMesa1);
             cargarNombreCategoria(ddlCategoria1);
         }
-        public void LlenarLista(DropDownList Lista,string nomCat,string NombreSession)
+        public void LlenarLista(DropDownList Lista, string nomCat, string NombreSession)
         {
             InsumoNegocio insumoNegocio = new InsumoNegocio();
             DataTable dataTable = insumoNegocio.ObtenerNombreInsumo(nomCat);
@@ -79,6 +80,9 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa1_Click(object sender, EventArgs e)
         {
+
+            InsumoNegocio insumoneg = new InsumoNegocio();
+
             if (txtMesa1.Text == "") { return; }
             string PrecioUnitario = ddlMesa1.SelectedValue;
             string Insumo = ddlMesa1.SelectedItem.Text;
@@ -89,6 +93,29 @@ namespace Trabajo_Final
                 lblErrorMesa1.Text = "La cantidad ingresada no es válida.";
                 return;
             }
+
+
+            int idInsumo = insumoneg.ObtenerIdInsumoPorNombre(Insumo);
+
+            if (idInsumo != 0)
+            {
+                int stockDisponible = insumoneg.ObtenerStockDisponiblePorId(idInsumo);
+
+                if (cantidadInt <= 0 || cantidadInt > stockDisponible)
+                {
+                    lblErrorMesa1.Text = "El stock disponible es: " + stockDisponible; ;
+                    return;
+                }
+
+
+            }
+            else
+            {
+                lblErrorMesa1.Text = "No se pudo obtener el Id del insumo.";
+                return;
+            }
+
+
 
             DataTable Datos;
             if (Session["Datos"] != null)
@@ -133,6 +160,9 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa2_Click(object sender, EventArgs e)
         {
+
+            InsumoNegocio insumoneg = new InsumoNegocio();
+
             if (txtMesa2.Text == "") { return; }
             string PrecioUnitario = ddlMesa2.SelectedValue;
             string Insumo = ddlMesa2.SelectedItem.Text;
@@ -143,6 +173,29 @@ namespace Trabajo_Final
                 lblErrorMesa2.Text = "La cantidad ingresada no es válida.";
                 return;
             }
+
+
+            int idInsumo = insumoneg.ObtenerIdInsumoPorNombre(Insumo);
+
+            if (idInsumo != 0)
+            {
+                int stockDisponible = insumoneg.ObtenerStockDisponiblePorId(idInsumo);
+
+                if (cantidadInt <= 0 || cantidadInt > stockDisponible)
+                {
+                    lblErrorMesa2.Text = "El stock disponible es: " + stockDisponible; ;
+                    return;
+                }
+
+
+            }
+            else
+            {
+                lblErrorMesa2.Text = "No se pudo obtener el Id del insumo.";
+                return;
+            }
+
+
 
             DataTable Datos;
             if (Session["Datos2"] != null)
@@ -183,6 +236,10 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa3_Click(object sender, EventArgs e)
         {
+
+
+            InsumoNegocio insumoneg = new InsumoNegocio();
+
             if (txtMesa3.Text == "") { return; }
             string PrecioUnitario = ddlMesa3.SelectedValue;
             string Insumo = ddlMesa3.SelectedItem.Text;
@@ -193,6 +250,29 @@ namespace Trabajo_Final
                 lblErrorMesa3.Text = "La cantidad ingresada no es válida.";
                 return;
             }
+
+
+            int idInsumo = insumoneg.ObtenerIdInsumoPorNombre(Insumo);
+
+            if (idInsumo != 0)
+            {
+                int stockDisponible = insumoneg.ObtenerStockDisponiblePorId(idInsumo);
+
+                if (cantidadInt <= 0 || cantidadInt > stockDisponible)
+                {
+                    lblErrorMesa3.Text = "El stock disponible es: " + stockDisponible; ;
+                    return;
+                }
+
+
+            }
+            else
+            {
+                lblErrorMesa3.Text = "No se pudo obtener el Id del insumo.";
+                return;
+            }
+
+
 
             DataTable Datos;
             if (Session["Datos3"] != null)
@@ -233,6 +313,10 @@ namespace Trabajo_Final
 
         protected void btnAgregarMesa4_Click(object sender, EventArgs e)
         {
+
+
+            InsumoNegocio insumoneg = new InsumoNegocio();
+
             if (txtMesa4.Text == "") { return; }
             string PrecioUnitario = ddlMesa4.SelectedValue;
             string Insumo = ddlMesa4.SelectedItem.Text;
@@ -243,6 +327,31 @@ namespace Trabajo_Final
                 lblErrorMesa4.Text = "La cantidad ingresada no es válida.";
                 return;
             }
+
+
+            int idInsumo = insumoneg.ObtenerIdInsumoPorNombre(Insumo);
+
+            if (idInsumo != 0)
+            {
+                int stockDisponible = insumoneg.ObtenerStockDisponiblePorId(idInsumo);
+
+                if (cantidadInt <= 0 || cantidadInt > stockDisponible)
+                {
+                    lblErrorMesa4.Text = "El stock disponible es: " + stockDisponible; 
+                    return;
+                }
+
+
+            }
+            else
+            {
+                lblErrorMesa4.Text = "No se pudo obtener el Id del insumo.";
+                return;
+            }
+
+
+
+
 
             DataTable Datos;
             if (Session["Datos4"] != null)
@@ -283,28 +392,28 @@ namespace Trabajo_Final
 
         protected void btnPagarmesa1_Click(object sender, EventArgs e)
         {
-            PedidoNegocio crearPedido=new PedidoNegocio();
-            if(crearPedido.CrearPedido(1)==false) 
+            PedidoNegocio crearPedido = new PedidoNegocio();
+            if (crearPedido.CrearPedido(1) == false)
             {
                 return;
             }
             PedidosXInsumo regPXI = new PedidosXInsumo();
             regPXI.NumeroPedido = new Pedido();
             regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
-            if(regPXI.NumeroPedido.NumeroPedido == -1) { return; }
-            
+            if (regPXI.NumeroPedido.NumeroPedido == -1) { return; }
+
             string Nombre1;
             double precio;
             for (int i = 0; i < gdvMesa1.Rows.Count; i++)
             {
                 regPXI.CantVendida = Convert.ToInt32(gdvMesa1.Rows[i].Cells[1].Text);
-               precio = Convert.ToDouble(gdvMesa1.Rows[i].Cells[2].Text);
-                regPXI.PrecioUnitario=Math.Round(precio,2);
+                precio = Convert.ToDouble(gdvMesa1.Rows[i].Cells[2].Text);
+                regPXI.PrecioUnitario = Math.Round(precio, 2);
                 Nombre1 = gdvMesa1.Rows[i].Cells[0].Text;
 
                 regPXI.IdInsumo = new Insumo();
                 regPXI.IdInsumo.Idinsumo = crearPedido.BuscarIdInsumo(Nombre1);
-                
+
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
             Session["Mesa 1"] = null;
@@ -410,16 +519,16 @@ namespace Trabajo_Final
             Session["ListaInsumos4"] = null;
             Session["Datos4"] = null;
             Session["totRecaudado4"] = null;
-            Session["MostrarPlatos4"]=null;
+            Session["MostrarPlatos4"] = null;
         }
 
         public void cargarNombreCategoria(DropDownList lista)
         {
-            CategoriaNegocio NC=new CategoriaNegocio();
-            
+            CategoriaNegocio NC = new CategoriaNegocio();
+
             Session.Add("NombreCategoria", NC.traerNombreCategoria());
             lista.DataSource = Session["NombreCategoria"];
-            
+
             lista.DataBind();
         }
 
@@ -430,8 +539,8 @@ namespace Trabajo_Final
                 Session.Add("MostrarPlatos1", true);
 
             }
-            string nomCat=ddlCategoria1.SelectedValue;
-            LlenarLista(ddlMesa1, nomCat,"ListaInsumos1");
+            string nomCat = ddlCategoria1.SelectedValue;
+            LlenarLista(ddlMesa1, nomCat, "ListaInsumos1");
         }
 
         protected void ddlCategoria2_SelectedIndexChanged(object sender, EventArgs e)
@@ -475,7 +584,7 @@ namespace Trabajo_Final
             }
         }
 
-        public void rellenarListaSessionInsumos(DropDownList listaInsumos,string NombreSession)
+        public void rellenarListaSessionInsumos(DropDownList listaInsumos, string NombreSession)
         {
             if (Session[NombreSession] != null)
             {
@@ -485,7 +594,7 @@ namespace Trabajo_Final
                 listaInsumos.DataBind();
             }
         }
-        public void rellenarGrillaSession(GridView grilla,string NombreSessionGrilla)
+        public void rellenarGrillaSession(GridView grilla, string NombreSessionGrilla)
         {
             if (Session[NombreSessionGrilla] != null)
             {
@@ -494,11 +603,11 @@ namespace Trabajo_Final
             }
         }
 
-        public void rellenarTotRecaudadoSession(Label lbl,string NombreSessionRecaudacion, int NumMesa)
+        public void rellenarTotRecaudadoSession(Label lbl, string NombreSessionRecaudacion, int NumMesa)
         {
             if (Session[NombreSessionRecaudacion] != null)
             {
-                lbl.Text= $"El total recaudado por la mesa {NumMesa} es: {Session[NombreSessionRecaudacion]}";
+                lbl.Text = $"El total recaudado por la mesa {NumMesa} es: {Session[NombreSessionRecaudacion]}";
             }
         }
 

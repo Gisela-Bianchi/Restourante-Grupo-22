@@ -230,6 +230,64 @@ namespace Dominio
             return acc.TraerInfoInsumos(Id);
         }
 
+
+        public int ObtenerStockDisponiblePorId(int idInsumo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+               
+                datos.SetearConsulta("SELECT CantidadEnStock_Insumo FROM Insumo WHERE Id_Insumo = @IdInsumo");
+                datos.setearParametro("@IdInsumo", idInsumo);
+
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return (int)datos.Lector["CantidadEnStock_Insumo"];
+                }
+                
+                return 0; // O algún valor predeterminado si el insumo no se encuentra
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+        public int ObtenerIdInsumoPorNombre(string nombreInsumo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+               
+                datos.SetearConsulta("SELECT Id_Insumo FROM Insumo WHERE Nombre_Insumo = @NombreInsumo");
+                datos.setearParametro("@NombreInsumo", nombreInsumo);
+
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return (int)datos.Lector["Id_Insumo"];
+                }
+
+                return 0; // O algún valor predeterminado si el insumo no se encuentra
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+
     }
 
 }
