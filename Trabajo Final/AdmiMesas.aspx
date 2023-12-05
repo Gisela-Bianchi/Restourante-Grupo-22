@@ -6,8 +6,9 @@
             background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
             color: whitesmoke;
         }
-        .Libre{
-            color:green;
+
+        .Libre {
+            color: green;
         }
     </style>
 
@@ -19,11 +20,18 @@
                 {  %>
         <div class="col">
             <div class="card">
-               
+
                 <div class="card-body">
                     <h5 class="card-title">Mesa 1 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar1" runat="server" Text="Ingresar" OnClick="btnIngresar1_Click" />
+
+
+                </div>
+                <div class="card-body">
+
+                    <asp:Button CssClass="btn btn-secondary" ID="btnAsignarMozo" runat="server" Text="Ingresar" OnClick="btnAsignarMozo_Click" />
+
 
                 </div>
             </div>
@@ -31,12 +39,12 @@
         <%}
             else
             {
-%>
+        %>
         <div class="col">
             <div class="card">
 
                 <div class="card-body">
-                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
+                    <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria1_SelectedIndexChanged"></asp:DropDownList>
                     <%if (Session["MostrarPlatos1"] != null)
                         {  %>
@@ -66,12 +74,17 @@
                 {  %>
         <div class="col">
             <div class="card">
-                
+
                 <div class="card-body">
                     <h5 class="card-title">Mesa 2 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar2" runat="server" Text="Ingresar" OnClick="btnIngresar2_Click" />
+                    <div class="card-body">
 
+                        <asp:Button CssClass="btn btn-secondary" ID="btnAsignarMozo2" runat="server" Text="Asignar mozo" OnClick="btnAsignarMozo2_Click" />
+
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,8 +97,8 @@
                 <div class="card-body">
                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria2_SelectedIndexChanged"></asp:DropDownList>
-                     <%if (Session["MostrarPlatos2"] != null)
-                         {  %>
+                    <%if (Session["MostrarPlatos2"] != null)
+                        {  %>
                     <asp:DropDownList ID="ddlMesa2" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa2" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa2" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa2_Click" />
@@ -111,12 +124,17 @@
                 {  %>
         <div class="col">
             <div class="card">
-                
+
                 <div class="card-body">
                     <h5 class="card-title">Mesa 3 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar3" runat="server" Text="Ingresar" OnClick="btnIngresar3_Click" />
+                    <div class="card-body">
 
+                        <asp:Button CssClass="btn btn-secondary" ID="btnAsignarMozo3" runat="server" Text="Asignar mozo" OnClick="btnAsignarMozo3_Click" />
+
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -129,8 +147,8 @@
                 <div class="card-body">
                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria3" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria3_SelectedIndexChanged"></asp:DropDownList>
-                     <%if (Session["MostrarPlatos3"] != null)
-                         {  %>
+                    <%if (Session["MostrarPlatos3"] != null)
+                        {  %>
                     <asp:DropDownList ID="ddlMesa3" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa3" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa3" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa3_Click" />
@@ -156,12 +174,17 @@
                 {  %>
         <div class="col">
             <div class="card">
-               
+
                 <div class="card-body">
                     <h5 class="card-title">Mesa 4 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar4" runat="server" Text="Ingresar" OnClick="btnIngresar4_Click" />
+                    <div class="card-body">
 
+                        <asp:Button CssClass="btn btn-secondary" ID="btnAsignarMozo4" runat="server" Text="Asignar mozo" OnClick="btnAsignarMozo4_Click" />
+
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,8 +197,8 @@
                 <div class="card-body">
                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria4" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria4_SelectedIndexChanged"></asp:DropDownList>
-                     <%if (Session["MostrarPlatos4"] != null)
-                         {  %>
+                    <%if (Session["MostrarPlatos4"] != null)
+                        {  %>
                     <asp:DropDownList ID="ddlMesa4" runat="server"></asp:DropDownList>
                     <asp:TextBox ID="txtMesa4" runat="server" TextMode="Number"></asp:TextBox>
                     <asp:Button ID="btnAgregarMesa4" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa4_Click" />
@@ -194,7 +217,7 @@
 
         <%}
             } %>
-        
+
         <%
             if (Session["MostrarMesa5"] == null)
             {
@@ -202,24 +225,29 @@
                 {  %>
         <div class="col">
             <div class="card">
-               
+
                 <div class="card-body">
                     <h5 class="card-title">Mesa 5 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar5" runat="server" Text="Ingresar" OnClick="btnIngresar5_Click" />
+                    <div class="card-body">
 
+                        <asp:Button CssClass="btn btn-secondary" ID="btnAsignarMozo5" runat="server" Text="Asignar mozo" OnClick="btnAsignarMozo5_Click" />
+
+
+                    </div>
                 </div>
             </div>
         </div>
         <%}
             else
             {
-%>
+        %>
         <div class="col">
             <div class="card">
 
                 <div class="card-body">
-                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
+                    <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria5" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria5_SelectedIndexChanged"></asp:DropDownList>
                     <%if (Session["MostrarPlatos5"] != null)
                         {  %>
@@ -242,7 +270,7 @@
 
         <%}
             }%>
-            
+
         <%
             if (Session["MostrarMesa6"] == null)
             {
@@ -250,24 +278,29 @@
                 {  %>
         <div class="col">
             <div class="card">
-               
+
                 <div class="card-body">
                     <h5 class="card-title">Mesa 6 - <span class="Libre">Mesa Libre</span></h5>
                     <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
                     <asp:Button CssClass="btn btn-primary" ID="btnIngresar6" runat="server" Text="Ingresar" OnClick="btnIngresar6_Click" />
+                    <div class="card-body">
 
+                        <asp:Button CssClass="btn btn-secondary" ID="btnAsignarMozo6" runat="server" Text="Asignar Mozo" OnClick="btnAsignarMozo6_Click" />
+
+
+                    </div>
                 </div>
             </div>
         </div>
         <%}
             else
             {
-%>
+        %>
         <div class="col">
             <div class="card">
 
                 <div class="card-body">
-                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
+                    <h5 class="card-title text-danger">Mesa Ocupada</h5>
                     <asp:DropDownList ID="ddlCategoria6" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria6_SelectedIndexChanged"></asp:DropDownList>
                     <%if (Session["MostrarPlatos6"] != null)
                         {  %>

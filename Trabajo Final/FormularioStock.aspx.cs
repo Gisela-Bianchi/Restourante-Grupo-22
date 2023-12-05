@@ -95,7 +95,7 @@ namespace Trabajo_Final
             nuevoInsumo.Tipo.Id_TI = int.Parse(ddlTipo.SelectedValue);
 
             nuevoInsumo.Descripcion = new Categoria();
-            nuevoInsumo.Descripcion.Id_Categoria = int.Parse(ddlTipo.SelectedValue);
+            nuevoInsumo.Descripcion.Id_Categoria = int.Parse(ddlCategoria.SelectedValue);
 
             InsumoNegocio negocioInsumo = new InsumoNegocio();
 

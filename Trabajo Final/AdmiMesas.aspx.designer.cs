@@ -24,6 +24,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar1;
 
         /// <summary>
+        /// Control btnAsignarMozo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAsignarMozo;
+
+        /// <summary>
         /// Control ddlCategoria1.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIngresar2;
+
+        /// <summary>
+        /// Control btnAsignarMozo2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAsignarMozo2;
 
         /// <summary>
         /// Control ddlCategoria2.
@@ -186,6 +204,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar3;
 
         /// <summary>
+        /// Control btnAsignarMozo3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAsignarMozo3;
+
+        /// <summary>
         /// Control ddlCategoria3.
         /// </summary>
         /// <remarks>
@@ -265,6 +292,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIngresar4;
+
+        /// <summary>
+        /// Control btnAsignarMozo4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAsignarMozo4;
 
         /// <summary>
         /// Control ddlCategoria4.
@@ -348,6 +384,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar5;
 
         /// <summary>
+        /// Control btnAsignarMozo5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAsignarMozo5;
+
+        /// <summary>
         /// Control ddlCategoria5.
         /// </summary>
         /// <remarks>
@@ -427,6 +472,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIngresar6;
+
+        /// <summary>
+        /// Control btnAsignarMozo6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAsignarMozo6;
 
         /// <summary>
         /// Control ddlCategoria6.

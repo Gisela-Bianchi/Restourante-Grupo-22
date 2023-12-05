@@ -65,7 +65,7 @@
             <div class="col-5">
                 <div class="mb-3">
                     <h2 style="color: red; font-weight: bold;">Inicio de Sesión</h2>
-                    <label for="exampleInputEmail1" class="form-label"><span style="font-weight: bold;">Usuario</span></label>
+                    <label for="exampleInputEmail1" class="form-label"><span style="font-weight: bold;">Email</span></label>
                     <asp:TextBox ID="TxtNombreUsuario" runat="server"></asp:TextBox>
                 </div>
                 <div class="mb-3">

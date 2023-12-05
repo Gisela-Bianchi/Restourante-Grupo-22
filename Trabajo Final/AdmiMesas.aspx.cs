@@ -905,5 +905,34 @@ namespace Trabajo_Final
             }
         }
 
+        protected void btnAsignarMozo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAsignarMozo6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAsignarMozo5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAsignarMozo4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAsignarMozo3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAsignarMozo2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
