@@ -321,6 +321,7 @@ namespace Trabajo_Final
             string PrecioUnitario = ddlMesa4.SelectedValue;
             string Insumo = ddlMesa4.SelectedItem.Text;
             string Cantidad = txtMesa4.Text;
+
             if (!int.TryParse(Cantidad, out int cantidadInt) || cantidadInt <= 0)
             {
 
@@ -397,6 +398,7 @@ namespace Trabajo_Final
             {
                 return;
             }
+
             PedidosXInsumo regPXI = new PedidosXInsumo();
             regPXI.NumeroPedido = new Pedido();
             regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
@@ -404,6 +406,7 @@ namespace Trabajo_Final
 
             string Nombre1;
             double precio;
+
             for (int i = 0; i < gdvMesa1.Rows.Count; i++)
             {
                 regPXI.CantVendida = Convert.ToInt32(gdvMesa1.Rows[i].Cells[1].Text);
@@ -416,12 +419,19 @@ namespace Trabajo_Final
 
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
+
+            int numeroPedido = regPXI.NumeroPedido.NumeroPedido;
+
+            // Actualiza el estado del pedido a "Pedido Cerrado"
+            crearPedido.ActualizarEstadoPedido(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, false);
+           
+
             Session["Mesa 1"] = null;
             Session["ListaInsumos1"] = null;
             Session["Datos"] = null;
             Session["totRecaudado1"] = null;
             Session["MostrarPlatos1"] = null;
-
         }
         protected void btnPagarmesa2_Click(object sender, EventArgs e)
         {
@@ -449,6 +459,12 @@ namespace Trabajo_Final
 
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
+            int numeroPedido = regPXI.NumeroPedido.NumeroPedido;
+
+            // Actualiza el estado del pedido a "Pedido Cerrado"
+            crearPedido.ActualizarEstadoPedido(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, false);
+
             Session["Mesa 2"] = null;
             Session["ListaInsumos2"] = null;
             Session["Datos2"] = null;
@@ -482,6 +498,12 @@ namespace Trabajo_Final
 
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
+            int numeroPedido = regPXI.NumeroPedido.NumeroPedido;
+
+            // Actualiza el estado del pedido a "Pedido Cerrado"
+            crearPedido.ActualizarEstadoPedido(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, false);
+
             Session["Mesa 3"] = null;
             Session["ListaInsumos3"] = null;
             Session["Datos3"] = null;
@@ -515,6 +537,12 @@ namespace Trabajo_Final
 
                 crearPedido.ingresarInsumoXPedido(regPXI);
             }
+            int numeroPedido = regPXI.NumeroPedido.NumeroPedido;
+
+            // Actualiza el estado del pedido a "Pedido Cerrado"
+            crearPedido.ActualizarEstadoPedido(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, true);
+
             Session["Mesa 4"] = null;
             Session["ListaInsumos4"] = null;
             Session["Datos4"] = null;

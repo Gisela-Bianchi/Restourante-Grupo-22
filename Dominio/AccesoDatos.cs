@@ -22,16 +22,16 @@ namespace Dominio
         {
             get { return lector; }
         }
+        //public AccesoDatos()
+        //{
+        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
+        //    comando = new SqlCommand();
+        //}
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
             comando = new SqlCommand();
         }
-       // public AccesoDatos()
-      //  {
-          //  conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
-          //  comando = new SqlCommand();
-       // }
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -214,6 +214,30 @@ namespace Dominio
             conexion.Close();
             return id;
         }
+        public bool ActualizarEstadoPedido(int numeroPedido, bool nuevoEstado)
+        {
+            bool creo;
+            SqlConnection conexion = ObtenerConnection();
+            string consulta = $"UPDATE Pedido SET EstadoPedido_Pe = '{(nuevoEstado ? 1 : 0)}' WHERE NumeroPedido_Pe = {numeroPedido}";
+            SqlCommand comand = new SqlCommand(consulta, conexion);
+            int filasAfectadas = comand.ExecuteNonQuery();
+            if (filasAfectadas == 0) { creo = false; }
+            else { creo = true; }
+            conexion.Close();
+            return creo;
+        }
+        public bool ActualizarFacturacion(int numeroPedido, bool nuevoEstado)
+        {
+            bool creo;
+            SqlConnection conexion = ObtenerConnection();
+            string consulta = $"UPDATE Pedido SET Facturado_Pe = '{(nuevoEstado ? 1 : 0)}' WHERE NumeroPedido_Pe = {numeroPedido}";
+            SqlCommand comand = new SqlCommand(consulta, conexion);
+            int filasAfectadas = comand.ExecuteNonQuery();
+            if (filasAfectadas == 0) { creo = false; }
+            else { creo = true; }
+            conexion.Close();
+            return creo;
+        }
 
         public bool ingresarInsumoXPedido(PedidosXInsumo reg)
         {
@@ -278,6 +302,58 @@ namespace Dominio
             }
             sqlConnection.Close();
                 return numMesa;
+        }
+        public DateTime traeHoraPedido(int numPedido)
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select FechaPedido_Pe from Pedido where NumeroPedido_Pe='{numPedido}'";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            DateTime fechaPedido = DateTime.MinValue;
+
+            while (sqlDataReader.Read())
+            {
+                fechaPedido = sqlDataReader.GetDateTime(0);
+            }
+            sqlConnection.Close();
+            return fechaPedido;
+        }
+        
+
+             public bool  traeEstadoPedido(int numPedido )
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select EstadoPedido_Pe from Pedido where NumeroPedido_Pe='{numPedido}'";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            bool EstadoPedido = false;
+
+            while (sqlDataReader.Read())
+            {
+                EstadoPedido = sqlDataReader.GetBoolean(0);
+            }
+            sqlConnection.Close();
+            return EstadoPedido;
+         }
+      
+
+            public bool TraerSiEstaFacturado(int numPedido)
+            {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select Facturado_Pe from Pedido where NumeroPedido_Pe='{numPedido}'";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            bool Facturado = false;
+
+            while (sqlDataReader.Read())
+            {
+                Facturado = sqlDataReader.GetBoolean(0);
+            }
+            sqlConnection.Close();
+            return Facturado;
         }
 
         public List<string> todosNumMesa()

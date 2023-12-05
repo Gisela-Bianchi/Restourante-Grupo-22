@@ -37,12 +37,14 @@ namespace Negocio
             AccesoDatos acc = new AccesoDatos();
             return acc.ingresarInsumoXPedido(reg);
         }
+   
 
-       /* public int PedidosDelDia()
-        {
-            AccesoDatos acc = new AccesoDatos();
-            return acc.PedidosDelDia();
-        }*/
+
+        /* public int PedidosDelDia()
+         {
+             AccesoDatos acc = new AccesoDatos();
+             return acc.PedidosDelDia();
+         }*/
 
         public List<int> NumerosPedidosDia()
         {
@@ -60,5 +62,36 @@ namespace Negocio
             AccesoDatos acc = new AccesoDatos();
             return acc.traeNumeroMesa(numPedido);
         }
+        public DateTime traeHoraPedido(int numPedido)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.traeHoraPedido(numPedido);
+
+        }
+        public bool traeEstadoPedido(int numPedido)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.traeEstadoPedido(numPedido);
+
+        }
+        public bool ActualizarEstadoPedido(int numPedido, bool estado)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.ActualizarEstadoPedido(numPedido, estado);
+
+        }
+        public bool ActualizarFacturacion(int numPedido, bool estado)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.ActualizarFacturacion(numPedido, estado);
+
+        }
+        public bool TraerSiEstaFacturado(int numPedido)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.TraerSiEstaFacturado(numPedido);
+
+        }
+
     }
 }
