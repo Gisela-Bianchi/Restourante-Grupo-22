@@ -24,12 +24,12 @@ namespace Dominio
         }
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = Restaurante; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = RestauranteBase1; Integrated Security = True");
             comando = new SqlCommand();
         }
         /*public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = Restaurante; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = RestauranteBase1 ; Integrated Security = True");
             comando = new SqlCommand();
         }*/
         public SqlConnection ObtenerConnection()
@@ -74,7 +74,7 @@ namespace Dominio
         }
         public Usuario Loguear(Usuario usuario)
         {
-            string Consulta = $"select Id,Usuario,Contraseña,TipoUsuario from Usuario where Usuario = '{usuario.Usuarios}' and Contraseña = '{usuario.Contraseña}'";
+            string Consulta = $"select Id,Contraseña,TipoUsuario from Usuario where Email = '{usuario.Email}' and Contraseña = '{usuario.Contraseña}'";
 
             try
             {
@@ -89,12 +89,12 @@ namespace Dominio
                     //nuevo
                     while (rd.Read())
                     {
-
-                        regUsuario.Id = Int32.Parse(rd["Id"].ToString());
-                        regUsuario.Usuarios = rd["Usuario"].ToString();
-                        regUsuario.Contraseña = rd["Contraseña"].ToString();
-                        regUsuario.TipoUsuario = Int32.Parse(rd["TipoUsuario"].ToString());
+                        regUsuario.Id = (int)rd["Id"];
+                        regUsuario.TipoUsuario = rd["TipoUsuario"].ToString();
                         regUsuario.Activo = true;
+                        regUsuario.Email = usuario.Email;
+                        regUsuario.Contraseña = usuario.Contraseña;
+
                     }
                 }
                 else

@@ -8,17 +8,17 @@ namespace Dominio
 {
     public class Gerente
     {
-        
-        public int Id { get; set; }
 
+        public int IdGerente { get; set; }
+        public int IdUsuario { get; set; }
         public int DNI { get; set; }
         public string NombreGerente { get; set; }
         public string ApellidoGerente { get; set; }
 
 
-        public List<Reportes> Informes {  get; set; }
+        public List<Reportes> Informes { get; set; }
 
     }
- 
+
 
 }

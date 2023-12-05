@@ -1,35 +1,53 @@
 use master 
 go
-create database Restaurante
+create database RestauranteBase1
 go
 
-use Restaurante
+use RestauranteBase1
 go
-
-
 
 create table Usuario(
-Id int not null,
-Contraseña varchar(50) not null,
-Usuario varchar(50) not null,
-TipoUsuario int not null,
-Activo bit not null,
-constraint pk_Usuario Primary key(Id)
+Id INT IDENTITY(1,1) not null Primary key,
+ContraseÃ±a varchar(50) not null,
+Email varchar(50) not null unique,
+TipoUsuario VARCHAR(20) not null CHECK(TipoUsuario='Gerente' OR TipoUsuario='Mesero'),
+Activo bit not null default(1),
 )
-
-create table Mesero (
-Id_M int not null,
-Dni_M char(8) not null,
+GO
+insert into Usuario(ContraseÃ‘a,Email,TipoUsuario)
+VALUES ('mecero','mozo1@ejemplo.com','Mesero'),
+       ('mecero','mozo2@ejemplo.com','Mesero'),
+       ('mecero','mozo3@ejemplo.com','Mesero'),
+       ('gerente','gerente@ejemplo.com','Gerente')
+GO
+create table Mesero(
+Id_M INT IDENTITY(1,1) not null Primary key,
+Dni_M char(8) not null unique,
 Nombre_M varchar(20) not null,
 Apellido_M varchar(20) not null,
-IdUsuario_M int not null,
-EsAdmi_M bit not null,--**
-constraint pk_Mesero Primary key (Id_M),
+IdUsuario_M INT not null,
 constraint fk_Mesero_Usuario Foreign key(IdUsuario_M) references Usuario (Id)
 )
-
+GO
+INSERT INTO Mesero(Dni_M,Nombre_M,Apellido_M,IdUsuario_M)
+VALUES (11111111,'Jorge','Castro',1),
+       (22222222,'Juan','Castro',2),
+       (33333333,'Jose','Castro',3)
+GO
+create table Gerente(
+Id_G INT IDENTITY(1,1) not null Primary key,
+Dni_G char(8) not null unique,
+Nombre_G varchar(20) not null,
+Apellido_G varchar(20) not null,
+IdUsuario_G INT not null,
+constraint fk_Gerente_Usuario Foreign key(IdUsuario_G) references Usuario (Id)
+)
+GO 
+INSERT INTO Gerente(Dni_G,Nombre_G,Apellido_G,IdUsuario_G)
+values (44444444,'Jorge','Castro Gerente',4)
+GO
 create table Mesas(
-NumeroMesa_Mesa int identity (1,1) not null,--
+NumeroMesa_Mesa int not null,--
 Id_MeseroMesa int not null,
 Capacidad_Mesa int not null,
 Estado_Mesa bit not null,
@@ -43,7 +61,8 @@ NumeroMesa_Pe int not null,
 EstadoPedido_Pe bit default 1 not null,
 Facturado_Pe bit default 0 not null,
 constraint pk_Pedido Primary key (NumeroPedido_Pe),
-constraint fk_Pedido_Mesas foreign key (NumeroMesa_Pe) references Mesas(NumeroMesa_Mesa) 
+constraint fk_Pedido_Mesas foreign key (NumeroMesa_Pe) references Mesas(NumeroMesa_Mesa), 
+
 
 )
 create table Categoria(
@@ -84,15 +103,6 @@ constraint fk_PedidoXInsumo_Insumo foreign key (IdInsumo_PXI) references Insumo(
 
 
 
-create table Gerente(
-Id_G int not null,
-Dni_G char(8)not null,
-Nombre_G varchar(20) not null,
-Apellido_G varchar(20) not null,
-constraint pk_Gerente Primary key ( Id_G)
-
-)
-
 create table AsignacionesMesa(
 Id_AM int identity(1,1) not null,--
 NumeroMesa_AM int not null,
@@ -124,10 +134,6 @@ select  'Vegano','Cambia la proteina por falafel o tofu',1 union
 select  'general','todo tipo de carne, vegetales, frutas, legumbres',1
 go
 
-insert into Usuario(Id,Contraseña,Usuario,TipoUsuario,Activo)
-select '1','test','test','1','1' union
-select '2','admin','admin','2','1'
-go
 
 
 insert into Insumo(Nombre_Insumo,PrecioUnitario_Insumo,CantidadEnStock_Insumo,Tipo_Insumo,Id_Categoria_Insumo)
@@ -138,16 +144,13 @@ go
 
 
 
-
-insert into Mesero (Id_M,Dni_M,Nombre_M,Apellido_M,IdUsuario_M, EsAdmi_M)
-select 1,'36855856','Rover','Perez',1,0
-go
-
-insert into Mesas (Id_MeseroMesa,Capacidad_Mesa,Estado_Mesa)
-select 1,4,1 union
-select 1,4,1 union
-select 1,4,1 union
-select 1,4,1 
+insert into Mesas (NumeroMesa_Mesa,Id_MeseroMesa,Capacidad_Mesa,Estado_Mesa)
+select 1,1,4,1 union
+select 2,1,4,1 union
+select 3,1,4,1 union
+select 4,1,4,1 union
+select 5,1,5,1 union
+select 6,1,4,1
 go
 
 alter table Pedido add RecaudacionTotal_Pe decimal(8,2) not null default 0
@@ -162,6 +165,8 @@ set nocount on;
 update Pedido set RecaudacionTotal_Pe=RecaudacionTotal_Pe+((select CantVendida_PXI from inserted )*(select PrecioUnitario_PXI from inserted))
 where NumeroPedido_Pe=(select NumeroPedido_PXI from inserted)
 end
+/*
+
 go
 
 select * from PedidoXInsumo
@@ -190,32 +195,4 @@ select Nombre_Insumo from (PedidoXInsumo inner join Insumo on IdInsumo_PXI=Id_In
 
 INSERT INTO PedidoXInsumo ( NumeroPedido_PXI,IdInsumo_PXI, CantVendida_PXI, PrecioUnitario_PXI) VALUES (1,1, 20, '200')
 
--- Agregar una restricción CHECK a la columna "CantidadStock" en la tabla "Insumo"
-ALTER TABLE Insumo
-ADD CONSTRAINT CHK_CantidadStock CHECK (CantidadEnStock_Insumo >= 0);
-
----Trigger para descontar stock
-CREATE TRIGGER TR_AGREGAR_PEDIDOXINSUMO ON PedidoXInsumo
-After insert 
-as 
-Begin
-
-	Begin try 
-		Begin transaction
-		
-		Declare @IdInsumo int 
-		Declare @CantVendida int
-
-		Select @IdInsumo = IdInsumo_PXI, @CantVendida = CantVendida_PXI from Inserted
-
-		Update Insumo SET CantidadEnStock_Insumo= CantidadEnStock_Insumo - @CantVendida where Id_Insumo =@IdInsumo
-		
-		COMMIT TRANSACTION
-		END TRY 
-		BEGIN CATCH 
-		ROLLBACK TRANSACTION 
-		END CATCH
-
-		END
-
-
+*/

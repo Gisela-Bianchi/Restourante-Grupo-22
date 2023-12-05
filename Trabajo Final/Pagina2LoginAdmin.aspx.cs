@@ -11,7 +11,7 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(Session["Usuario"] != null && ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == 2))
+            if (!(Session["Usuario"] != null && ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == "Gerente"))
             {
                 Session.Add("error", "No tienen permisos para ingresar a esta pantalla.Necesitas nivel admin.");
                 Response.Redirect("Error.aspx",false);
