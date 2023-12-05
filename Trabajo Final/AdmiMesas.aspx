@@ -12,8 +12,11 @@
     </style>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
-        <%if (Session["Mesa 1"] == null)
-            {  %>
+        <%
+            if (Session["MostrarMesa1"] == null)
+            {
+                if (Session["Mesa 1"] == null)
+                {  %>
         <div class="col">
             <div class="card">
                
@@ -54,9 +57,13 @@
         </div>
 
 
-        <%} %>
-        <%if (Session["Mesa 2"] == null)
-            {  %>
+        <%}
+            } %>
+        <%
+            if (Session["MostrarMesa2"] == null)
+            {
+                if (Session["Mesa 2"] == null)
+                {  %>
         <div class="col">
             <div class="card">
                 
@@ -95,9 +102,13 @@
         </div>
 
 
-        <%} %>
-        <%if (Session["Mesa 3"] == null)
-            {  %>
+        <%}
+            } %>
+        <%
+            if (Session["MostrarMesa3"] == null)
+            {
+                if (Session["Mesa 3"] == null)
+                {  %>
         <div class="col">
             <div class="card">
                 
@@ -136,9 +147,13 @@
         </div>
 
 
-        <%} %>
-        <%if (Session["Mesa 4"] == null)
-            {  %>
+        <%}
+            } %>
+        <%
+            if (Session["MostrarMesa4"] == null)
+            {
+                if (Session["Mesa 4"] == null)
+                {  %>
         <div class="col">
             <div class="card">
                
@@ -177,7 +192,104 @@
         </div>
 
 
-        <%} %>
+        <%}
+            } %>
+        
+        <%
+            if (Session["MostrarMesa5"] == null)
+            {
+                if (Session["Mesa 5"] == null)
+                {  %>
+        <div class="col">
+            <div class="card">
+               
+                <div class="card-body">
+                    <h5 class="card-title">Mesa 5 - <span class="Libre">Mesa Libre</span></h5>
+                    <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
+                    <asp:Button CssClass="btn btn-primary" ID="btnIngresar5" runat="server" Text="Ingresar" OnClick="btnIngresar5_Click" />
+
+                </div>
+            </div>
+        </div>
+        <%}
+            else
+            {
+%>
+        <div class="col">
+            <div class="card">
+
+                <div class="card-body">
+                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
+                    <asp:DropDownList ID="ddlCategoria5" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria5_SelectedIndexChanged"></asp:DropDownList>
+                    <%if (Session["MostrarPlatos5"] != null)
+                        {  %>
+                    <asp:DropDownList ID="ddlMesa5" runat="server"></asp:DropDownList>
+                    <asp:TextBox ID="txtMesa5" runat="server" TextMode="Number"></asp:TextBox>
+                    <asp:Button ID="btnAgregarMesa5" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa5_Click" />
+                    <br />
+                    <asp:Label ID="lblErrorMesa5" runat="server" Text="" ForeColor="Red"></asp:Label>
+                    <br />
+                    <asp:GridView ID="gdvMesa5" runat="server">
+                    </asp:GridView>
+                    <br />
+                    <asp:Label ID="totalmesa5" runat="server" Text=""></asp:Label>
+                    <asp:Button ID="btnPagarmesa5" runat="server" Text="Pagar" OnClick="btnPagarmesa5_Click" />
+                    <%} %>
+                </div>
+            </div>
+        </div>
+
+
+        <%}
+            }%>
+            
+        <%
+            if (Session["MostrarMesa6"] == null)
+            {
+                if (Session["Mesa 6"] == null)
+                {  %>
+        <div class="col">
+            <div class="card">
+               
+                <div class="card-body">
+                    <h5 class="card-title">Mesa 6 - <span class="Libre">Mesa Libre</span></h5>
+                    <img src="https://www.kroger.com/product/images/large/right/0071085937477" alt="Imagen de fondo" style="width: 300px; height: auto;" />
+                    <asp:Button CssClass="btn btn-primary" ID="btnIngresar6" runat="server" Text="Ingresar" OnClick="btnIngresar6_Click" />
+
+                </div>
+            </div>
+        </div>
+        <%}
+            else
+            {
+%>
+        <div class="col">
+            <div class="card">
+
+                <div class="card-body">
+                     <h5 class="card-title text-danger">Mesa Ocupada</h5>
+                    <asp:DropDownList ID="ddlCategoria6" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoria6_SelectedIndexChanged"></asp:DropDownList>
+                    <%if (Session["MostrarPlatos6"] != null)
+                        {  %>
+                    <asp:DropDownList ID="ddlMesa6" runat="server"></asp:DropDownList>
+                    <asp:TextBox ID="txtMesa6" runat="server" TextMode="Number"></asp:TextBox>
+                    <asp:Button ID="btnAgregarMesa6" runat="server" Text="Agregar Cantidad" OnClick="btnAgregarMesa6_Click" />
+                    <br />
+                    <asp:Label ID="lblErrorMesa6" runat="server" Text="" ForeColor="Red"></asp:Label>
+                    <br />
+                    <asp:GridView ID="gdvMesa6" runat="server">
+                    </asp:GridView>
+                    <br />
+                    <asp:Label ID="totalmesa6" runat="server" Text=""></asp:Label>
+                    <asp:Button ID="btnPagarmesa6" runat="server" Text="Pagar" OnClick="btnPagarmesa6_Click" />
+                    <%} %>
+                </div>
+            </div>
+        </div>
+
+
+        <%}
+            } %>
     </div>
 </asp:Content>
 

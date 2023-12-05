@@ -127,6 +127,7 @@
     <Content Include="FormularioCategoria.aspx" />
     <Content Include="FormularioStock.aspx" />
     <Content Include="FormularioTipoInsumo.aspx" />
+    <Content Include="GestionMesas.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
     <Content Include="AdmiPersonal.aspx" />
@@ -242,6 +243,13 @@
     </Compile>
     <Compile Include="FormularioTipoInsumo.aspx.designer.cs">
       <DependentUpon>FormularioTipoInsumo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMesas.aspx.cs">
+      <DependentUpon>GestionMesas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionMesas.aspx.designer.cs">
+      <DependentUpon>GestionMesas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

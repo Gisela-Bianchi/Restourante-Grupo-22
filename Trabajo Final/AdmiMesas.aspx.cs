@@ -23,22 +23,41 @@ namespace Trabajo_Final
                 rellenarListaSessionCategorias(ddlCategoria2);
                 rellenarListaSessionCategorias(ddlCategoria3);
                 rellenarListaSessionCategorias(ddlCategoria4);
+                rellenarListaSessionCategorias(ddlCategoria5);
+                rellenarListaSessionCategorias(ddlCategoria6);
                 rellenarListaSessionInsumos(ddlMesa1, "ListaInsumos1");
                 rellenarListaSessionInsumos(ddlMesa2, "ListaInsumos2");
                 rellenarListaSessionInsumos(ddlMesa3, "ListaInsumos3");
                 rellenarListaSessionInsumos(ddlMesa4, "ListaInsumos4");
+                rellenarListaSessionInsumos(ddlMesa5, "ListaInsumos5");
+                rellenarListaSessionInsumos(ddlMesa6, "ListaInsumos6");
                 rellenarGrillaSession(gdvMesa1, "Datos");
                 rellenarGrillaSession(gdvMesa2, "Datos2");
                 rellenarGrillaSession(gdvMesa3, "Datos3");
                 rellenarGrillaSession(gdvMesa4, "Datos4");
+                rellenarGrillaSession(gdvMesa5, "Datos5");
+                rellenarGrillaSession(gdvMesa6, "Datos6");
                 rellenarTotRecaudadoSession(totalmesa1, "totRecaudado1", 1);
                 rellenarTotRecaudadoSession(totalmesa2, "totRecaudado2", 2);
                 rellenarTotRecaudadoSession(totalmesa3, "totRecaudado3", 3);
                 rellenarTotRecaudadoSession(totalmesa4, "totRecaudado4", 4);
+                rellenarTotRecaudadoSession(totalmesa5, "totRecaudado5", 5);
+                rellenarTotRecaudadoSession(totalmesa6, "totRecaudado6", 6);
             }
 
         }
-
+        protected void btnIngresar6_Click(object sender, EventArgs e)
+        {
+            Session.Add("Mesa 6", 6);
+            //LlenarLista(ddlMesa4);
+            cargarNombreCategoria(ddlCategoria6);
+        }
+        protected void btnIngresar5_Click(object sender, EventArgs e)
+        {
+            Session.Add("Mesa 5", 5);
+            //LlenarLista(ddlMesa4);
+            cargarNombreCategoria(ddlCategoria5);
+        }
         protected void btnIngresar4_Click(object sender, EventArgs e)
         {
             Session.Add("Mesa 4", 4);
@@ -390,6 +409,156 @@ namespace Trabajo_Final
             Session.Add("totRecaudado4", totRecaudado4);
             totalmesa4.Text = $"El total recaudado por la mesa 4 es: {totRecaudado4}";
         }
+        protected void btnAgregarMesa5_Click(object sender, EventArgs e)
+        {
+
+
+            InsumoNegocio insumoneg = new InsumoNegocio();
+
+            if (txtMesa5.Text == "") { return; }
+            string PrecioUnitario = ddlMesa5.SelectedValue;
+            string Insumo = ddlMesa5.SelectedItem.Text;
+            string Cantidad = txtMesa5.Text;
+
+            if (!int.TryParse(Cantidad, out int cantidadInt) || cantidadInt <= 0)
+            {
+
+                lblErrorMesa5.Text = "La cantidad ingresada no es válida.";
+                return;
+            }
+
+
+            int idInsumo = insumoneg.ObtenerIdInsumoPorNombre(Insumo);
+
+            if (idInsumo != 0)
+            {
+                int stockDisponible = insumoneg.ObtenerStockDisponiblePorId(idInsumo);
+
+                if (cantidadInt <= 0 || cantidadInt > stockDisponible)
+                {
+                    lblErrorMesa5.Text = "El stock disponible es: " + stockDisponible;
+                    return;
+                }
+
+
+            }
+            else
+            {
+                lblErrorMesa5.Text = "No se pudo obtener el Id del insumo.";
+                return;
+            }
+
+            DataTable Datos;
+            if (Session["Datos5"] != null)
+            {
+                Datos = (DataTable)Session["Datos5"];
+            }
+            else
+            {
+                Datos = new DataTable();
+                Datos.Columns.Add("Insumo");
+                Datos.Columns.Add("Cantidad");
+                Datos.Columns.Add("Precio Unitario");
+            }
+
+            DataRow nuevafila = Datos.NewRow();
+            nuevafila["Insumo"] = Insumo;
+            nuevafila["Cantidad"] = Cantidad;
+            nuevafila["Precio Unitario"] = PrecioUnitario;
+            Datos.Rows.Add(nuevafila);
+
+            Session["Datos5"] = Datos;
+            gdvMesa5.DataSource = Datos;
+            gdvMesa5.DataBind();
+            txtMesa5.Text = "";
+            int cant5;
+            decimal prec5;
+            decimal totRecaudado5 = 0;
+            for (int i = 0; i < gdvMesa5.Rows.Count; i++)
+            {
+                cant5 = Convert.ToInt32(gdvMesa5.Rows[i].Cells[1].Text);
+                prec5 = Convert.ToDecimal(gdvMesa5.Rows[i].Cells[2].Text);
+                totRecaudado5 += prec5 * cant5;
+
+            }
+            Session.Add("totRecaudado5", totRecaudado5);
+            totalmesa5.Text = $"El total recaudado por la mesa 5 es: {totRecaudado5}";
+        }
+        protected void btnAgregarMesa6_Click(object sender, EventArgs e)
+        {
+
+
+            InsumoNegocio insumoneg = new InsumoNegocio();
+
+            if (txtMesa6.Text == "") { return; }
+            string PrecioUnitario = ddlMesa6.SelectedValue;
+            string Insumo = ddlMesa6.SelectedItem.Text;
+            string Cantidad = txtMesa6.Text;
+
+            if (!int.TryParse(Cantidad, out int cantidadInt) || cantidadInt <= 0)
+            {
+
+                lblErrorMesa6.Text = "La cantidad ingresada no es válida.";
+                return;
+            }
+
+
+            int idInsumo = insumoneg.ObtenerIdInsumoPorNombre(Insumo);
+
+            if (idInsumo != 0)
+            {
+                int stockDisponible = insumoneg.ObtenerStockDisponiblePorId(idInsumo);
+
+                if (cantidadInt <= 0 || cantidadInt > stockDisponible)
+                {
+                    lblErrorMesa6.Text = "El stock disponible es: " + stockDisponible;
+                    return;
+                }
+
+
+            }
+            else
+            {
+                lblErrorMesa6.Text = "No se pudo obtener el Id del insumo.";
+                return;
+            }
+
+            DataTable Datos;
+            if (Session["Datos6"] != null)
+            {
+                Datos = (DataTable)Session["Datos6"];
+            }
+            else
+            {
+                Datos = new DataTable();
+                Datos.Columns.Add("Insumo");
+                Datos.Columns.Add("Cantidad");
+                Datos.Columns.Add("Precio Unitario");
+            }
+
+            DataRow nuevafila = Datos.NewRow();
+            nuevafila["Insumo"] = Insumo;
+            nuevafila["Cantidad"] = Cantidad;
+            nuevafila["Precio Unitario"] = PrecioUnitario;
+            Datos.Rows.Add(nuevafila);
+
+            Session["Datos6"] = Datos;
+            gdvMesa6.DataSource = Datos;
+            gdvMesa6.DataBind();
+            txtMesa6.Text = "";
+            int cant6;
+            decimal prec6;
+            decimal totRecaudado6 = 0;
+            for (int i = 0; i < gdvMesa6.Rows.Count; i++)
+            {
+                cant6 = Convert.ToInt32(gdvMesa6.Rows[i].Cells[1].Text);
+                prec6 = Convert.ToDecimal(gdvMesa6.Rows[i].Cells[2].Text);
+                totRecaudado6 += prec6 * cant6;
+
+            }
+            Session.Add("totRecaudado6", totRecaudado6);
+            totalmesa6.Text = $"El total recaudado por la mesa 5 es: {totRecaudado6}";
+        }
 
         protected void btnPagarmesa1_Click(object sender, EventArgs e)
         {
@@ -550,6 +719,83 @@ namespace Trabajo_Final
             Session["MostrarPlatos4"] = null;
         }
 
+        protected void btnPagarmesa5_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio crearPedido = new PedidoNegocio();
+            if (crearPedido.CrearPedido(5) == false)
+            {
+                return;
+            }
+            PedidosXInsumo regPXI = new PedidosXInsumo();
+            regPXI.NumeroPedido = new Pedido();
+            regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
+            if (regPXI.NumeroPedido.NumeroPedido == -1) { return; }
+
+            string Nombre1;
+            double precio;
+            for (int i = 0; i < gdvMesa5.Rows.Count; i++)
+            {
+                regPXI.CantVendida = Convert.ToInt32(gdvMesa5.Rows[i].Cells[1].Text);
+                precio = Convert.ToDouble(gdvMesa5.Rows[i].Cells[2].Text);
+                regPXI.PrecioUnitario = Math.Round(precio, 2);
+                Nombre1 = gdvMesa5.Rows[i].Cells[0].Text;
+
+                regPXI.IdInsumo = new Insumo();
+                regPXI.IdInsumo.Idinsumo = crearPedido.BuscarIdInsumo(Nombre1);
+
+                crearPedido.ingresarInsumoXPedido(regPXI);
+            }
+            int numeroPedido = regPXI.NumeroPedido.NumeroPedido;
+
+            // Actualiza el estado del pedido a "Pedido Cerrado"
+            crearPedido.ActualizarEstadoPedido(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, true);
+
+            Session["Mesa 5"] = null;
+            Session["ListaInsumos5"] = null;
+            Session["Datos5"] = null;
+            Session["totRecaudado5"] = null;
+            Session["MostrarPlatos5"] = null;
+        }
+        protected void btnPagarmesa6_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio crearPedido = new PedidoNegocio();
+            if (crearPedido.CrearPedido(6) == false)
+            {
+                return;
+            }
+            PedidosXInsumo regPXI = new PedidosXInsumo();
+            regPXI.NumeroPedido = new Pedido();
+            regPXI.NumeroPedido.NumeroPedido = crearPedido.ultimoNumPedido();
+            if (regPXI.NumeroPedido.NumeroPedido == -1) { return; }
+
+            string Nombre1;
+            double precio;
+            for (int i = 0; i < gdvMesa6.Rows.Count; i++)
+            {
+                regPXI.CantVendida = Convert.ToInt32(gdvMesa6.Rows[i].Cells[1].Text);
+                precio = Convert.ToDouble(gdvMesa6.Rows[i].Cells[2].Text);
+                regPXI.PrecioUnitario = Math.Round(precio, 2);
+                Nombre1 = gdvMesa6.Rows[i].Cells[0].Text;
+
+                regPXI.IdInsumo = new Insumo();
+                regPXI.IdInsumo.Idinsumo = crearPedido.BuscarIdInsumo(Nombre1);
+
+                crearPedido.ingresarInsumoXPedido(regPXI);
+            }
+            int numeroPedido = regPXI.NumeroPedido.NumeroPedido;
+
+            // Actualiza el estado del pedido a "Pedido Cerrado"
+            crearPedido.ActualizarEstadoPedido(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, true);
+
+            Session["Mesa 6"] = null;
+            Session["ListaInsumos6"] = null;
+            Session["Datos6"] = null;
+            Session["totRecaudado6"] = null;
+            Session["MostrarPlatos6"] = null;
+        }
+
         public void cargarNombreCategoria(DropDownList lista)
         {
             CategoriaNegocio NC = new CategoriaNegocio();
@@ -601,6 +847,26 @@ namespace Trabajo_Final
             }
             string nomCat = ddlCategoria4.SelectedValue;
             LlenarLista(ddlMesa4, nomCat, "ListaInsumos4");
+        }
+        protected void ddlCategoria5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Session["MostrarPlatos5"] == null)
+            {
+                Session.Add("MostrarPlatos5", true);
+
+            }
+            string nomCat = ddlCategoria5.SelectedValue;
+            LlenarLista(ddlMesa5, nomCat, "ListaInsumos5");
+        }
+        protected void ddlCategoria6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Session["MostrarPlatos6"] == null)
+            {
+                Session.Add("MostrarPlatos6", true);
+
+            }
+            string nomCat = ddlCategoria6.SelectedValue;
+            LlenarLista(ddlMesa6, nomCat, "ListaInsumos6");
         }
 
         public void rellenarListaSessionCategorias(DropDownList listaCategoria)
