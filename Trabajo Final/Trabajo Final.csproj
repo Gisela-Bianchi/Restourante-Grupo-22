@@ -102,6 +102,7 @@
     <Content Include="AdmiCategoria.aspx" />
     <Content Include="AdministradorMesas.aspx" />
     <Content Include="AdmiTipoInsumo.aspx" />
+    <Content Include="AgregarMozo.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -128,10 +129,10 @@
     <Content Include="FormularioTipoInsumo.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Login.aspx" />
+    <Content Include="AdmiPersonal.aspx" />
     <Content Include="MesasAsignadas.aspx" />
     <Content Include="MeserosActivos.aspx" />
-    <Content Include="Pagina1Login.aspx" />
+    <Content Include="ModificarMozo.aspx" />
     <Content Include="Pagina2LoginAdmin.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -198,6 +199,13 @@
     <Compile Include="AdmiTipoInsumo.aspx.designer.cs">
       <DependentUpon>AdmiTipoInsumo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgregarMozo.aspx.cs">
+      <DependentUpon>AgregarMozo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarMozo.aspx.designer.cs">
+      <DependentUpon>AgregarMozo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Default.aspx.cs">
@@ -245,12 +253,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="AdmiPersonal.aspx.cs">
+      <DependentUpon>AdmiPersonal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="AdmiPersonal.aspx.designer.cs">
+      <DependentUpon>AdmiPersonal.aspx</DependentUpon>
     </Compile>
     <Compile Include="MesasAsignadas.aspx.cs">
       <DependentUpon>MesasAsignadas.aspx</DependentUpon>
@@ -266,12 +274,12 @@
     <Compile Include="MeserosActivos.aspx.designer.cs">
       <DependentUpon>MeserosActivos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pagina1Login.aspx.cs">
-      <DependentUpon>Pagina1Login.aspx</DependentUpon>
+    <Compile Include="ModificarMozo.aspx.cs">
+      <DependentUpon>ModificarMozo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pagina1Login.aspx.designer.cs">
-      <DependentUpon>Pagina1Login.aspx</DependentUpon>
+    <Compile Include="ModificarMozo.aspx.designer.cs">
+      <DependentUpon>ModificarMozo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pagina2LoginAdmin.aspx.cs">
       <DependentUpon>Pagina2LoginAdmin.aspx</DependentUpon>

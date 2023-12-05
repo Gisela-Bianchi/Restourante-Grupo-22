@@ -70,7 +70,7 @@
                                 <a class="nav-link" runat="server" href="~/AdmiTipoInsumo">AdmiTipoInsumo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-link-login" runat="server" href="~/Login">Login</a>
+                                <a class="nav-link nav-link" runat="server" href="~/AdmiPersonal">AdmiPersonal</a>
                             </li>
                         <%} %>
                         <li class="nav-item">

@@ -7,11 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace Trabajo_Final
 {
-    public partial class Pagina1Login : System.Web.UI.Page
+    public partial class AgregarMozo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        protected void btnAgregarMozo_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

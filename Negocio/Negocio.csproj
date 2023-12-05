@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaNegocio.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="InsumoNegocio.cs" />
     <Compile Include="MesaNegocio.cs" />
     <Compile Include="MeseroNegocio.cs" />

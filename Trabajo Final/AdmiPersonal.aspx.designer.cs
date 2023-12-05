@@ -11,17 +11,17 @@ namespace Trabajo_Final
 {
 
 
-    public partial class Login
+    public partial class AdmiPersonal
     {
 
         /// <summary>
-        /// Control txtNombreUsuario.
+        /// Control txtEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// Control TxtContraseña.
@@ -31,6 +31,15 @@ namespace Trabajo_Final
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtContraseña;
+
+        /// <summary>
+        /// Control TextTipoUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextTipoUsuario;
 
         /// <summary>
         /// Control btnLogin.
