@@ -2,10 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <style>
+    <style>
         body {
-            background-color: lightslategray; /* Puedes cambiar el color a tu preferencia */
+            background-color: lightslategray;
             color: whitesmoke;
         }
 
@@ -21,27 +22,53 @@
             margin: 4px 2px;
             cursor: pointer;
         }
-    </style>
-    <div class="row">
-        <div class="col-4">
-            <h2>Administracion</h2>
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtEmail" />
-            </div>
 
-            <div class="mb-3">
-                <label class="form-label">Contraseña</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="TxtContraseña" TextMode="Password" />
+     
+    </style>
+
+    <div class="row">
+        <div class="col-10">
+            <div>
+                <h2> Meseros </h2>
+                <asp:LinkButton Text="Agregar Mozo" CssClass="black-button" ID="btnAgregar" OnClick="btnAgregar_Click" runat="server" />
+                <center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">DNI</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Mesas</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:Repeater ID="rptMeseros" runat="server">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("DNI ") %></td>
+                                        <td><%# Eval("NombreMesero") %></td>
+                                        <td><%# Eval("ApellidoMesero") %></td>
+                                        <td><%# ConcatenarMesas(Eval("MesasAsignadas")) %></td>
+                                        <td>
+                                            <asp:LinkButton CssClass="btn btn-success" ID="btnEditar" OnClick="btnEditar_Click" runat="server">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </asp:LinkButton>
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton CssClass="btn btn-danger" ID="btnEliminar" OnClick="btnEliminar_Click" runat="server">
+                                                <i class="bi bi-trash3-fill"></i>
+                                            </asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-success text-light text-decoration-none" href="Home.aspx" style="margin-bottom: 2px;">Volver</a>
+                </center>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Tipo Usuario</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="TextTipoUsuario"  />
-            </div>
-            <asp:Button Text="Agregar" CssClass="btn btn-success" ID="btnLogin" OnClick="btnLogin_Click" runat="server" />
-            <a href="AdmiPersonal.aspx"  style="margin-bottom: 10px; display: block; color : orange";>Cancelar</a>
         </div>
     </div>
-
 </asp:Content>
-

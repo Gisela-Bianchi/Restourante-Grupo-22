@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
 
 namespace Trabajo_Final
 {
@@ -11,11 +12,37 @@ namespace Trabajo_Final
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            MeseroNegocio mNegocio = new MeseroNegocio();
+            rptMeseros.DataSource = mNegocio.Listar();
+            rptMeseros.DataBind();
 
         }
-        protected void btnLogin_Click(object sender, EventArgs e)
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarMozo.aspx");
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
         {
 
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarMozo.aspx");
+        }
+
+        protected string ConcatenarMesas(object value)
+        {
+            if (value != null)
+            {
+                List<int> mesas = (List<int>)value;
+                string numerosConcatenados = string.Join(" - ", mesas);
+                return numerosConcatenados;
+            }
+            return string.Empty;
+        }
+
     }
 }
