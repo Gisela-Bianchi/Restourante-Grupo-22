@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
 
 namespace Trabajo_Final
 {
@@ -13,9 +14,33 @@ namespace Trabajo_Final
         {
 
         }
-        protected void btnAgregarMozo_Click(object sender, EventArgs e)
+
+        protected void BtnAgregarMozo_Click(object sender, EventArgs e)
         {
-            
+            Mesero mesero = new Mesero();
+            MeseroNegocio meseroNegocio = new MeseroNegocio();
+            Usuario usuario = new Usuario();
+            mesero.ApellidoMesero = txtApellido.Text;
+            mesero.NombreMesero = txtNombre.Text;
+            mesero.DNI = int.Parse(txtDNI.Text);
+            usuario.Email = txtEmail.Text;
+            usuario.TipoUsuario = txtTipoUsuario.Text;
+            usuario.Contraseña = txtContra.Text;
+
+            try
+            {
+                meseroNegocio.AgregarMesero(mesero, usuario);
+                Response.Redirect("AdmiPersonal.aspx");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+
+
         }
     }
 }

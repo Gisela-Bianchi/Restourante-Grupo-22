@@ -13,7 +13,7 @@ namespace Trabajo_Final
         {
 
         }
-        protected void btnModificarMozo_Click(object sender, EventArgs e)
+        protected void BtnModificarMozo_Click(object sender, EventArgs e)
         {
          
         }

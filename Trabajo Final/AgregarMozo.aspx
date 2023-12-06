@@ -22,35 +22,35 @@
         }
     </style>
 
-    <h2>Meseros</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">DNI</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Contraseña</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <asp:Repeater ID="rptMeseros" runat="server">
-                <ItemTemplate>
-                    <tr>
-                        <td><%# Eval("Dni") %></td>
-                        <td><%# Eval("Nombre") %></td>
-                        <td><%# Eval("Apellido") %></td>
-                        <td><%# Eval("Contraseña") %></td>
-                        <td>
-                           
-                        </td>
-                    </tr>
-                </ItemTemplate>
-            </asp:Repeater>
-        </tbody>
-    </table>
+    <h2>Agregar Mozo</h2>
+       
+                <center>
 
-    <!-- Botón "Agregar Mozo" fuera de la tabla -->
-    <asp:Button ID="Button1" CssClass="black-button" runat="server" Text="Agregar" OnClick="btnAgregarMozo_Click" />
-    <a href="AgregarMozo.aspx" style="margin-bottom: 10px; display: block; color: orange">Cancelar</a>
+
+                        
+                                                    
+                            <div>   
+                            <asp:Label class="text-dark" ID="lblNombre" runat="server"></asp:Label>
+                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;"  placeholder="Nombre" ID="txtNombre" runat="server" ></asp:TextBox><br />                            
+                            <asp:Label class="text-dark" ID="lblApellido" runat="server"></asp:Label>
+                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" ID="txtApellido"  placeholder="Apellido" runat="server"></asp:TextBox><br />      
+                            <asp:Label class="text-dark" ID="lblDNI" runat="server"></asp:Label>
+                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" placeholder="DNI" ID="txtDNI" runat="server" MaxLength="8" ></asp:TextBox><br />
+                            <asp:Label class="text-dark" ID="lblTipoUsuario" runat="server"></asp:Label>
+                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" ID="txtTipoUsuario" placeholder="Tipo de Usuario" runat="server"></asp:TextBox><br /> 
+                            <asp:Label class="text-dark" ID="lblEmail" runat="server"></asp:Label>
+                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" ID="txtEmail" placeholder="Email" runat="server" ></asp:TextBox><br />     
+                            <asp:Label class="text-dark" ID="lblContra" runat="server"></asp:Label>
+                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" ID="txtContra" placeholder="Contraseña" runat="server" MaxLength="12"></asp:TextBox><br />     
+                  
+                            <asp:LinkButton ID="BtnAgregarMozo" runat="server" Text="Agregar Mozo" class="btn btn-secondary" OnClick="BtnAgregarMozo_Click"  OnClientClick="return confirm('¿Está seguro que desea agregar al mozo ?')"/>
+                             <a class="btn btn-success text-light text-decoration-none" href="AdmiPersonal.aspx" style="margin-bottom: 2px;">Volver</a>
+                                 
+                                 
+                            </div>
+                            </center>      
+                           
+                           
+
+   
 </asp:Content>
