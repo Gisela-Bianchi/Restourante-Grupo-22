@@ -43,6 +43,85 @@ namespace Trabajo_Final
                 rellenarTotRecaudadoSession(totalmesa4, "totRecaudado4", 4);
                 rellenarTotRecaudadoSession(totalmesa5, "totRecaudado5", 5);
                 rellenarTotRecaudadoSession(totalmesa6, "totRecaudado6", 6);
+
+
+                MeseroNegocio mesero = new MeseroNegocio();
+                List<Mesero> lista = mesero.Listar();
+                Session["listaMeseros"] = lista;
+
+                ddlAsignarNombre.DataSource = lista;
+                ddlAsignarNombre.DataValueField = "IdMesero";
+                ddlAsignarNombre.DataTextField = "NombreMesero";
+
+                ddlAsignarNombre.DataBind();
+
+                ddlAsignarApellido.DataSource = lista;
+                ddlAsignarApellido.DataValueField = "ApellidoMesero";
+                ddlAsignarNombre.DataTextField = "IdMesero";
+
+                ddlAsignarApellido.DataBind();
+
+                //------------------------------------
+
+                ddlAsignarNombre2.DataSource = lista;
+                ddlAsignarNombre2.DataValueField = "IdMesero";
+                ddlAsignarNombre2.DataTextField = "NombreMesero";
+
+                ddlAsignarNombre2.DataBind();
+
+                ddlAsignarApellido2.DataSource = lista;
+                ddlAsignarApellido2.DataValueField = "ApellidoMesero";
+                ddlAsignarNombre2.DataTextField = "IdMesero";
+
+                ddlAsignarApellido2.DataBind();
+                //------------------------------------
+                ddlAsignarNombre3.DataSource = lista;
+                ddlAsignarNombre3.DataValueField = "IdMesero";
+                ddlAsignarNombre3.DataTextField = "NombreMesero";
+
+                ddlAsignarNombre3.DataBind();
+
+                ddlAsignarApellido3.DataSource = lista;
+                ddlAsignarApellido3.DataValueField = "ApellidoMesero";
+                ddlAsignarNombre3.DataTextField = "IdMesero";
+
+                ddlAsignarApellido3.DataBind();
+                //------------------------------------
+                ddlAsignarNombre4.DataSource = lista;
+                ddlAsignarNombre4.DataValueField = "IdMesero";
+                ddlAsignarNombre4.DataTextField = "NombreMesero";
+
+                ddlAsignarNombre4.DataBind();
+
+                ddlAsignarApellido4.DataSource = lista;
+                ddlAsignarApellido4.DataValueField = "ApellidoMesero";
+                ddlAsignarNombre4.DataTextField = "IdMesero";
+
+                ddlAsignarApellido4.DataBind();
+                //------------------------------------
+                ddlAsignarNombre5.DataSource = lista;
+                ddlAsignarNombre5.DataValueField = "IdMesero";
+                ddlAsignarNombre5.DataTextField = "NombreMesero";
+
+                ddlAsignarNombre5.DataBind();
+
+                ddlAsignarApellido5.DataSource = lista;
+                ddlAsignarApellido5.DataValueField = "ApellidoMesero";
+                ddlAsignarNombre5.DataTextField = "IdMesero";
+
+                ddlAsignarApellido5.DataBind();
+                //------------------------------------
+                ddlAsignarNombre6.DataSource = lista;
+                ddlAsignarNombre6.DataValueField = "IdMesero";
+                ddlAsignarNombre6.DataTextField = "NombreMesero";
+
+                ddlAsignarNombre6.DataBind();
+
+                ddlAsignarApellido6.DataSource = lista;
+                ddlAsignarApellido6.DataValueField = "ApellidoMesero";
+                ddlAsignarNombre6.DataTextField = "IdMesero";
+
+                ddlAsignarApellido6.DataBind();
             }
 
         }
@@ -357,7 +436,7 @@ namespace Trabajo_Final
 
                 if (cantidadInt <= 0 || cantidadInt > stockDisponible)
                 {
-                    lblErrorMesa4.Text = "El stock disponible es: " + stockDisponible; 
+                    lblErrorMesa4.Text = "El stock disponible es: " + stockDisponible;
                     return;
                 }
 
@@ -594,7 +673,7 @@ namespace Trabajo_Final
             // Actualiza el estado del pedido a "Pedido Cerrado"
             crearPedido.ActualizarEstadoPedido(numeroPedido, false);
             crearPedido.ActualizarFacturacion(numeroPedido, false);
-           
+
 
             Session["Mesa 1"] = null;
             Session["ListaInsumos1"] = null;
@@ -905,34 +984,87 @@ namespace Trabajo_Final
             }
         }
 
-        protected void btnAsignarMozo_Click(object sender, EventArgs e)
-        {
 
+
+        protected void ddlAsignarNombre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+     
+       
+            int id = int.Parse(ddlAsignarNombre.SelectedItem.Value);
+            List<Mesero> listaMeseros = (List<Mesero>)Session["listaMeseros"];
+            Mesero meseroSeleccionado = listaMeseros.Find(x => x.IdMesero == id);
+
+            ddlAsignarApellido.DataSource = new List<Mesero> { meseroSeleccionado };
+            ddlAsignarApellido.DataBind();
+
+            // Actualiza la etiqueta con el nombre y apellido del mesero seleccionado
+            lblNombreApellidoMesa1.Text = $"Mesero: {meseroSeleccionado.NombreMesero} {meseroSeleccionado.ApellidoMesero}";
         }
 
-        protected void btnAsignarMozo6_Click(object sender, EventArgs e)
+        protected void ddlAsignarNombre2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            int id = int.Parse(ddlAsignarNombre2.SelectedItem.Value);
+            List<Mesero> listaMeseros = (List<Mesero>)Session["listaMeseros"];
+            Mesero meseroSeleccionado = listaMeseros.Find(x => x.IdMesero == id);
+
+            ddlAsignarApellido2.DataSource = new List<Mesero> { meseroSeleccionado };
+            ddlAsignarApellido2.DataBind();
+
+            // Actualiza la etiqueta con el nombre y apellido del mesero seleccionado
+            lblNombreApellidoMesa2.Text = $"Mesero: {meseroSeleccionado.NombreMesero} {meseroSeleccionado.ApellidoMesero}";
         }
 
-        protected void btnAsignarMozo5_Click(object sender, EventArgs e)
+        protected void ddlAsignarNombre3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int id = int.Parse(ddlAsignarNombre3.SelectedItem.Value);
+            List<Mesero> listaMeseros = (List<Mesero>)Session["listaMeseros"];
+            Mesero meseroSeleccionado = listaMeseros.Find(x => x.IdMesero == id);
 
+            ddlAsignarApellido3.DataSource = new List<Mesero> { meseroSeleccionado };
+            ddlAsignarApellido3.DataBind();
+
+            // Actualiza la etiqueta con el nombre y apellido del mesero seleccionado
+            lblNombreApellidoMesa3.Text = $"Mesero: {meseroSeleccionado.NombreMesero} {meseroSeleccionado.ApellidoMesero}";
         }
 
-        protected void btnAsignarMozo4_Click(object sender, EventArgs e)
+        protected void ddlAsignarNombre4_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int id = int.Parse(ddlAsignarNombre4.SelectedItem.Value);
+            List<Mesero> listaMeseros = (List<Mesero>)Session["listaMeseros"];
+            Mesero meseroSeleccionado = listaMeseros.Find(x => x.IdMesero == id);
 
+            ddlAsignarApellido4.DataSource = new List<Mesero> { meseroSeleccionado };
+            ddlAsignarApellido4.DataBind();
+
+            // Actualiza la etiqueta con el nombre y apellido del mesero seleccionado
+            lblNombreApellidoMesa4.Text = $"Mesero: {meseroSeleccionado.NombreMesero} {meseroSeleccionado.ApellidoMesero}";
         }
 
-        protected void btnAsignarMozo3_Click(object sender, EventArgs e)
+        protected void ddlAsignarNombre5_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int id = int.Parse(ddlAsignarNombre5.SelectedItem.Value);
+            List<Mesero> listaMeseros = (List<Mesero>)Session["listaMeseros"];
+            Mesero meseroSeleccionado = listaMeseros.Find(x => x.IdMesero == id);
 
+            ddlAsignarApellido5.DataSource = new List<Mesero> { meseroSeleccionado };
+            ddlAsignarApellido5.DataBind();
+
+            // Actualiza la etiqueta con el nombre y apellido del mesero seleccionado
+            lblNombreApellidoMesa5.Text = $"Mesero: {meseroSeleccionado.NombreMesero} {meseroSeleccionado.ApellidoMesero}";
         }
 
-        protected void btnAsignarMozo2_Click(object sender, EventArgs e)
+        protected void ddlAsignarNombre6_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int id = int.Parse(ddlAsignarNombre6.SelectedItem.Value);
+            List<Mesero> listaMeseros = (List<Mesero>)Session["listaMeseros"];
+            Mesero meseroSeleccionado = listaMeseros.Find(x => x.IdMesero == id);
 
+            ddlAsignarApellido6.DataSource = new List<Mesero> { meseroSeleccionado };
+            ddlAsignarApellido6.DataBind();
+
+            // Actualiza la etiqueta con el nombre y apellido del mesero seleccionado
+            lblNombreApellidoMesa6.Text = $"Mesero: {meseroSeleccionado.NombreMesero} {meseroSeleccionado.ApellidoMesero}";
         }
     }
 }

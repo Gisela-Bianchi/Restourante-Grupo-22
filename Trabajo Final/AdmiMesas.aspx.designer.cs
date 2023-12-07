@@ -15,6 +15,24 @@ namespace Trabajo_Final
     {
 
         /// <summary>
+        /// Control updatePanelMesas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatePanelMesas;
+
+        /// <summary>
+        /// Control lblNombreApellidoMesa1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreApellidoMesa1;
+
+        /// <summary>
         /// Control btnIngresar1.
         /// </summary>
         /// <remarks>
@@ -24,13 +42,22 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar1;
 
         /// <summary>
-        /// Control btnAsignarMozo.
+        /// Control ddlAsignarNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignarMozo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarNombre;
+
+        /// <summary>
+        /// Control ddlAsignarApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarApellido;
 
         /// <summary>
         /// Control ddlCategoria1.
@@ -105,6 +132,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnPagarmesa1;
 
         /// <summary>
+        /// Control lblNombreApellidoMesa2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreApellidoMesa2;
+
+        /// <summary>
         /// Control btnIngresar2.
         /// </summary>
         /// <remarks>
@@ -114,13 +150,22 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar2;
 
         /// <summary>
-        /// Control btnAsignarMozo2.
+        /// Control ddlAsignarNombre2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignarMozo2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarNombre2;
+
+        /// <summary>
+        /// Control ddlAsignarApellido2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarApellido2;
 
         /// <summary>
         /// Control ddlCategoria2.
@@ -195,6 +240,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnPagarmesa2;
 
         /// <summary>
+        /// Control lblNombreApellidoMesa3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreApellidoMesa3;
+
+        /// <summary>
         /// Control btnIngresar3.
         /// </summary>
         /// <remarks>
@@ -204,13 +258,22 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar3;
 
         /// <summary>
-        /// Control btnAsignarMozo3.
+        /// Control ddlAsignarNombre3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignarMozo3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarNombre3;
+
+        /// <summary>
+        /// Control ddlAsignarApellido3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarApellido3;
 
         /// <summary>
         /// Control ddlCategoria3.
@@ -285,6 +348,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnPagarmesa3;
 
         /// <summary>
+        /// Control lblNombreApellidoMesa4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreApellidoMesa4;
+
+        /// <summary>
         /// Control btnIngresar4.
         /// </summary>
         /// <remarks>
@@ -294,13 +366,22 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar4;
 
         /// <summary>
-        /// Control btnAsignarMozo4.
+        /// Control ddlAsignarNombre4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignarMozo4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarNombre4;
+
+        /// <summary>
+        /// Control ddlAsignarApellido4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarApellido4;
 
         /// <summary>
         /// Control ddlCategoria4.
@@ -375,6 +456,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnPagarmesa4;
 
         /// <summary>
+        /// Control lblNombreApellidoMesa5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreApellidoMesa5;
+
+        /// <summary>
         /// Control btnIngresar5.
         /// </summary>
         /// <remarks>
@@ -384,13 +474,22 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar5;
 
         /// <summary>
-        /// Control btnAsignarMozo5.
+        /// Control ddlAsignarNombre5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignarMozo5;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarNombre5;
+
+        /// <summary>
+        /// Control ddlAsignarApellido5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarApellido5;
 
         /// <summary>
         /// Control ddlCategoria5.
@@ -465,6 +564,15 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnPagarmesa5;
 
         /// <summary>
+        /// Control lblNombreApellidoMesa6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreApellidoMesa6;
+
+        /// <summary>
         /// Control btnIngresar6.
         /// </summary>
         /// <remarks>
@@ -474,13 +582,22 @@ namespace Trabajo_Final
         protected global::System.Web.UI.WebControls.Button btnIngresar6;
 
         /// <summary>
-        /// Control btnAsignarMozo6.
+        /// Control ddlAsignarNombre6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAsignarMozo6;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarNombre6;
+
+        /// <summary>
+        /// Control ddlAsignarApellido6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAsignarApellido6;
 
         /// <summary>
         /// Control ddlCategoria6.
