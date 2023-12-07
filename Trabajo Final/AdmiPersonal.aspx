@@ -44,7 +44,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="rptMeseros" runat="server">
+                            <asp:Repeater ID="rptMeseros" runat="server" OnItemCommand="rptMeseros_ItemCommand">
                                 <ItemTemplate>
                                     <tr>
                                         <td><%# Eval("DNI ") %></td>
@@ -52,12 +52,12 @@
                                         <td><%# Eval("ApellidoMesero") %></td>
                                         <td><%# ConcatenarMesas(Eval("MesasAsignadas")) %></td>
                                         <td>
-                                            <asp:LinkButton CssClass="btn btn-success" ID="btnEditar" OnClick="btnEditar_Click" runat="server">
+                                            <asp:LinkButton CssClass="btn btn-success" ID="btnEditar" OnClick="btnEditar_Click" runat="server" CommandName="editar" CommandArgument="<%# Eval("DNI") %>">
                                                 <i class="bi bi-pencil-square"></i>
                                             </asp:LinkButton>
                                         </td>
                                         <td>
-                                            <asp:LinkButton CssClass="btn btn-danger" ID="btnEliminar" OnClick="btnEliminar_Click" runat="server">
+                                            <asp:LinkButton CssClass="btn btn-danger" ID="btnEliminar" OnClick="btnEliminar_Click" runat="server" CommandName="eliminar" CommandArgument="<%# Eval("DNI") %>">
                                                 <i class="bi bi-trash3-fill"></i>
                                             </asp:LinkButton>
                                         </td>

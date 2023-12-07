@@ -74,6 +74,13 @@ namespace Negocio
 
         }
 
+
+        public int traerIDusuario(string dni)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            return accesoDatos.traerIDusuario(dni);
+        }
+
     }
 
 

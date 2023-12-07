@@ -44,5 +44,22 @@ namespace Trabajo_Final
             return string.Empty;
         }
 
+        protected void rptMeseros_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "editar")
+            {
+                string dni=e.CommandArgument.ToString();
+                Session.Add("DNIeditar", dni);
+                btnEditar_Click(source,e);
+            }
+            if (e.CommandName == "eliminar")
+            {
+                string dni = e.CommandArgument.ToString();
+                Session.Add("DNIeliminar", dni);
+               btnEliminar_Click(source, e);
+            }
+        }
+
+
     }
 }

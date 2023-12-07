@@ -33,10 +33,6 @@
                             <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;"  placeholder="Nombre" ID="txtNombre" runat="server" ></asp:TextBox><br />                            
                             <asp:Label class="text-dark" ID="lblApellido" runat="server"></asp:Label>
                             <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" ID="txtApellido"  placeholder="Apellido" runat="server"></asp:TextBox><br />      
-                            <asp:Label class="text-dark" ID="lblDNI" runat="server"></asp:Label>
-                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" placeholder="DNI" ID="txtDNI" runat="server" ></asp:TextBox><br />
-                            <asp:Label class="text-dark" ID="lblTipoUsuario" runat="server"></asp:Label>
-                            <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" ID="txtTipoUsuario" placeholder="Tipo de Usuario" runat="server" MaxLength="1"></asp:TextBox><br /> 
                             <asp:Label class="text-dark" ID="lblEmail" runat="server"></asp:Label>
                             <asp:TextBox class="form-control form-control-sm rounded" style="max-width: 500px;" ID="txtEmail" placeholder="Email" runat="server" MaxLength="12"></asp:TextBox><br />     
                             <asp:Label class="text-dark" ID="lblContra" runat="server"></asp:Label>

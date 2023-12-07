@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Negocio;
 
 namespace Trabajo_Final
 {
@@ -15,7 +16,13 @@ namespace Trabajo_Final
         }
         protected void BtnModificarMozo_Click(object sender, EventArgs e)
         {
-         
+         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+            int id = usuarioNegocio.traerIDusuario(Session["DNIeditar"].ToString());
+
+            if (id == -1)
+            {
+                return;
+            }
         }
     }
 }

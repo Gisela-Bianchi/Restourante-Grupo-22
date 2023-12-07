@@ -22,16 +22,16 @@ namespace Dominio
         {
             get { return lector; }
         }
-        //public AccesoDatos()
-        //{
-        //    conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = RestauranteBase1; Integrated Security = True");
-        //    comando = new SqlCommand();
-        //}
         public AccesoDatos()
         {
-            conexion = new SqlConnection("Data Source=Arii; Initial Catalog = RestauranteBase1 ; Integrated Security = True");
+            conexion = new SqlConnection("Data Source=localhost\\sqlexpress; Initial Catalog = RestauranteBase1; Integrated Security = True");
             comando = new SqlCommand();
         }
+      //  public AccesoDatos()
+      //  {
+       //     conexion = new SqlConnection("Data Source=Arii; Initial Catalog = RestauranteBase1 ; Integrated Security = True");
+        //    comando = new SqlCommand();
+       // }
         public SqlConnection ObtenerConnection()
         {
             comando.Connection = conexion;
@@ -453,6 +453,24 @@ namespace Dominio
             sqlConnection.Close();
             return lista;
         }
-        
+        public int traerIDusuario(string dni)
+
+        {
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select Id_M from Mesero where Dni_M = '{dni}'";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+            int id = -1;
+            while (sqlDataReader.Read())
+            {
+                if (sqlDataReader != null)
+                {
+                    id = sqlDataReader.GetInt32(0);
+                }
+            }
+            sqlConnection.Close();
+            return id;
+        }
     }
 }
