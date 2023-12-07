@@ -57,7 +57,7 @@
         
     </style>
     
-        <h1>Lista de pedidos</h1>
+               <h1>Lista de pedidos</h1>
     <div id="contenedor-tarjetas">
       <%
             
@@ -73,6 +73,7 @@
               DateTime horaPedido = PedN.traeHoraPedido(NP);
               bool estadoPedido = PedN.traeEstadoPedido(NP);
               bool Facturado = PedN.TraerSiEstaFacturado(NP);
+              decimal Totalfacturado = PedN.TraerTotal(NP);
 
 
               %>
@@ -103,6 +104,9 @@
                 <%= estadoPedido ? "Pedido en curso" : "Pedido cerrado" %>
 
             </span>
+           <div>
+           <span>Total facturado: <%= Totalfacturado.ToString("C") %></span>
+                </div>
         </div>
     </div>
 

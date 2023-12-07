@@ -92,6 +92,12 @@ namespace Negocio
             return acc.TraerSiEstaFacturado(numPedido);
 
         }
+        public decimal TraerTotal(int numPedido)
+        {
+            AccesoDatos acc = new AccesoDatos();
+            return acc.TraerTotal(numPedido);
+
+        }
 
     }
 }

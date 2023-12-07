@@ -355,6 +355,24 @@ namespace Dominio
             sqlConnection.Close();
             return Facturado;
         }
+        public Decimal TraerTotal(int numPedido)
+        {
+            Decimal Total = 0;  // Inicializar la variable antes de usarla
+
+            SqlConnection sqlConnection = ObtenerConnection();
+            string consulta = $"select RecaudacionTotal_Pe from Pedido where NumeroPedido_Pe='{numPedido}'";
+
+            SqlCommand comand = new SqlCommand(consulta, sqlConnection);
+            SqlDataReader sqlDataReader = comand.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                Total = sqlDataReader.GetDecimal(0);  // Utilizar GetDecimal para obtener un valor decimal
+            }
+
+            sqlConnection.Close();
+            return Total;
+        }
 
         public List<string> todosNumMesa()
         {

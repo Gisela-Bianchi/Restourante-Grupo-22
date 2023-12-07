@@ -672,7 +672,8 @@ namespace Trabajo_Final
 
             // Actualiza el estado del pedido a "Pedido Cerrado"
             crearPedido.ActualizarEstadoPedido(numeroPedido, false);
-            crearPedido.ActualizarFacturacion(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, true);
+            crearPedido.TraerTotal(numeroPedido);
 
 
             Session["Mesa 1"] = null;
@@ -712,6 +713,7 @@ namespace Trabajo_Final
             // Actualiza el estado del pedido a "Pedido Cerrado"
             crearPedido.ActualizarEstadoPedido(numeroPedido, false);
             crearPedido.ActualizarFacturacion(numeroPedido, false);
+            crearPedido.TraerTotal(numeroPedido);
 
             Session["Mesa 2"] = null;
             Session["ListaInsumos2"] = null;
@@ -750,7 +752,8 @@ namespace Trabajo_Final
 
             // Actualiza el estado del pedido a "Pedido Cerrado"
             crearPedido.ActualizarEstadoPedido(numeroPedido, false);
-            crearPedido.ActualizarFacturacion(numeroPedido, false);
+            crearPedido.ActualizarFacturacion(numeroPedido, true);
+            crearPedido.TraerTotal(numeroPedido);
 
             Session["Mesa 3"] = null;
             Session["ListaInsumos3"] = null;
@@ -790,6 +793,7 @@ namespace Trabajo_Final
             // Actualiza el estado del pedido a "Pedido Cerrado"
             crearPedido.ActualizarEstadoPedido(numeroPedido, false);
             crearPedido.ActualizarFacturacion(numeroPedido, true);
+            crearPedido.TraerTotal(numeroPedido);
 
             Session["Mesa 4"] = null;
             Session["ListaInsumos4"] = null;
@@ -829,6 +833,7 @@ namespace Trabajo_Final
             // Actualiza el estado del pedido a "Pedido Cerrado"
             crearPedido.ActualizarEstadoPedido(numeroPedido, false);
             crearPedido.ActualizarFacturacion(numeroPedido, true);
+            crearPedido.TraerTotal(numeroPedido);
 
             Session["Mesa 5"] = null;
             Session["ListaInsumos5"] = null;
@@ -867,6 +872,7 @@ namespace Trabajo_Final
             // Actualiza el estado del pedido a "Pedido Cerrado"
             crearPedido.ActualizarEstadoPedido(numeroPedido, false);
             crearPedido.ActualizarFacturacion(numeroPedido, true);
+            crearPedido.TraerTotal(numeroPedido);
 
             Session["Mesa 6"] = null;
             Session["ListaInsumos6"] = null;
